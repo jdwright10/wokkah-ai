@@ -2,12 +2,13 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import Hero from '@/components/Hero';
-import ValueProposition from '@/components/ValueProposition';
-import ProblemSection from '@/components/ProblemSection';
-import SolutionSection from '@/components/SolutionSection';
-import Partners from '@/components/Partners';
-import Testimonials from '@/components/Testimonials';
+import Problem from '@/components/Problem';
+import Guide from '@/components/Guide';
+import Plan from '@/components/Plan';
 import CallToAction from '@/components/CallToAction';
+import Success from '@/components/Success';
+import Failure from '@/components/Failure';
+import SocialProof from '@/components/SocialProof';
 
 const Index = () => {
   // Scroll to top on page load
@@ -18,12 +19,13 @@ const Index = () => {
   return (
     <MainLayout>
       <Hero />
-      <ValueProposition />
-      <ProblemSection />
-      <SolutionSection />
-      <Partners />
-      <Testimonials />
+      <Problem />
+      <Guide />
+      <Plan />
       <CallToAction />
+      <Success />
+      <Failure />
+      <SocialProof />
     </MainLayout>
   );
 };
