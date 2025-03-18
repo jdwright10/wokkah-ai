@@ -39,10 +39,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-medium mb-4">Contact</h3>
             <address className="not-italic text-muted-foreground">
-              <p>1234 Innovation Drive</p>
-              <p>San Francisco, CA 94103</p>
+              <p>Wokkah</p>
+              <p>1775 Mentor Ave Suite 300</p>
+              <p>Cincinnati, OH 45212</p>
               <p className="mt-2"><a href="tel:+11234567890" className="hover:text-primary transition-colors">+1 (123) 456-7890</a></p>
-              <p><a href="mailto:hello@wokkah.com" className="hover:text-primary transition-colors">hello@wokkah.com</a></p>
             </address>
           </div>
         </div>
