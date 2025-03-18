@@ -38,9 +38,6 @@ const Header = () => {
           <Link to="/freelancers" className="subtle-underline font-medium hover:text-primary">
             Freelancers
           </Link>
-          <Link to="/solutions" className="subtle-underline font-medium hover:text-primary">
-            Solutions
-          </Link>
           <Link to="/pricing" className="subtle-underline font-medium hover:text-primary">
             Pricing
           </Link>
@@ -74,13 +71,6 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Freelancers
-            </Link>
-            <Link 
-              to="/solutions" 
-              className="px-4 py-2 hover:bg-muted rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Solutions
             </Link>
             <Link 
               to="/pricing" 

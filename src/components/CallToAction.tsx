@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -45,10 +46,12 @@ const CallToAction = () => {
           </p>
           
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-hover-effect">
-              Start Free Trial
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/pricing">
+              <Button size="lg" className="btn-hover-effect">
+                See Pricing Plans
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" className="btn-hover-effect">
               Schedule a Demo
             </Button>
