@@ -1,10 +1,15 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Users, Star, BadgeCheck, Search, Filter, MessageSquare } from 'lucide-react';
 
 const Freelancers = () => {
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <MainLayout>
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">

@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Check, X } from 'lucide-react';
@@ -14,6 +13,10 @@ import {
 } from "@/components/ui/table";
 
 const Pricing = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const plans = [
     {
       name: 'Basic',
