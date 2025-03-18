@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -45,8 +44,7 @@ const BecomeFreelancer = () => {
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-blue-700"
+                  variant="outline-white"
                 >
                   Learn More
                 </Button>
