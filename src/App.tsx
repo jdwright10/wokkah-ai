@@ -17,6 +17,7 @@ import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 import LeadGeneratorPopup from "./components/LeadGeneratorPopup";
+import DownloadGuideButton from "./components/DownloadGuideButton";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <LeadGeneratorPopup delay={5000} />
+      <LeadGeneratorPopup delay={30000} />
+      <DownloadGuideButton />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

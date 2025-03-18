@@ -6,12 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Download, Check } from "lucide-react";
+import AIGuideCover from "./AIGuideCover";
 
 interface LeadGeneratorPopupProps {
   delay?: number; // Delay in milliseconds before showing the popup
 }
 
-const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ delay = 5000 }) => {
+const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ delay = 30000 }) => {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -93,11 +94,9 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ delay = 5000 })
         </DialogHeader>
         
         <div className="grid place-items-center py-4">
-          <img 
-            src="/ai-guide-cover.png" 
-            alt="AI Guide Cover" 
-            className="w-40 h-auto rounded-md shadow-md mb-4"
-          />
+          <div className="w-40 h-56 overflow-hidden rounded-md shadow-md mb-4">
+            <AIGuideCover />
+          </div>
         </div>
 
         {submitted ? (
@@ -145,7 +144,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ delay = 5000 })
               <Mail className="mr-2 h-4 w-4" /> Get Your Free Guide
             </Button>
             
-            <p className="text-xs text-center text-muted-foreground">
+            <p className="text-xs text-center text-muted-foreground pt-2">
               We respect your privacy and will never share your information with third parties.
             </p>
           </form>
