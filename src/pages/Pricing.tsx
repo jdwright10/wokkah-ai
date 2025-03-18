@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -20,7 +21,7 @@ const Pricing = () => {
   const plans = [
     {
       name: 'Basic',
-      price: '$29.99',
+      price: '$29',
       description: 'For individuals and small teams getting started',
       features: {
         'Create AI-Powered PRDs': true,
@@ -35,7 +36,7 @@ const Pricing = () => {
     },
     {
       name: 'Pro',
-      price: '$79.99',
+      price: '$79',
       description: 'For growing businesses looking for quality talent',
       features: {
         'Create AI-Powered PRDs': true,
@@ -50,7 +51,7 @@ const Pricing = () => {
     },
     {
       name: 'Enterprise',
-      price: '$149.99',
+      price: '$149',
       description: 'For businesses seeking the complete managed solution',
       features: {
         'Create AI-Powered PRDs': true,
