@@ -23,40 +23,40 @@ const Blog = () => {
       id: 1,
       title: "How AI is Revolutionizing Product Requirement Documents",
       excerpt: "Discover how artificial intelligence is transforming the way teams create and manage product requirement documents, leading to more efficient development cycles and better outcomes.",
-      date: "May 15, 2023",
-      image: "/photo-1488590528505-98d2b5aba04b.jpg",
+      date: "January 15, 2025",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       readTime: "8 min read"
     },
     {
       id: 2,
-      title: "5 Project Management Trends to Watch in 2023",
+      title: "5 Project Management Trends to Watch in 2025",
       excerpt: "The landscape of project management is constantly evolving. Learn about the top five trends that are shaping how teams collaborate, communicate, and deliver successful projects.",
-      date: "June 22, 2023",
-      image: "/photo-1461749280684-dccba630e2f6.jpg",
+      date: "February 22, 2025",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       readTime: "6 min read"
     },
     {
       id: 3,
       title: "Building the Perfect Talent Matching Algorithm: Challenges and Solutions",
       excerpt: "Matching the right talent to the right project is both an art and a science. Explore the complexities of building effective talent matching algorithms and how AI is helping overcome these challenges.",
-      date: "July 10, 2023",
-      image: "/photo-1518770660439-4636190af475.jpg",
+      date: "March 10, 2025",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       readTime: "10 min read"
     },
     {
       id: 4,
       title: "Remote Work and the Future of Project Collaboration",
       excerpt: "As remote work becomes the norm, project collaboration tools and methodologies need to adapt. Find out how leading companies are reimagining collaboration in a distributed world.",
-      date: "August 5, 2023",
-      image: "/photo-1486312338219-ce68d2c6f44d.jpg",
+      date: "April 5, 2025",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       readTime: "7 min read"
     },
     {
       id: 5,
       title: "The Role of AI in Bridging the Tech Talent Gap",
       excerpt: "With demand for tech talent outpacing supply, companies are turning to AI to help identify, develop, and retain skilled professionals. Learn how artificial intelligence is helping close the talent gap.",
-      date: "September 18, 2023",
-      image: "/photo-1649972904349-6e44c42644a7.jpg",
+      date: "May 18, 2025",
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       readTime: "9 min read"
     }
   ];

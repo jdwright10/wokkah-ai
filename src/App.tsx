@@ -12,6 +12,9 @@ import ProjectManagement from "./pages/ProjectManagement";
 import TalentMatching from "./pages/TalentMatching";
 import Freelancers from "./pages/Freelancers";
 import Blog from "./pages/Blog";
+import AboutUs from "./pages/AboutUs";
+import Team from "./pages/Team";
+import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +34,9 @@ const App = () => (
           <Route path="/features/talent-matching" element={<TalentMatching />} />
           <Route path="/freelancers" element={<Freelancers />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/careers" element={<Careers />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
