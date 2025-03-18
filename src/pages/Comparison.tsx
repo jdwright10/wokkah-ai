@@ -12,8 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Separator } from "@/components/ui/separator";
-import { ChartContainer, ChartLegend, ChartLegendContent } from "@/components/ui/chart";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from 'recharts';
+import { Card, CardContent } from "@/components/ui/card";
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Comparison = () => {
@@ -23,19 +22,48 @@ const Comparison = () => {
   
   const isMobile = useIsMobile();
 
-  const comparisonData = [
-    { category: 'Talent Quality', Wokkah: 95, Toptal: 90, Upwork: 70 },
-    { category: 'Time to Hire', Wokkah: 90, Toptal: 85, Upwork: 60 },
-    { category: 'AI Tools', Wokkah: 100, Toptal: 50, Upwork: 40 },
-    { category: 'Success Rate', Wokkah: 95, Toptal: 85, Upwork: 75 },
-    { category: 'Value', Wokkah: 90, Toptal: 70, Upwork: 80 },
+  // Key strength metrics for each platform
+  const strengthCards = [
+    {
+      platform: "Wokkah",
+      score: 95,
+      color: "bg-black",
+      textColor: "text-white",
+      strengths: [
+        "Top 1% vetted talent",
+        "AI-powered project creation",
+        "24-48 hour matching",
+        "Transparent fixed pricing",
+        "Dedicated project support"
+      ]
+    },
+    {
+      platform: "Toptal",
+      score: 85,
+      color: "bg-slate-600",
+      textColor: "text-white",
+      strengths: [
+        "Top 3% vetted talent",
+        "1-3 week matching time",
+        "Hidden markup fees",
+        "No AI tools",
+        "Limited project management"
+      ]
+    },
+    {
+      platform: "Upwork",
+      score: 70,
+      color: "bg-slate-300",
+      textColor: "text-slate-800",
+      strengths: [
+        "Varied talent quality",
+        "Self-service matching",
+        "5-20% service fees",
+        "No AI tools",
+        "No dedicated support"
+      ]
+    }
   ];
-
-  const chartConfig = {
-    Wokkah: { color: '#000000' },
-    Toptal: { color: '#475569' },
-    Upwork: { color: '#94a3b8' },
-  };
 
   return (
     <MainLayout>
@@ -50,56 +78,32 @@ const Comparison = () => {
             </p>
           </div>
 
-          {/* Performance Metrics Chart */}
+          {/* Platform Comparison Cards */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-center">Performance Comparison</h2>
-            <div className="w-full h-[350px] md:h-[400px]">
-              <ChartContainer config={chartConfig} className="h-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart 
-                    data={comparisonData} 
-                    margin={isMobile ? 
-                      { top: 20, right: 20, left: 0, bottom: 80 } : 
-                      { top: 20, right: 30, left: 0, bottom: 40 }
-                    }
-                    barSize={isMobile ? 15 : 30}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                    <XAxis 
-                      dataKey="category" 
-                      angle={isMobile ? -45 : 0} 
-                      textAnchor={isMobile ? "end" : "middle"}
-                      height={isMobile ? 80 : 50} 
-                      tick={{ fontSize: isMobile ? 10 : 12 }}
-                    />
-                    <YAxis 
-                      domain={[0, 100]} 
-                      label={{ 
-                        value: 'Score', 
-                        angle: -90, 
-                        position: 'insideLeft',
-                        style: { textAnchor: 'middle' },
-                        offset: 0
-                      }} 
-                    />
-                    <Tooltip />
-                    <Bar dataKey="Wokkah" fill="var(--color-Wokkah)" name="Wokkah" />
-                    <Bar dataKey="Toptal" fill="var(--color-Toptal)" name="Toptal" />
-                    <Bar dataKey="Upwork" fill="var(--color-Upwork)" name="Upwork" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </ChartContainer>
-              <div className="mt-4 flex justify-center">
-                <ChartLegend
-                  payload={[
-                    { value: 'Wokkah', color: '#000000' },
-                    { value: 'Toptal', color: '#475569' },
-                    { value: 'Upwork', color: '#94a3b8' },
-                  ]}
-                >
-                  <ChartLegendContent />
-                </ChartLegend>
-              </div>
+            <h2 className="text-2xl font-bold mb-8 text-center">Platform Comparison</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {strengthCards.map((card) => (
+                <Card key={card.platform} className="overflow-hidden border-t-8 shadow-lg" style={{ borderTopColor: card.color === 'bg-black' ? 'black' : card.color === 'bg-slate-600' ? '#475569' : '#94a3b8' }}>
+                  <div className={`${card.color} ${card.textColor} p-6`}>
+                    <h3 className="text-2xl font-bold mb-1">{card.platform}</h3>
+                    <div className="flex items-end">
+                      <span className="text-4xl font-bold">{card.score}</span>
+                      <span className="ml-1 text-sm opacity-80">/100</span>
+                    </div>
+                  </div>
+                  <CardContent className="pt-6">
+                    <ul className="space-y-3">
+                      {card.strengths.map((strength, index) => (
+                        <li key={index} className="flex items-start">
+                          <Check className="h-5 w-5 mr-2 text-green-500 shrink-0 mt-0.5" />
+                          <span>{strength}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
 
