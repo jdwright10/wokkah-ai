@@ -31,7 +31,7 @@ const Pricing = () => {
         'Premium Support': false,
         'Advanced Analytics': false,
       },
-      buttonText: 'Start Basic Plan',
+      buttonText: 'Start 14-Day Free Trial',
       popular: false,
     },
     {
@@ -46,7 +46,7 @@ const Pricing = () => {
         'Premium Support': true,
         'Advanced Analytics': false,
       },
-      buttonText: 'Start Pro Plan',
+      buttonText: 'Start 14-Day Free Trial',
       popular: true,
     },
     {
@@ -61,7 +61,7 @@ const Pricing = () => {
         'Premium Support': true,
         'Advanced Analytics': true,
       },
-      buttonText: 'Start Enterprise Plan',
+      buttonText: 'Start 14-Day Free Trial',
       popular: false,
     }
   ];
@@ -79,6 +79,9 @@ const Pricing = () => {
             </p>
             <p className="mt-4 text-base text-muted-foreground">
               Monthly prices cover platform access. Project implementation costs will be quoted separately based on scope and requirements.
+            </p>
+            <p className="mt-4 text-primary font-medium">
+              All plans include a 14-day free trial, no credit card required.
             </p>
           </div>
 
@@ -135,6 +138,7 @@ const Pricing = () => {
             <Table>
               <TableCaption>
                 <div className="max-w-3xl mx-auto text-center">
+                  <p className="mt-2 font-medium text-primary">All plans include a 14-day free trial, no credit card required.</p>
                   <p className="mt-2">Monthly prices cover platform access only. Project implementation will be quoted separately based on project scope and requirements.</p>
                 </div>
               </TableCaption>
