@@ -42,10 +42,10 @@ const Header = () => {
             Pricing
           </Link>
           <Link to="/login" className="subtle-underline font-medium hover:text-primary flex items-center gap-1">
-            <LogIn size={18} /> Login
+            <LogIn size={16} /> Login
           </Link>
           <Link to="/pricing">
-            <Button className="btn-hover-effect">Get Started</Button>
+            <Button>Get Started</Button>
           </Link>
         </nav>
         
@@ -89,10 +89,10 @@ const Header = () => {
               className="px-4 py-2 hover:bg-muted rounded-md flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              <LogIn size={18} /> Login
+              <LogIn size={16} /> Login
             </Link>
             <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>
-              <Button className="mx-4">Get Started</Button>
+              <Button className="w-full">Get Started</Button>
             </Link>
           </nav>
         </div>
