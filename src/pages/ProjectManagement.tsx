@@ -65,8 +65,8 @@ const ProjectManagement = () => {
             <div className="bg-white rounded-xl shadow-md border border-neutral-100 p-6">
               <AspectRatio ratio={16 / 9} className="bg-neutral-50 rounded-lg overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1531297484001-80022131f5a1" 
-                  alt="Project Management Dashboard" 
+                  src="/lovable-uploads/474fc946-2319-4ffc-88e0-5ac43ed3140f.png" 
+                  alt="Project Management Dashboard showing an executive overview with active projects, schedule status, and team velocity metrics" 
                   className="w-full h-full object-cover"
                 />
               </AspectRatio>
