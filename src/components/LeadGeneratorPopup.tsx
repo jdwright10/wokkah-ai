@@ -10,28 +10,49 @@ import AIGuideCover from "./AIGuideCover";
 
 interface LeadGeneratorPopupProps {
   delay?: number; // Delay in milliseconds before showing the popup
+  open?: boolean; // Controlled open state
+  onOpenChange?: (open: boolean) => void; // Callback for when open state changes
 }
 
-const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ delay = 30000 }) => {
-  const [open, setOpen] = useState(false);
+const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ 
+  delay = 30000,
+  open: controlledOpen,
+  onOpenChange
+}) => {
+  const [internalOpen, setInternalOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
 
+  // Determine if the component is controlled or uncontrolled
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+  
+  const handleOpenChange = (newOpen: boolean) => {
+    if (isControlled) {
+      onOpenChange?.(newOpen);
+    } else {
+      setInternalOpen(newOpen);
+    }
+  };
+
   useEffect(() => {
+    // Skip auto-popup if component is controlled
+    if (isControlled) return;
+    
     // Check if the popup has been shown in this session
     const hasSeenPopup = sessionStorage.getItem("hasSeenLeadPopup");
     
     if (!hasSeenPopup) {
       const timer = setTimeout(() => {
-        setOpen(true);
+        setInternalOpen(true);
         sessionStorage.setItem("hasSeenLeadPopup", "true");
       }, delay);
       
       return () => clearTimeout(timer);
     }
-  }, [delay]);
+  }, [delay, isControlled]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,7 +86,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ delay = 30000 }
   };
 
   const closeDialog = () => {
-    setOpen(false);
+    handleOpenChange(false);
     resetForm();
   };
 
@@ -80,7 +101,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({ delay = 30000 }
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-center text-xl font-bold">
