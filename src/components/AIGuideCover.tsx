@@ -7,8 +7,9 @@ const AIGuideCover: React.FC = () => {
       <div className="border-2 border-white/20 rounded-lg p-5 h-full flex flex-col justify-between">
         <div>
           <div className="text-sm uppercase tracking-wider mb-2 font-medium">FREE GUIDE</div>
-          <h1 className="text-2xl font-bold mb-4">Demystifying the AI Landscape</h1>
-          <h2 className="text-xl mb-6">A Complete Guide for Business Leaders</h2>
+          <h1 className="text-2xl font-bold mb-4">Demystifying</h1>
+          <h1 className="text-2xl font-bold mb-4">the AI Landscape</h1>
+          <h2 className="text-xl mb-6">A Complete Guide</h2>
         </div>
         
         <div className="grid grid-cols-3 gap-2 mb-6">
