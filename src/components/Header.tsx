@@ -32,8 +32,8 @@ const Header = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/platform" className="subtle-underline font-medium hover:text-primary">
-            Platform
+          <Link to="/services" className="subtle-underline font-medium hover:text-primary">
+            Services
           </Link>
           <Link to="/freelancers" className="subtle-underline font-medium hover:text-primary">
             Freelancers
@@ -59,11 +59,11 @@ const Header = () => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-slide-in-right">
           <nav className="container flex flex-col py-4 space-y-4">
             <Link 
-              to="/platform" 
+              to="/services" 
               className="px-4 py-2 hover:bg-muted rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              Platform
+              Services
             </Link>
             <Link 
               to="/freelancers" 
