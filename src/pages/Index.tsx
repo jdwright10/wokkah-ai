@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Problem from '@/components/Problem';
 import Guide from '@/components/Guide';
 import Plan from '@/components/Plan';
+import Services from '@/components/Services';
 import CallToAction from '@/components/CallToAction';
 import Success from '@/components/Success';
 import Failure from '@/components/Failure';
@@ -22,6 +23,7 @@ const Index = () => {
       <Problem />
       <Guide />
       <Plan />
+      <Services />
       <CallToAction />
       <Success />
       <Failure />
