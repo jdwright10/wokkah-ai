@@ -73,6 +73,9 @@ const Pricing = () => {
             <p className="text-lg text-muted-foreground">
               Choose the plan that fits your business needs and start infusing AI into your company today.
             </p>
+            <p className="mt-4 text-base text-muted-foreground">
+              Monthly prices cover platform access. Project implementation costs will be quoted separately based on scope and requirements.
+            </p>
           </div>
 
           {/* Mobile Pricing Cards */}
@@ -82,7 +85,7 @@ const Pricing = () => {
                 key={plan.name}
                 className={`relative rounded-xl p-6 border ${
                   plan.popular 
-                    ? 'border-primary shadow-lg' 
+                    ? 'border-primary shadow-lg pt-8' 
                     : 'border-border'
                 }`}
               >
@@ -126,7 +129,12 @@ const Pricing = () => {
           {/* Desktop Pricing Table */}
           <div className="hidden md:block">
             <Table>
-              <TableCaption>All plans include a 14-day free trial. No credit card required.</TableCaption>
+              <TableCaption>
+                <div className="max-w-3xl mx-auto text-center">
+                  <p>All plans include a 14-day free trial. No credit card required.</p>
+                  <p className="mt-2">Monthly prices cover platform access only. Project implementation will be quoted separately based on project scope and requirements.</p>
+                </div>
+              </TableCaption>
               <TableHeader>
                 <TableRow>
                   <TableHead className="w-[200px]">Features</TableHead>
@@ -134,7 +142,7 @@ const Pricing = () => {
                     <TableHead key={plan.name} className="text-center">
                       <div className={`relative pb-6 ${plan.popular ? 'text-primary' : ''}`}>
                         {plan.popular && (
-                          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-semibold">
+                          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-semibold">
                             Most Popular
                           </div>
                         )}
