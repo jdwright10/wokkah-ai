@@ -1,0 +1,5 @@
+
+// This would be an actual PDF file, but since we can't create binary files directly,
+// this placeholder represents where the actual PDF file would be stored.
+// In a real scenario, you would create a PDF with content about demystifying AI
+// and place it in the public folder.

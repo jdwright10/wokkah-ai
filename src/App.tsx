@@ -16,6 +16,7 @@ import AboutUs from "./pages/AboutUs";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
+import LeadGeneratorPopup from "./components/LeadGeneratorPopup";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <LeadGeneratorPopup delay={5000} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

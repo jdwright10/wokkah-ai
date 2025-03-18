@@ -1,0 +1,4 @@
+
+// This would be an actual image file, but since we can't create binary files directly, 
+// we'll use the AIGuideCover component to represent it visually in the app.
+// In a real scenario, you would create an actual PNG or JPG file and place it in the public folder.
