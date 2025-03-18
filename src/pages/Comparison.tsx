@@ -14,18 +14,21 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ChartContainer, ChartLegend, ChartLegendContent } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from 'recharts';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Comparison = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  const isMobile = useIsMobile();
 
   const comparisonData = [
     { category: 'Talent Quality', Wokkah: 95, Toptal: 90, Upwork: 70 },
-    { category: 'Average Time to Hire', Wokkah: 90, Toptal: 85, Upwork: 60 },
-    { category: 'AI-Powered Tools', Wokkah: 100, Toptal: 50, Upwork: 40 },
-    { category: 'Project Success Rate', Wokkah: 95, Toptal: 85, Upwork: 75 },
-    { category: 'Value for Money', Wokkah: 90, Toptal: 70, Upwork: 80 },
+    { category: 'Time to Hire', Wokkah: 90, Toptal: 85, Upwork: 60 },
+    { category: 'AI Tools', Wokkah: 100, Toptal: 50, Upwork: 40 },
+    { category: 'Success Rate', Wokkah: 95, Toptal: 85, Upwork: 75 },
+    { category: 'Value', Wokkah: 90, Toptal: 70, Upwork: 80 },
   ];
 
   const chartConfig = {
@@ -50,13 +53,35 @@ const Comparison = () => {
           {/* Performance Metrics Chart */}
           <div className="mb-16">
             <h2 className="text-2xl font-bold mb-6 text-center">Performance Comparison</h2>
-            <div className="w-full h-[400px]">
-              <ChartContainer config={chartConfig} className="h-[400px]">
+            <div className="w-full h-[350px] md:h-[400px]">
+              <ChartContainer config={chartConfig} className="h-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={comparisonData} margin={{ top: 20, right: 30, left: 20, bottom: 50 }}>
+                  <BarChart 
+                    data={comparisonData} 
+                    margin={isMobile ? 
+                      { top: 20, right: 20, left: 0, bottom: 80 } : 
+                      { top: 20, right: 30, left: 0, bottom: 40 }
+                    }
+                    barSize={isMobile ? 15 : 30}
+                  >
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                    <XAxis dataKey="category" angle={-45} textAnchor="end" height={60} />
-                    <YAxis domain={[0, 100]} label={{ value: 'Score (higher is better)', angle: -90, position: 'insideLeft' }} />
+                    <XAxis 
+                      dataKey="category" 
+                      angle={isMobile ? -45 : 0} 
+                      textAnchor={isMobile ? "end" : "middle"}
+                      height={isMobile ? 80 : 50} 
+                      tick={{ fontSize: isMobile ? 10 : 12 }}
+                    />
+                    <YAxis 
+                      domain={[0, 100]} 
+                      label={{ 
+                        value: 'Score', 
+                        angle: -90, 
+                        position: 'insideLeft',
+                        style: { textAnchor: 'middle' },
+                        offset: 0
+                      }} 
+                    />
                     <Tooltip />
                     <Bar dataKey="Wokkah" fill="var(--color-Wokkah)" name="Wokkah" />
                     <Bar dataKey="Toptal" fill="var(--color-Toptal)" name="Toptal" />
