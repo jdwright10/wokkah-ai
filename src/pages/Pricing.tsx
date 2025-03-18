@@ -135,7 +135,6 @@ const Pricing = () => {
             <Table>
               <TableCaption>
                 <div className="max-w-3xl mx-auto text-center">
-                  <p>All plans include a 14-day free trial. No credit card required.</p>
                   <p className="mt-2">Monthly prices cover platform access only. Project implementation will be quoted separately based on project scope and requirements.</p>
                 </div>
               </TableCaption>
