@@ -56,7 +56,7 @@ const Blog = () => {
       title: "The Role of AI in Bridging the Tech Talent Gap",
       excerpt: "With demand for tech talent outpacing supply, companies are turning to AI to help identify, develop, and retain skilled professionals. Learn how artificial intelligence is helping close the talent gap.",
       date: "May 18, 2025",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       readTime: "9 min read"
     }
   ];
