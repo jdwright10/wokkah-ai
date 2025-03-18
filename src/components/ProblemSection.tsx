@@ -28,53 +28,64 @@ const ProblemSection = () => {
   return (
     <section ref={sectionRef} className="section bg-neutral-50">
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <div className="w-full lg:w-1/2 order-2 lg:order-1">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent rounded-xl transform rotate-3 scale-105"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
-                alt="Home renovation challenges" 
-                className="relative z-10 rounded-xl shadow-xl w-full object-cover reveal-item opacity-0 transition-all duration-700 transform translate-y-8"
-              />
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="chip reveal-item opacity-0 transition-all duration-700 transform translate-y-8">Beyond Just a Tool</span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
+            More than just a prototyping platform
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {featureItems.map((item, index) => (
+            <div 
+              key={item.title}
+              className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100 reveal-item opacity-0 transition-all duration-700 transform translate-y-8"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                <img src={item.icon} alt={item.title} className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+              <p className="text-muted-foreground">{item.description}</p>
             </div>
-          </div>
-          
-          <div className="w-full lg:w-1/2 order-1 lg:order-2">
-            <span className="chip reveal-item opacity-0 transition-all duration-700 transform translate-y-8">The Challenge</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
-              Home renovation doesn't have to be stressful
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground reveal-item opacity-0 transition-all duration-700 transform translate-y-8 text-balance">
-              Many homeowners feel overwhelmed by the renovation process. From finding reliable contractors to managing budgets and timelines, the challenges can seem endless.
-            </p>
-            
-            <div className="mt-8 space-y-6">
-              {problemItems.map((item, index) => (
-                <div 
-                  key={item}
-                  className="flex items-start gap-4 reveal-item opacity-0 transition-all duration-700 transform translate-y-8"
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-red-500 text-xl">✕</span>
-                  </div>
-                  <p className="text-lg">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-const problemItems = [
-  "Dealing with unpredictable timelines and contractors who don't show up",
-  "Being overwhelmed by technical decisions you're not prepared to make",
-  "Going over budget with unexpected costs and changes",
-  "Living with renovation chaos and disruption for too long"
+const featureItems = [
+  {
+    title: "AI Assets",
+    description: "Access a library of pre-built AI components and templates to jumpstart your projects",
+    icon: "https://api.iconify.design/lucide:box.svg?color=%230ea5e9"
+  },
+  {
+    title: "Customizable View",
+    description: "Tailor the interface to match your workflow and preferences",
+    icon: "https://api.iconify.design/lucide:layout-dashboard.svg?color=%230ea5e9"
+  },
+  {
+    title: "Interactive Demos",
+    description: "Create interactive prototypes to showcase your ideas and get feedback",
+    icon: "https://api.iconify.design/lucide:play.svg?color=%230ea5e9"
+  },
+  {
+    title: "API Integration",
+    description: "Connect to external data sources and services through our API",
+    icon: "https://api.iconify.design/lucide:link.svg?color=%230ea5e9"
+  },
+  {
+    title: "Version Control",
+    description: "Track changes and collaborate with your team seamlessly",
+    icon: "https://api.iconify.design/lucide:git-branch.svg?color=%230ea5e9"
+  },
+  {
+    title: "Advanced Analytics",
+    description: "Gain insights into your projects and team performance",
+    icon: "https://api.iconify.design/lucide:bar-chart.svg?color=%230ea5e9"
+  }
 ];
 
 export default ProblemSection;

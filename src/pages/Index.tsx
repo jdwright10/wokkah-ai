@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import ValueProposition from '@/components/ValueProposition';
 import ProblemSection from '@/components/ProblemSection';
 import SolutionSection from '@/components/SolutionSection';
+import Partners from '@/components/Partners';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 
@@ -20,6 +21,7 @@ const Index = () => {
       <ValueProposition />
       <ProblemSection />
       <SolutionSection />
+      <Partners />
       <Testimonials />
       <CallToAction />
     </MainLayout>

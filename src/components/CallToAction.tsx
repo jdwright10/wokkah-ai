@@ -37,26 +37,26 @@ const CallToAction = () => {
     >
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="chip">Ready to Transform Your Home?</span>
+          <span className="chip">Ready to Get Started?</span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold">
-            Start your journey to a beautiful, functional home today
+            Are you interested in Wokkah?
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            Take the first step toward creating the home you've always wanted. Our team is ready to bring your vision to life.
+            Start building AI-powered applications today. No coding required.
           </p>
           
           <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
             <Button size="lg" className="btn-hover-effect">
-              Schedule a Consultation
+              Request a Demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="outline" className="btn-hover-effect">
-              View Our Portfolio
+              Start Free Trial
             </Button>
           </div>
           
           <p className="mt-8 text-muted-foreground">
-            Have questions? Call us at <a href="tel:+11234567890" className="font-medium text-primary hover:underline">+1 (123) 456-7890</a>
+            Have questions? Contact us at <a href="mailto:support@wokkah.com" className="font-medium text-primary hover:underline">support@wokkah.com</a>
           </p>
         </div>
       </div>

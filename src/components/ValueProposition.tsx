@@ -29,15 +29,21 @@ const ValueProposition = () => {
   return (
     <section ref={sectionRef} className="section bg-white">
       <div className="container-tight text-center">
-        <span className="chip reveal-item opacity-0 transition-all duration-700 transform translate-y-8">Our Promise</span>
-        <h2 className="mt-4 text-3xl md:text-4xl font-bold reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
-          A Home That Works For You
-        </h2>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto reveal-item opacity-0 transition-all duration-700 transform translate-y-8 text-balance">
-          We understand that your home is more than just a place to live—it's where your family grows, memories are made, and life happens.
-        </p>
+        <span className="chip reveal-item opacity-0 transition-all duration-700 transform translate-y-8">Trusted By</span>
+        <div className="mt-8 grid grid-cols-3 md:grid-cols-6 gap-8 items-center reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
+          <img src="https://api.iconify.design/logos:google.svg" alt="Google" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+          <img src="https://api.iconify.design/logos:microsoft.svg" alt="Microsoft" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+          <img src="https://api.iconify.design/logos:ibm.svg" alt="IBM" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+          <img src="https://api.iconify.design/logos:amazon.svg" alt="Amazon" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+          <img src="https://api.iconify.design/logos:slack.svg" alt="Slack" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+          <img src="https://api.iconify.design/logos:adobe.svg" alt="Adobe" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+        </div>
         
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="mt-16 text-3xl md:text-4xl font-bold reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
+          Build your ideas at the speed of AI
+        </h2>
+        
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
           {valuePropItems.map((item, index) => (
             <ValuePropItem 
               key={item.title}
@@ -80,19 +86,24 @@ const ValuePropItem = ({ title, description, icon, delay }: ValuePropItemProps) 
 
 const valuePropItems = [
   {
-    title: "Expert Guidance",
-    description: "We walk with you every step of the way, from initial concept to final reveal.",
-    icon: "https://api.iconify.design/lucide:lightbulb.svg?color=%230ea5e9"
+    title: "Collaboration",
+    description: "Work together with your team in real-time on AI projects",
+    icon: "https://api.iconify.design/lucide:users.svg?color=%230ea5e9"
   },
   {
-    title: "Quality Craftsmanship",
-    description: "Our team of skilled professionals bring precision and care to every detail of your project.",
-    icon: "https://api.iconify.design/lucide:star.svg?color=%230ea5e9"
+    title: "Integration",
+    description: "Connect with your existing tools and workflows seamlessly",
+    icon: "https://api.iconify.design/lucide:plug.svg?color=%230ea5e9"
   },
   {
-    title: "Transparent Process",
-    description: "Clear communication, detailed timelines, and upfront pricing—no surprises.",
-    icon: "https://api.iconify.design/lucide:check-circle.svg?color=%230ea5e9"
+    title: "Automation",
+    description: "Automate repetitive tasks and focus on what matters",
+    icon: "https://api.iconify.design/lucide:zap.svg?color=%230ea5e9"
+  },
+  {
+    title: "No-Code",
+    description: "Build powerful AI applications without writing code",
+    icon: "https://api.iconify.design/lucide:code.svg?color=%230ea5e9"
   }
 ];
 

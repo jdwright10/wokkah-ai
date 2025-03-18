@@ -46,13 +46,10 @@ const Testimonials = () => {
     >
       <div className="container-tight">
         <div className="text-center">
-          <span className="chip">Happy Homeowners</span>
+          <span className="chip">What Our Customers Think</span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold">
-            What our clients are saying
+            What our customers think about us
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            Don't just take our word for it—hear from homeowners who've experienced our difference firsthand.
-          </p>
         </div>
         
         <div className="mt-12 relative">
@@ -76,7 +73,7 @@ const Testimonials = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                      <p className="text-muted-foreground">{testimonial.location}</p>
+                      <p className="text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
                     </div>
                   </div>
                   
@@ -85,25 +82,6 @@ const Testimonials = () => {
                     <p className="text-lg md:text-xl italic text-balance">
                       "{testimonial.quote}"
                     </p>
-                  </div>
-                  
-                  <div className="mt-6 flex items-center">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <svg 
-                          key={i} 
-                          className={cn(
-                            "w-5 h-5 mr-1", 
-                            i < testimonial.rating ? "text-yellow-400" : "text-gray-300"
-                          )}
-                          fill="currentColor" 
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <span className="ml-2 text-muted-foreground">{testimonial.project}</span>
                   </div>
                 </div>
               ))}
@@ -144,6 +122,18 @@ const Testimonials = () => {
             ))}
           </div>
         </div>
+        
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-center mb-8">We've helped grow hundreds of companies</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonialCards.map((card, index) => (
+              <div key={index} className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-xl">
+                <h4 className="font-bold text-lg mb-2">{card.title}</h4>
+                <p className="text-muted-foreground">{card.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -151,28 +141,40 @@ const Testimonials = () => {
 
 const testimonials = [
   {
-    name: "Michael & Sarah Johnson",
-    location: "San Francisco, CA",
-    quote: "Working with Wokkah transformed our outdated kitchen into a stunning space that's now the heart of our home. The team was professional, transparent, and truly cared about our vision.",
-    rating: 5,
-    project: "Kitchen Remodel",
-    avatar: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+    name: "James Rodriguez",
+    role: "CTO",
+    company: "TechNova",
+    quote: "From tech strategy to product delivery, Wokkah has streamlined our entire development process. We've cut project times by 40% and improved collaboration across teams.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
   },
   {
-    name: "Jennifer Williams",
-    location: "Los Angeles, CA",
-    quote: "I was nervous about renovating my bathroom, but Wokkah made the process so easy. They handled everything from design to execution, and the results exceeded my expectations.",
-    rating: 5,
-    project: "Bathroom Renovation",
+    name: "Sophia Chen",
+    role: "Product Manager",
+    company: "InnovateCorp",
+    quote: "Wokkah helped us transform our ideas into working AI prototypes in days instead of months. The no-code approach has democratized AI development across our organization.",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
   },
   {
-    name: "Robert & Lisa Chen",
-    location: "Seattle, WA",
-    quote: "Our whole-home renovation could have been overwhelming, but Wokkah's organized approach and constant communication made it stress-free. We love our transformed space!",
-    rating: 5,
-    project: "Whole Home Renovation",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80"
+    name: "Michael Washington",
+    role: "CEO",
+    company: "FutureTech",
+    quote: "Wokkah is a game-changer for our business. We're able to prototype, test, and deploy AI solutions at a pace that was previously impossible. It's like having an entire AI team at your fingertips.",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+  }
+];
+
+const testimonialCards = [
+  {
+    title: "Scaling startups",
+    description: "Helping early-stage companies build and scale faster with AI"
+  },
+  {
+    title: "Enterprise",
+    description: "Transforming how large organizations manage projects and innovation"
+  },
+  {
+    title: "Mid-market",
+    description: "Providing powerful tools that grow with your business needs"
   }
 ];
 

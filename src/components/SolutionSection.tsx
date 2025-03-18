@@ -1,5 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const SolutionSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -28,45 +30,36 @@ const SolutionSection = () => {
   return (
     <section ref={sectionRef} className="section bg-white">
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <div className="w-full lg:w-1/2">
-            <span className="chip reveal-item opacity-0 transition-all duration-700 transform translate-y-8">The Solution</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-bold reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
-              Our proven process makes home transformation simple
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground reveal-item opacity-0 transition-all duration-700 transform translate-y-8 text-balance">
-              We've designed a seamless renovation experience that puts you at the center, with clear communication and expert guidance every step of the way.
-            </p>
-            
-            <div className="mt-8 space-y-6">
-              {solutionItems.map((item, index) => (
-                <div 
-                  key={item.title}
-                  className="flex items-start gap-4 reveal-item opacity-0 transition-all duration-700 transform translate-y-8"
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-green-500 text-xl">✓</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium">{item.title}</h3>
-                    <p className="text-muted-foreground mt-1">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="w-full lg:w-1/2">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-xl transform -rotate-3 scale-105"></div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="chip reveal-item opacity-0 transition-all duration-700 transform translate-y-8">Unlock Your Potential</span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
+            Unlock the full potential of Wokkah with a tailor-made experience
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {solutionItems.map((item, index) => (
+            <div 
+              key={item.title}
+              className="relative p-6 rounded-xl border border-neutral-100 reveal-item opacity-0 transition-all duration-700 transform translate-y-8"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <img 
-                src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80" 
-                alt="Our renovation solution" 
-                className="relative z-10 rounded-xl shadow-xl w-full object-cover reveal-item opacity-0 transition-all duration-700 transform translate-y-8"
+                src={item.image} 
+                alt={item.title} 
+                className="w-full aspect-square object-cover rounded-lg mb-6"
               />
+              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+              <p className="text-muted-foreground text-sm">{item.description}</p>
             </div>
-          </div>
+          ))}
+        </div>
+        
+        <div className="mt-12 text-center reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
+          <Button size="lg">
+            View All Features
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>
@@ -75,20 +68,24 @@ const SolutionSection = () => {
 
 const solutionItems = [
   {
-    title: "Personalized Planning",
-    description: "We take the time to understand your needs, style preferences, and budget to create a customized renovation plan."
+    title: "AI-Powered Suggestions",
+    description: "Get intelligent recommendations for your projects",
+    image: "https://images.unsplash.com/photo-1677442135993-8cf27c5c0e1f?q=80&w=300&auto=format&fit=crop"
   },
   {
-    title: "Expert Project Management",
-    description: "Our team handles all the details, scheduling, and coordination, so you don't have to worry about a thing."
+    title: "Real-time Collaboration",
+    description: "Work together with your team no matter where they are",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=300&auto=format&fit=crop"
   },
   {
-    title: "Quality-Focused Execution",
-    description: "Every nail, tile, and finish is implemented with precision and care by our skilled craftsmen."
+    title: "Customizable Workflows",
+    description: "Adapt the platform to your specific needs and processes",
+    image: "https://images.unsplash.com/photo-1661956602153-23384936a1d3?q=80&w=300&auto=format&fit=crop"
   },
   {
-    title: "Transparent Communication",
-    description: "Regular updates and clear timeline expectations keep you informed every step of the way."
+    title: "Advanced Analytics",
+    description: "Track project progress and team performance with detailed insights",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=300&auto=format&fit=crop"
   }
 ];
 
