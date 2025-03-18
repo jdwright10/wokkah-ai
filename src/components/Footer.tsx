@@ -1,14 +1,10 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Download } from 'lucide-react';
+import { FileDown } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Footer = () => {
   const { toast } = useToast();
-  const hasSubmittedInfo = localStorage.getItem('leadGeneratorEmail') && 
-                         localStorage.getItem('leadGeneratorName');
   
   const downloadReport = () => {
     // Trigger download of the PDF
@@ -37,16 +33,17 @@ const Footer = () => {
               Infuse AI into your company. Simplify project management, connect with top talent, and bring your vision to life.
             </p>
             
-            {hasSubmittedInfo && (
-              <Button 
-                onClick={downloadReport}
-                className="mt-6 flex items-center gap-2"
-                variant="outline"
-              >
-                <Download className="h-4 w-4" />
-                Download Free AI Guide
-              </Button>
-            )}
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                downloadReport();
+              }}
+              className="mt-6 inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+            >
+              <FileDown className="h-4 w-4 mr-2" />
+              Download Free AI Guide
+            </a>
           </div>
           
           <div>
