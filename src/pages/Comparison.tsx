@@ -203,8 +203,8 @@ const Comparison = () => {
                     </div>
                   </TableCell>
                   <TableCell className="text-center">
-                    <div className="font-medium">15%</div>
-                    <div className="text-xs mt-1">Transparent pricing</div>
+                    <div className="font-medium">$29 / $79 / $149</div>
+                    <div className="text-xs mt-1">Based on support level</div>
                   </TableCell>
                   <TableCell className="text-center">
                     <div className="font-medium">20-40%</div>
