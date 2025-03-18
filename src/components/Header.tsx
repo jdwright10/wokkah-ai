@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { MenuIcon, X } from 'lucide-react';
+import { MenuIcon, X, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Header = () => {
@@ -40,6 +40,9 @@ const Header = () => {
           </Link>
           <Link to="/pricing" className="subtle-underline font-medium hover:text-primary">
             Pricing
+          </Link>
+          <Link to="/login" className="subtle-underline font-medium hover:text-primary flex items-center gap-1">
+            <LogIn size={18} /> Login
           </Link>
           <Link to="/pricing">
             <Button className="btn-hover-effect">Get Started</Button>
@@ -80,6 +83,13 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
+            </Link>
+            <Link 
+              to="/login" 
+              className="px-4 py-2 hover:bg-muted rounded-md flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <LogIn size={18} /> Login
             </Link>
             <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>
               <Button className="mx-4">Get Started</Button>
