@@ -34,7 +34,7 @@ const CallToAction = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="section bg-gradient-to-r from-primary/10 to-primary/5 opacity-0 transition-all duration-700 transform translate-y-8"
+      className="section py-16 md:py-24 bg-gradient-to-r from-primary/10 to-primary/5 opacity-0 transition-all duration-700 transform translate-y-8"
     >
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">

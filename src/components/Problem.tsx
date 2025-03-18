@@ -29,7 +29,7 @@ const Problem = () => {
   }, []);
   
   return (
-    <section ref={sectionRef} className="section bg-neutral-50 opacity-0 transition-all duration-700 transform translate-y-8">
+    <section ref={sectionRef} className="section py-16 md:py-24 bg-neutral-50 opacity-0 transition-all duration-700 transform translate-y-8">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">

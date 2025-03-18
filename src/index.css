@@ -63,3 +63,8 @@
 .writing-mode-vertical-rl {
   writing-mode: vertical-rl;
 }
+
+/* Add consistent section spacing */
+.section {
+  @apply py-16 md:py-24;
+}
