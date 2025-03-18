@@ -43,10 +43,10 @@ const Guide = () => {
           
           <div className="w-full lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              We Guide You to Project Success
+              Your AI Implementation Partner
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Wokkah acts as your expert guide, providing AI-powered assistance throughout your project journey. We've helped hundreds of teams transform chaos into clarity.
+              Wokkah simplifies the complex process of bringing AI into your business by providing a single platform where vision meets execution through AI assistance and expert talent.
             </p>
             
             <div className="space-y-6">
@@ -55,9 +55,9 @@ const Guide = () => {
                   <ShieldCheck className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Experienced Guide</h3>
+                  <h3 className="text-xl font-bold mb-2">AI-Powered PRD Creation</h3>
                   <p className="text-muted-foreground">
-                    Our AI platform has been trained on thousands of successful projects across industries.
+                    Our AI helps translate your business needs into clear technical specifications that developers can follow precisely.
                   </p>
                 </div>
               </div>
@@ -67,9 +67,9 @@ const Guide = () => {
                   <Clock className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Clear Process</h3>
+                  <h3 className="text-xl font-bold mb-2">Vetted Talent Matching</h3>
                   <p className="text-muted-foreground">
-                    We provide a structured framework that eliminates guesswork and keeps everyone aligned.
+                    Connect with pre-screened freelancers who specialize in AI implementation and project delivery.
                   </p>
                 </div>
               </div>
@@ -79,9 +79,9 @@ const Guide = () => {
                   <Zap className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Ongoing Support</h3>
+                  <h3 className="text-xl font-bold mb-2">Complete Visibility</h3>
                   <p className="text-muted-foreground">
-                    Our AI assistant is available 24/7 to help remove obstacles and suggest solutions.
+                    Track progress, communicate directly with your team, and maintain control throughout the entire project lifecycle.
                   </p>
                 </div>
               </div>

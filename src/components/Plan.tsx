@@ -34,10 +34,10 @@ const Plan = () => {
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Three Simple Steps to Project Success
+            Three Simple Steps to AI Implementation
           </h2>
           <p className="text-lg text-muted-foreground">
-            We've simplified project execution down to a proven process that works for teams of all sizes.
+            We've simplified the complex process of bringing AI into your business down to these key steps.
           </p>
         </div>
         
@@ -46,22 +46,22 @@ const Plan = () => {
             <div className="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">
               1
             </div>
-            <h3 className="text-xl font-bold mb-4 pt-2">Connect Your Team</h3>
+            <h3 className="text-xl font-bold mb-4 pt-2">Create Your Vision</h3>
             <p className="text-muted-foreground mb-6">
-              Invite your team members, assign roles, and get everyone on the same page in minutes.
+              Use our AI assistant to turn your business idea into a clear, detailed Product Requirements Document.
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Simple onboarding process</span>
+                <span>AI-guided requirements gathering</span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Custom permission levels</span>
+                <span>Clear project scope definition</span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Integrates with existing tools</span>
+                <span>Business-to-technical translation</span>
               </li>
             </ul>
           </div>
@@ -70,22 +70,22 @@ const Plan = () => {
             <div className="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">
               2
             </div>
-            <h3 className="text-xl font-bold mb-4 pt-2">Plan with AI Assistance</h3>
+            <h3 className="text-xl font-bold mb-4 pt-2">Match With Talent</h3>
             <p className="text-muted-foreground mb-6">
-              Let our AI help you break down complex projects into manageable tasks with realistic timelines.
+              Connect with pre-vetted AI specialists and developers who have the exact skills your project needs.
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>AI-generated project templates</span>
+                <span>Skill-based matching algorithm</span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Smart timeline suggestions</span>
+                <span>Verified expertise and experience</span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Resource allocation guidance</span>
+                <span>Transparent pricing and timelines</span>
               </li>
             </ul>
           </div>
@@ -94,22 +94,22 @@ const Plan = () => {
             <div className="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">
               3
             </div>
-            <h3 className="text-xl font-bold mb-4 pt-2">Execute with Clarity</h3>
+            <h3 className="text-xl font-bold mb-4 pt-2">Oversee Your Project</h3>
             <p className="text-muted-foreground mb-6">
-              Track progress, remove bottlenecks, and celebrate wins as your project moves forward.
+              Maintain full visibility and control as your AI solution comes to life with our built-in project management tools.
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Real-time status dashboards</span>
+                <span>Real-time progress tracking</span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Automated progress updates</span>
+                <span>Direct communication channels</span>
               </li>
               <li className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-primary mr-2" />
-                <span>Early issue detection</span>
+                <span>Milestone-based payment system</span>
               </li>
             </ul>
           </div>

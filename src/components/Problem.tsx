@@ -33,35 +33,35 @@ const Problem = () => {
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Why Do Projects Keep Falling Behind?
+            Why is Implementing AI So Challenging?
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 text-left">
             <div className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100">
-              <h3 className="text-xl font-bold mb-4">The Fragmentation Problem</h3>
+              <h3 className="text-xl font-bold mb-4">The Talent Gap</h3>
               <p className="text-muted-foreground">
-                Your team is using multiple tools that don't talk to each other. Information gets lost, deadlines slip, and frustration builds.
+                Finding the right AI specialists and developers who understand your business needs is time-consuming and expensive.
               </p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100">
-              <h3 className="text-xl font-bold mb-4">The Complexity Trap</h3>
+              <h3 className="text-xl font-bold mb-4">The Communication Barrier</h3>
               <p className="text-muted-foreground">
-                Project management tools are often designed for experts, leaving your team confused and resistant to adoption.
+                Translating your business vision into technical specifications that developers can implement accurately is frustrating.
               </p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100">
-              <h3 className="text-xl font-bold mb-4">The Visibility Gap</h3>
+              <h3 className="text-xl font-bold mb-4">The Visibility Problem</h3>
               <p className="text-muted-foreground">
-                Leaders can't see what's happening across projects, making it impossible to identify bottlenecks until it's too late.
+                Not knowing what's happening with your project leads to anxiety, scope creep, and mismatched expectations.
               </p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100">
-              <h3 className="text-xl font-bold mb-4">The Execution Paralysis</h3>
+              <h3 className="text-xl font-bold mb-4">The Integration Challenge</h3>
               <p className="text-muted-foreground">
-                Without a clear plan and accountability, teams get stuck in endless planning cycles instead of taking action.
+                Connecting AI solutions with your existing systems and workflows often feels like an overwhelming technical puzzle.
               </p>
             </div>
           </div>

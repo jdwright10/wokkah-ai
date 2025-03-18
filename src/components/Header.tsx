@@ -32,17 +32,17 @@ const Header = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="subtle-underline font-medium hover:text-primary">
-            Home
+          <Link to="/platform" className="subtle-underline font-medium hover:text-primary">
+            Platform
           </Link>
-          <Link to="/about" className="subtle-underline font-medium hover:text-primary">
-            About
+          <Link to="/freelancers" className="subtle-underline font-medium hover:text-primary">
+            Freelancers
           </Link>
-          <Link to="/services" className="subtle-underline font-medium hover:text-primary">
-            Services
+          <Link to="/solutions" className="subtle-underline font-medium hover:text-primary">
+            Solutions
           </Link>
-          <Link to="/contact" className="subtle-underline font-medium hover:text-primary">
-            Contact
+          <Link to="/pricing" className="subtle-underline font-medium hover:text-primary">
+            Pricing
           </Link>
           <Button className="btn-hover-effect">Get Started</Button>
         </nav>
@@ -62,32 +62,32 @@ const Header = () => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-slide-in-right">
           <nav className="container flex flex-col py-4 space-y-4">
             <Link 
-              to="/" 
+              to="/platform" 
               className="px-4 py-2 hover:bg-muted rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              Home
+              Platform
             </Link>
             <Link 
-              to="/about" 
+              to="/freelancers" 
               className="px-4 py-2 hover:bg-muted rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              Freelancers
             </Link>
             <Link 
-              to="/services" 
+              to="/solutions" 
               className="px-4 py-2 hover:bg-muted rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              Services
+              Solutions
             </Link>
             <Link 
-              to="/contact" 
+              to="/pricing" 
               className="px-4 py-2 hover:bg-muted rounded-md"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              Pricing
             </Link>
             <Button className="mx-4">Get Started</Button>
           </nav>

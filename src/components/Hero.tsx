@@ -34,10 +34,10 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div ref={heroRef} className="w-full lg:w-1/2 text-center lg:text-left opacity-0 transition-all duration-700 transform translate-y-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight">
-              Bring Your Projects to Life Without Complexity
+              Infuse AI Into Your Company
             </h1>
             <p className="mt-6 text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-balance">
-              Stop struggling with chaotic project management. Wokkah helps you execute projects with AI assistance, so you can focus on what matters.
+              One platform to create, manage, and deliver your projects with AI-assistance and expert freelancers who bring your vision to life.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="btn-hover-effect">

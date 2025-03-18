@@ -12,7 +12,7 @@ const Footer = () => {
               Wokkah
             </Link>
             <p className="mt-4 text-muted-foreground">
-              Transforming homes into stunning, functional spaces that reflect your unique style and needs.
+              Infuse AI into your company. Simplify project management, connect with top talent, and bring your vision to life.
             </p>
           </div>
           
@@ -27,19 +27,19 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-medium mb-4">Services</h3>
+            <h3 className="text-lg font-medium mb-4">Features</h3>
             <ul className="space-y-2">
-              <li><Link to="/services/kitchen-remodeling" className="text-muted-foreground hover:text-primary transition-colors">Kitchen Remodeling</Link></li>
-              <li><Link to="/services/bathroom-renovation" className="text-muted-foreground hover:text-primary transition-colors">Bathroom Renovation</Link></li>
-              <li><Link to="/services/whole-home-renovations" className="text-muted-foreground hover:text-primary transition-colors">Whole Home Renovations</Link></li>
-              <li><Link to="/services/custom-solutions" className="text-muted-foreground hover:text-primary transition-colors">Custom Solutions</Link></li>
+              <li><Link to="/features/ai-prd" className="text-muted-foreground hover:text-primary transition-colors">AI-Powered PRD</Link></li>
+              <li><Link to="/features/project-management" className="text-muted-foreground hover:text-primary transition-colors">Project Management</Link></li>
+              <li><Link to="/features/talent-matching" className="text-muted-foreground hover:text-primary transition-colors">Talent Matching</Link></li>
+              <li><Link to="/features/customer-oversight" className="text-muted-foreground hover:text-primary transition-colors">Customer Oversight</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-medium mb-4">Contact</h3>
             <address className="not-italic text-muted-foreground">
-              <p>1234 Design Street</p>
+              <p>1234 Innovation Drive</p>
               <p>San Francisco, CA 94103</p>
               <p className="mt-2"><a href="tel:+11234567890" className="hover:text-primary transition-colors">+1 (123) 456-7890</a></p>
               <p><a href="mailto:hello@wokkah.com" className="hover:text-primary transition-colors">hello@wokkah.com</a></p>

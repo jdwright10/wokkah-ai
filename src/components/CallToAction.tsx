@@ -38,10 +38,10 @@ const CallToAction = () => {
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Project Execution?
+            Ready to Infuse AI Into Your Business?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance mb-8">
-            Join thousands of teams that have discovered a better way to bring their projects to life.
+            Join hundreds of companies that have simplified their AI implementation journey with Wokkah.
           </p>
           
           <div className="flex flex-col md:flex-row gap-4 justify-center">
