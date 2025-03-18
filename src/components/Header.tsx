@@ -41,7 +41,9 @@ const Header = () => {
           <Link to="/pricing" className="subtle-underline font-medium hover:text-primary">
             Pricing
           </Link>
-          <Button className="btn-hover-effect">Get Started</Button>
+          <Link to="/pricing">
+            <Button className="btn-hover-effect">Get Started</Button>
+          </Link>
         </nav>
         
         {/* Mobile menu button */}
@@ -79,7 +81,9 @@ const Header = () => {
             >
               Pricing
             </Link>
-            <Button className="mx-4">Get Started</Button>
+            <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>
+              <Button className="mx-4">Get Started</Button>
+            </Link>
           </nav>
         </div>
       )}
