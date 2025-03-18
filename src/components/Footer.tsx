@@ -1,8 +1,30 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Download } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Footer = () => {
+  const { toast } = useToast();
+  const hasSubmittedInfo = localStorage.getItem('leadGeneratorEmail') && 
+                         localStorage.getItem('leadGeneratorName');
+  
+  const downloadReport = () => {
+    // Trigger download of the PDF
+    const link = document.createElement('a');
+    link.href = '/ai-landscape-guide.pdf';
+    link.download = 'Demystifying the AI Landscape - A Complete Guide.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    toast({
+      title: "Download Started",
+      description: "Your AI guide is downloading now.",
+    });
+  };
+  
   return (
     <footer className="bg-neutral-50 border-t border-neutral-200">
       <div className="container py-12 md:py-16">
@@ -14,6 +36,17 @@ const Footer = () => {
             <p className="mt-4 text-muted-foreground">
               Infuse AI into your company. Simplify project management, connect with top talent, and bring your vision to life.
             </p>
+            
+            {hasSubmittedInfo && (
+              <Button 
+                onClick={downloadReport}
+                className="mt-6 flex items-center gap-2"
+                variant="outline"
+              >
+                <Download className="h-4 w-4" />
+                Download Free AI Guide
+              </Button>
+            )}
           </div>
           
           <div>
