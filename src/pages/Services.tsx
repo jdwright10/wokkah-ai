@@ -10,6 +10,7 @@ import {
   GraduationCap, 
   Megaphone 
 } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 const Services = () => {
   // Scroll to top on page load
@@ -19,10 +20,16 @@ const Services = () => {
 
   return (
     <MainLayout>
+      <Helmet>
+        <title>AI-Powered Services | Wokkah</title>
+        <meta name="description" content="Wokkah connects you with expert freelancers for all your AI implementation needs, from concept to deployment." />
+        <meta name="keywords" content="AI services, web design, AI agents, app development, cybersecurity, machine learning, AI integration" />
+      </Helmet>
+
       <section className="section pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="chip">Our Services</span>
+            <span className="chip inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Our Services</span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">
               Expert Services to Infuse AI into Your Business
             </h1>

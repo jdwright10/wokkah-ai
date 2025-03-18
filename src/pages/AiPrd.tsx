@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Brain, FileText, Sparkles, Clock, Wand2, Users } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 const AiPrd = () => {
   // Scroll to top on page load
@@ -12,6 +13,12 @@ const AiPrd = () => {
 
   return (
     <MainLayout>
+      <Helmet>
+        <title>AI-Powered PRD Generator | Wokkah</title>
+        <meta name="description" content="Transform your ideas into detailed product requirements with our AI-powered PRD generator. Define scope, features, and specifications faster." />
+        <meta name="keywords" content="PRD, product requirements, AI generator, product management, development documentation" />
+      </Helmet>
+
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">

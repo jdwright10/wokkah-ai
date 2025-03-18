@@ -12,6 +12,7 @@ import {
   LucideIcon
 } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Helmet } from 'react-helmet';
 
 const ProjectManagement = () => {
   // Scroll to top on page load
@@ -21,6 +22,12 @@ const ProjectManagement = () => {
 
   return (
     <MainLayout>
+      <Helmet>
+        <title>AI-Enhanced Project Management Tools | Wokkah</title>
+        <meta name="description" content="Streamline your projects with Wokkah's AI-enhanced project management tools. Plan, track, and deliver with greater efficiency and predictability." />
+        <meta name="keywords" content="project management, AI tools, task management, resource allocation, project analytics, team collaboration" />
+      </Helmet>
+      
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">

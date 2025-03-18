@@ -11,6 +11,7 @@ import {
   PaginationNext,
   PaginationPrevious
 } from '@/components/ui/pagination';
+import { Helmet } from 'react-helmet';
 
 const Blog = () => {
   // Scroll to top on page load
@@ -63,6 +64,12 @@ const Blog = () => {
 
   return (
     <MainLayout>
+      <Helmet>
+        <title>Wokkah Blog | Insights on AI, Project Management & Tech Talent</title>
+        <meta name="description" content="Explore our collection of articles, insights, and thoughts on AI, project management, talent matching, and the future of work." />
+        <meta name="keywords" content="AI blog, project management, talent matching, software development, tech industry trends" />
+      </Helmet>
+
       <section className="pt-32 pb-16">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">

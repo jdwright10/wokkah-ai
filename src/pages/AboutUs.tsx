@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const AboutUs = () => {
   useEffect(() => {
@@ -10,6 +11,12 @@ const AboutUs = () => {
 
   return (
     <MainLayout>
+      <Helmet>
+        <title>About Wokkah | AI-Powered Project Management & Talent Platform</title>
+        <meta name="description" content="Learn about Wokkah's journey to revolutionize project management, talent matching, and AI-powered development." />
+        <meta name="keywords" content="Wokkah, AI technology, project management, talent matching, company mission, software development" />
+      </Helmet>
+
       <section className="pt-32 pb-16">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -40,7 +47,7 @@ const AboutUs = () => {
             <div className="rounded-lg overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Team collaborating" 
+                alt="Team collaborating on software development" 
                 className="w-full h-auto"
               />
             </div>
