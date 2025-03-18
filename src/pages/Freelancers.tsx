@@ -2,7 +2,8 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
-import { Users, Star, BadgeCheck, Search, Filter, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Users, Star, BadgeCheck, Search, Filter, MessageSquare, ExternalLink } from 'lucide-react';
 
 const Freelancers = () => {
   // Scroll to top on page load
@@ -24,9 +25,17 @@ const Freelancers = () => {
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
               Access our curated network of skilled developers, designers, and project managers who have been vetted for their expertise and professionalism.
             </p>
-            <Button size="lg" className="mt-8">
-              Find Talent
-            </Button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+              <Button size="lg">
+                Find Talent
+              </Button>
+              <Link to="/become-a-freelancer">
+                <Button size="lg" variant="outline" className="group">
+                  <span>Become a Freelancer</span>
+                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Search and Filter Section */}
@@ -109,6 +118,25 @@ const Freelancers = () => {
               <Button size="lg">Request Talent Match</Button>
               <Button size="lg" variant="outline">Learn About Vetting Process</Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Freelancer signup banner */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl font-bold mb-4">Are You a Skilled Freelancer?</h2>
+              <p className="text-lg text-white/90">
+                Join our platform to find high-quality clients, access skill-building resources, and leverage AI tools to enhance your productivity.
+              </p>
+            </div>
+            <Link to="/become-a-freelancer">
+              <Button size="lg" className="bg-white text-blue-700 hover:bg-blue-50 shadow-lg">
+                Join as a Freelancer
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
