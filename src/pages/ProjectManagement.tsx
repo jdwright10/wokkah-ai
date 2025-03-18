@@ -11,6 +11,7 @@ import {
   FlaskConical,
   LucideIcon
 } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const ProjectManagement = () => {
   // Scroll to top on page load
@@ -62,9 +63,13 @@ const ProjectManagement = () => {
               Get a bird's-eye view of all your projects with our comprehensive dashboard that highlights progress, bottlenecks, and upcoming deadlines.
             </p>
             <div className="bg-white rounded-xl shadow-md border border-neutral-100 p-6">
-              <div className="aspect-video bg-neutral-50 rounded-lg flex items-center justify-center">
-                <p className="text-muted-foreground">Interactive Dashboard Preview</p>
-              </div>
+              <AspectRatio ratio={16 / 9} className="bg-neutral-50 rounded-lg overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1531297484001-80022131f5a1" 
+                  alt="Project Management Dashboard" 
+                  className="w-full h-full object-cover"
+                />
+              </AspectRatio>
             </div>
           </div>
 
