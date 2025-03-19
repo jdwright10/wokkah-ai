@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -22,10 +21,10 @@ const Team = () => {
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      role: "Chief Technology Officer",
-      bio: "Sarah oversees all technical aspects of Wokkah's platform, from architecture to implementation, ensuring scalability, security, and innovation.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      name: "Jason Wright",
+      role: "Chief Operations Officer",
+      bio: "Jason oversees Wokkah's daily operations, driving organizational efficiency and ensuring seamless execution of our strategic initiatives across all departments.",
+      image: "/lovable-uploads/e6c20e40-9661-4c54-8f7f-061457c37648.png",
       linkedin: "#",
       twitter: "#"
     },
