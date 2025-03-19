@@ -13,9 +13,9 @@ const Team = () => {
     {
       id: 1,
       name: "Dr. Iyanu Odebode",
-      role: "Chief Executive Officer",
+      role: "CEO/Chief Data Scientist",
       bio: "Dr. Odebode has over 15 years of experience in AI and software development. As CEO, he shapes the vision and strategic direction of Wokkah.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "/lovable-uploads/0fa5210f-4aad-46b5-8dd7-a87df694fe24.png",
       linkedin: "#",
       twitter: "#",
       website: "#"
