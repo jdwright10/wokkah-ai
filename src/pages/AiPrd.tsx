@@ -4,6 +4,7 @@ import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Brain, FileText, Sparkles, Clock, Wand2, Users } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 const AiPrd = () => {
   // Scroll to top on page load
@@ -31,8 +32,8 @@ const AiPrd = () => {
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
               Our AI-powered Product Requirements Document (PRD) generator helps you define your project scope, features, and specifications with unprecedented clarity and speed.
             </p>
-            <Button size="lg" className="mt-8">
-              Try AI PRD Generator
+            <Button size="lg" className="mt-8" asChild>
+              <Link to="/features/ai-prd/generator">Try AI PRD Generator</Link>
             </Button>
           </div>
 

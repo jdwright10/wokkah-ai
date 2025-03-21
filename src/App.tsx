@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
 import AiPrd from "./pages/AiPrd";
+import AiPrdGenerator from "./pages/AiPrdGenerator";
 import ProjectManagement from "./pages/ProjectManagement";
 import TalentMatching from "./pages/TalentMatching";
 import Freelancers from "./pages/Freelancers";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/services" element={<Services />} />
           <Route path="/features/ai-prd" element={<AiPrd />} />
+          <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
           <Route path="/features/project-management" element={<ProjectManagement />} />
           <Route path="/features/talent-matching" element={<TalentMatching />} />
           <Route path="/freelancers" element={<Freelancers />} />
