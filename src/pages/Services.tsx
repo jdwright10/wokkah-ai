@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
+import { Link } from 'react-router-dom';
 import { 
   Code, 
   Brain, 
@@ -8,9 +9,12 @@ import {
   Shield, 
   AppWindow, 
   GraduationCap, 
-  Megaphone 
+  Megaphone,
+  Zap,
+  ArrowRight
 } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { Button } from '@/components/ui/button';
 
 const Services = () => {
   // Scroll to top on page load
@@ -48,12 +52,24 @@ const Services = () => {
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-                <div className="mt-6">
-                  <p className="text-sm font-medium text-primary">Learn more →</p>
-                </div>
+                <p className="text-muted-foreground mb-6">{item.description}</p>
+                {item.link && (
+                  <Link to={item.link}>
+                    <Button variant="ghost" className="px-0 text-primary hover:text-primary/80 hover:bg-transparent group">
+                      Learn more <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                )}
               </div>
             ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link to="/services/business-automation">
+              <Button size="lg" className="group">
+                Explore Business Automation Tools <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -93,9 +109,10 @@ const serviceItems = [
     icon: <GraduationCap className="h-7 w-7 text-primary" />
   },
   {
-    title: "Marketing Automation",
-    description: "Enhance your marketing efforts with AI-powered automation and insights that optimize campaigns and increase ROI.",
-    icon: <Megaphone className="h-7 w-7 text-primary" />
+    title: "Business Automation",
+    description: "Transform your business operations with intelligent automation tools that save time, reduce errors, and boost productivity.",
+    icon: <Zap className="h-7 w-7 text-primary" />,
+    link: "/services/business-automation"
   },
   {
     title: "Machine Learning",

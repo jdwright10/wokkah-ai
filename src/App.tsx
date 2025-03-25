@@ -20,6 +20,13 @@ import Careers from "./pages/Careers";
 import Comparison from "./pages/Comparison";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import BusinessAutomationTools from "./pages/BusinessAutomationTools";
+import MarketingAutomation from "./pages/automation/MarketingAutomation";
+import HRAutomation from "./pages/automation/HRAutomation";
+import OperationsAutomation from "./pages/automation/OperationsAutomation";
+import FinanceAutomation from "./pages/automation/FinanceAutomation";
+import CustomerServiceAutomation from "./pages/automation/CustomerServiceAutomation";
+import ManufacturingAutomation from "./pages/automation/ManufacturingAutomation";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +40,13 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/business-automation" element={<BusinessAutomationTools />} />
+          <Route path="/services/business-automation/marketing" element={<MarketingAutomation />} />
+          <Route path="/services/business-automation/hr" element={<HRAutomation />} />
+          <Route path="/services/business-automation/operations" element={<OperationsAutomation />} />
+          <Route path="/services/business-automation/finance" element={<FinanceAutomation />} />
+          <Route path="/services/business-automation/customer-service" element={<CustomerServiceAutomation />} />
+          <Route path="/services/business-automation/manufacturing" element={<ManufacturingAutomation />} />
           <Route path="/features/ai-prd" element={<AiPrd />} />
           <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
           <Route path="/features/project-management" element={<ProjectManagement />} />
