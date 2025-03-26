@@ -175,6 +175,7 @@ const Header = () => {
         </button>
       </div>
       
+      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden fixed top-[72px] left-0 right-0 max-h-[80vh] overflow-y-auto bg-white shadow-lg animate-slide-in-right z-50">
           <nav className="container flex flex-col py-4 space-y-4">
