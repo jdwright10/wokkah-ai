@@ -11,6 +11,15 @@ import {
   Layers 
 } from 'lucide-react';
 import DemoRequestForm from '@/components/DemoRequestForm';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link } from 'react-router-dom';
 
 const PPCAutomation = () => {
   // Scroll to top on page load
@@ -27,6 +36,32 @@ const PPCAutomation = () => {
 
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-blue-50">
         <div className="container">
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/services">Services</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/services/business-automation">Business Automation</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>PPC Automation</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">PPC Automation</span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">

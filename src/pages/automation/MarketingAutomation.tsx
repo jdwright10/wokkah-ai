@@ -11,6 +11,7 @@ import {
   Share2, 
   Calendar
 } from 'lucide-react';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const MarketingAutomation = () => {
   // Scroll to top on page load
@@ -23,6 +24,13 @@ const MarketingAutomation = () => {
     window.open('https://calendly.com/wokkah/marketing-automation', '_blank');
   };
 
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Services', path: '/services' },
+    { label: 'Business Automation', path: '/services/business-automation' },
+    { label: 'Marketing Automation', isCurrent: true }
+  ];
+
   return (
     <MainLayout>
       <Helmet>
@@ -32,6 +40,8 @@ const MarketingAutomation = () => {
 
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-blue-50">
         <div className="container">
+          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
+          
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Marketing Automation</span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">
