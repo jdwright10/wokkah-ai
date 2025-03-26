@@ -79,7 +79,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Services</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 w-[400px]">
+                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 w-[400px] z-50">
                   <div className="grid grid-cols-2 gap-3 p-2">
                     {servicesLinks.map((link) => (
                       <Link
@@ -98,7 +98,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Features</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 min-w-[220px]">
+                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 min-w-[220px] z-50">
                   <div className="flex flex-col gap-2 p-2">
                     {featuresLinks.map((link) => (
                       <Link
@@ -117,7 +117,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">About</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 min-w-[200px]">
+                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 min-w-[200px] z-50">
                   <div className="flex flex-col gap-2 p-2">
                     {aboutLinks.map((link) => (
                       <Link
@@ -173,7 +173,7 @@ const Header = () => {
       
       {/* Mobile Navigation with Dropdowns */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-slide-in-right">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-slide-in-right z-50">
           <nav className="container flex flex-col py-4 space-y-4">
             {/* Services Dropdown */}
             <DropdownMenu>
@@ -181,7 +181,7 @@ const Header = () => {
                 <span>Services</span>
                 <ChevronDown size={16} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64">
+              <DropdownMenuContent className="w-64 bg-white z-50">
                 {servicesLinks.map((link) => (
                   <DropdownMenuItem key={link.href} asChild>
                     <Link to={link.href} onClick={() => setIsMenuOpen(false)}>
@@ -198,7 +198,7 @@ const Header = () => {
                 <span>Features</span>
                 <ChevronDown size={16} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64">
+              <DropdownMenuContent className="w-64 bg-white z-50">
                 {featuresLinks.map((link) => (
                   <DropdownMenuItem key={link.href} asChild>
                     <Link to={link.href} onClick={() => setIsMenuOpen(false)}>
@@ -215,7 +215,7 @@ const Header = () => {
                 <span>About</span>
                 <ChevronDown size={16} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64">
+              <DropdownMenuContent className="w-64 bg-white z-50">
                 {aboutLinks.map((link) => (
                   <DropdownMenuItem key={link.href} asChild>
                     <Link to={link.href} onClick={() => setIsMenuOpen(false)}>
