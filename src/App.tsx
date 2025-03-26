@@ -30,6 +30,8 @@ import ManufacturingAutomation from "./pages/automation/ManufacturingAutomation"
 import AmazonAutomation from "./pages/automation/AmazonAutomation";
 import PPCAutomation from "./pages/automation/PPCAutomation";
 import HiringAutomation from "./pages/automation/HiringAutomation";
+import SalesAutomation from "./pages/automation/SalesAutomation";
+import MarketResearch from "./pages/automation/MarketResearch";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +55,8 @@ const App = () => (
           <Route path="/services/business-automation/amazon" element={<AmazonAutomation />} />
           <Route path="/services/business-automation/ppc" element={<PPCAutomation />} />
           <Route path="/services/business-automation/hiring" element={<HiringAutomation />} />
+          <Route path="/services/business-automation/sales" element={<SalesAutomation />} />
+          <Route path="/services/business-automation/market-research" element={<MarketResearch />} />
           <Route path="/features/ai-prd" element={<AiPrd />} />
           <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
           <Route path="/features/project-management" element={<ProjectManagement />} />

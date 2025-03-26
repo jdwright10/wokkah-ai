@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -12,14 +11,15 @@ import {
   Hammer, 
   ShoppingCart,
   MousePointer,
-  UserPlus
+  UserPlus,
+  BarChart3,
+  DollarSign
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const BusinessAutomationTools = () => {
-  // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,8 +34,8 @@ const BusinessAutomationTools = () => {
     <MainLayout>
       <Helmet>
         <title>Business Automation Tools | Wokkah</title>
-        <meta name="description" content="Streamline your business with our AI-powered automation tools for marketing, HR, operations, finance and more." />
-        <meta name="keywords" content="business automation, workflow automation, marketing automation, HR automation, operations automation, finance automation" />
+        <meta name="description" content="Streamline your business with our AI-powered automation tools for marketing, HR, operations, finance, sales, and market research." />
+        <meta name="keywords" content="business automation, workflow automation, marketing automation, HR automation, operations automation, finance automation, sales automation, market research automation" />
       </Helmet>
 
       <section className="section pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
@@ -131,6 +131,18 @@ const automationServices = [
     description: "Streamline your recruitment process with automated job posting, applicant screening, interview scheduling, and candidate engagement.",
     icon: <UserPlus className="h-7 w-7 text-primary" />,
     link: "/services/business-automation/hiring"
+  },
+  {
+    title: "Sales Automation",
+    description: "Boost sales efficiency and conversion rates with AI-powered lead management, proposal generation, and pipeline optimization tools.",
+    icon: <DollarSign className="h-7 w-7 text-primary" />,
+    link: "/services/business-automation/sales"
+  },
+  {
+    title: "Market Research & Customer Sentiment",
+    description: "Gain valuable insights into market trends and customer sentiment with AI-powered analytics, feedback collection, and sentiment analysis.",
+    icon: <BarChart3 className="h-7 w-7 text-primary" />,
+    link: "/services/business-automation/market-research"
   }
 ];
 

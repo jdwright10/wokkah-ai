@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -8,7 +7,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
@@ -30,6 +28,8 @@ const servicesLinks = [
   { name: 'Amazon Automation', href: '/services/business-automation/amazon' },
   { name: 'PPC Automation', href: '/services/business-automation/ppc' },
   { name: 'Hiring Automation', href: '/services/business-automation/hiring' },
+  { name: 'Sales Automation', href: '/services/business-automation/sales' },
+  { name: 'Market Research & Sentiment', href: '/services/business-automation/market-research' },
 ];
 
 const featuresLinks = [
