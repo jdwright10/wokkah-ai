@@ -68,3 +68,37 @@
 .section {
   @apply py-16 md:py-24;
 }
+
+/* Add modern gradient animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-700;
+}
+
+.gradient-bg-blue-purple {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600;
+}
+
+.gradient-bg-subtle {
+  @apply bg-gradient-to-r from-blue-50 to-purple-50;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Styling for the chip component */
+.chip {
+  @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700;
+}
