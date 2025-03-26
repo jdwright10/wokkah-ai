@@ -78,13 +78,13 @@ const Header = () => {
                   <span className="font-medium">Services</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full min-w-[250px] max-w-screen-lg mx-auto z-50">
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 p-2">
+                  <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[250px] z-50">
+                    <div className="flex flex-col gap-2 p-2">
                       {servicesLinks.map((link) => (
                         <Link
                           key={link.href}
                           to={link.href}
-                          className="block p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
+                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
                         >
                           {link.name}
                         </Link>
