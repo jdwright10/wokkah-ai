@@ -10,9 +10,12 @@ import {
   LineChart, 
   Building, 
   Hammer, 
-  ArrowRight 
+  ShoppingCart,
+  MousePointer,
+  UserPlus
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const BusinessAutomationTools = () => {
   // Scroll to top on page load
@@ -31,7 +34,7 @@ const BusinessAutomationTools = () => {
       <section className="section pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="chip inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Business Automation</span>
+            <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Business Automation</span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">
               Transform Your Business with Intelligent Automation
             </h1>
@@ -101,6 +104,24 @@ const automationServices = [
     description: "Streamline production processes, quality control, and supply chain management with intelligent manufacturing automation solutions.",
     icon: <Hammer className="h-7 w-7 text-primary" />,
     link: "/services/business-automation/manufacturing"
+  },
+  {
+    title: "Amazon Automation",
+    description: "Optimize your Amazon listings, automate inventory management, and maximize sales with AI-powered Amazon marketplace automation.",
+    icon: <ShoppingCart className="h-7 w-7 text-primary" />,
+    link: "/services/business-automation/amazon"
+  },
+  {
+    title: "PPC Automation",
+    description: "Enhance your pay-per-click campaigns with intelligent bid management, automated A/B testing, and data-driven optimization.",
+    icon: <MousePointer className="h-7 w-7 text-primary" />,
+    link: "/services/business-automation/ppc"
+  },
+  {
+    title: "Hiring Automation",
+    description: "Streamline your recruitment process with automated job posting, applicant screening, interview scheduling, and candidate engagement.",
+    icon: <UserPlus className="h-7 w-7 text-primary" />,
+    link: "/services/business-automation/hiring"
   }
 ];
 

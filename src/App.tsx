@@ -27,6 +27,9 @@ import OperationsAutomation from "./pages/automation/OperationsAutomation";
 import FinanceAutomation from "./pages/automation/FinanceAutomation";
 import CustomerServiceAutomation from "./pages/automation/CustomerServiceAutomation";
 import ManufacturingAutomation from "./pages/automation/ManufacturingAutomation";
+import AmazonAutomation from "./pages/automation/AmazonAutomation";
+import PPCAutomation from "./pages/automation/PPCAutomation";
+import HiringAutomation from "./pages/automation/HiringAutomation";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +50,9 @@ const App = () => (
           <Route path="/services/business-automation/finance" element={<FinanceAutomation />} />
           <Route path="/services/business-automation/customer-service" element={<CustomerServiceAutomation />} />
           <Route path="/services/business-automation/manufacturing" element={<ManufacturingAutomation />} />
+          <Route path="/services/business-automation/amazon" element={<AmazonAutomation />} />
+          <Route path="/services/business-automation/ppc" element={<PPCAutomation />} />
+          <Route path="/services/business-automation/hiring" element={<HiringAutomation />} />
           <Route path="/features/ai-prd" element={<AiPrd />} />
           <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
           <Route path="/features/project-management" element={<ProjectManagement />} />
