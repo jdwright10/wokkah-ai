@@ -78,20 +78,19 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Services</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="absolute top-full left-0">
-                  <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[250px] z-50">
-                    <div className="flex flex-col gap-2 p-2">
-                      {servicesLinks.map((link) => (
+                <NavigationMenuContent className="w-[400px]">
+                  <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
+                    {servicesLinks.map((link) => (
+                      <li key={link.href}>
                         <Link
-                          key={link.href}
                           to={link.href}
-                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
+                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium block w-full"
                         >
                           {link.name}
                         </Link>
-                      ))}
-                    </div>
-                  </div>
+                      </li>
+                    ))}
+                  </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -99,20 +98,19 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Features</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="absolute top-full left-0">
-                  <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[250px] z-50">
-                    <div className="flex flex-col gap-2 p-2">
-                      {featuresLinks.map((link) => (
+                <NavigationMenuContent className="w-[250px]">
+                  <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
+                    {featuresLinks.map((link) => (
+                      <li key={link.href}>
                         <Link
-                          key={link.href}
                           to={link.href}
-                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
+                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium block w-full"
                         >
                           {link.name}
                         </Link>
-                      ))}
-                    </div>
-                  </div>
+                      </li>
+                    ))}
+                  </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -120,20 +118,19 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">About</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="absolute top-full left-0">
-                  <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[250px] z-50">
-                    <div className="flex flex-col gap-2 p-2">
-                      {aboutLinks.map((link) => (
+                <NavigationMenuContent className="w-[250px]">
+                  <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
+                    {aboutLinks.map((link) => (
+                      <li key={link.href}>
                         <Link
-                          key={link.href}
                           to={link.href}
-                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
+                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium block w-full"
                         >
                           {link.name}
                         </Link>
-                      ))}
-                    </div>
-                  </div>
+                      </li>
+                    ))}
+                  </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
