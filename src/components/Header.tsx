@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -77,7 +78,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Services</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="fixed left-0 right-0 top-full bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full max-w-screen-lg mx-auto z-50">
+                <NavigationMenuContent className="fixed left-0 right-0 top-full bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full min-w-[250px] max-w-screen-lg mx-auto z-50">
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 p-2">
                     {servicesLinks.map((link) => (
                       <Link
@@ -96,7 +97,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Features</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[220px] z-50">
+                <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[250px] z-50">
                   <div className="flex flex-col gap-2 p-2">
                     {featuresLinks.map((link) => (
                       <Link
@@ -115,7 +116,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">About</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[200px] z-50">
+                <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[250px] z-50">
                   <div className="flex flex-col gap-2 p-2">
                     {aboutLinks.map((link) => (
                       <Link
