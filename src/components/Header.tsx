@@ -79,13 +79,13 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Services</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 w-[400px] z-50">
+                <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-[400px] z-50">
                   <div className="grid grid-cols-2 gap-3 p-2">
                     {servicesLinks.map((link) => (
                       <Link
                         key={link.href}
                         to={link.href}
-                        className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
+                        className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium truncate"
                       >
                         {link.name}
                       </Link>
@@ -98,13 +98,13 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">Features</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 min-w-[220px] z-50">
+                <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[220px] z-50">
                   <div className="flex flex-col gap-2 p-2">
                     {featuresLinks.map((link) => (
                       <Link
                         key={link.href}
                         to={link.href}
-                        className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
+                        className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium truncate"
                       >
                         {link.name}
                       </Link>
@@ -117,13 +117,13 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">About</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-lg border border-gray-200 min-w-[200px] z-50">
+                <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 min-w-[200px] z-50">
                   <div className="flex flex-col gap-2 p-2">
                     {aboutLinks.map((link) => (
                       <Link
                         key={link.href}
                         to={link.href}
-                        className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium"
+                        className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium truncate"
                       >
                         {link.name}
                       </Link>
@@ -173,7 +173,7 @@ const Header = () => {
       
       {/* Mobile Navigation with Dropdowns */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-slide-in-right z-50">
+        <div className="md:hidden fixed top-[72px] left-0 right-0 max-h-[80vh] overflow-y-auto bg-white shadow-lg animate-slide-in-right z-50">
           <nav className="container flex flex-col py-4 space-y-4">
             {/* Services Dropdown */}
             <DropdownMenu>
@@ -181,9 +181,9 @@ const Header = () => {
                 <span>Services</span>
                 <ChevronDown size={16} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64 bg-white z-50">
+              <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
                 {servicesLinks.map((link) => (
-                  <DropdownMenuItem key={link.href} asChild>
+                  <DropdownMenuItem key={link.href} className="py-2" asChild>
                     <Link to={link.href} onClick={() => setIsMenuOpen(false)}>
                       {link.name}
                     </Link>
@@ -198,9 +198,9 @@ const Header = () => {
                 <span>Features</span>
                 <ChevronDown size={16} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64 bg-white z-50">
+              <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
                 {featuresLinks.map((link) => (
-                  <DropdownMenuItem key={link.href} asChild>
+                  <DropdownMenuItem key={link.href} className="py-2" asChild>
                     <Link to={link.href} onClick={() => setIsMenuOpen(false)}>
                       {link.name}
                     </Link>
@@ -215,9 +215,9 @@ const Header = () => {
                 <span>About</span>
                 <ChevronDown size={16} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64 bg-white z-50">
+              <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
                 {aboutLinks.map((link) => (
-                  <DropdownMenuItem key={link.href} asChild>
+                  <DropdownMenuItem key={link.href} className="py-2" asChild>
                     <Link to={link.href} onClick={() => setIsMenuOpen(false)}>
                       {link.name}
                     </Link>
