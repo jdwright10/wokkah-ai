@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -53,19 +54,15 @@ const Hero = () => {
           <div 
             className="w-full lg:w-1/2 bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-700 transform opacity-0 translate-y-8 animate-fade-in"
           >
-            <div className="relative aspect-video w-full rounded-xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center group cursor-pointer">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <ArrowRight size={30} className="text-white ml-1" />
-                </div>
-              </div>
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-100 to-purple-100" />
-              <img 
-                src="/lovable-uploads/d5c5ce1f-63a0-4dd0-9172-bf41b0921a63.png" 
-                alt="Wokkah AI Platform"
-                className="object-cover w-full h-full opacity-70"
-              />
-            </div>
+            <AspectRatio ratio={16/9} className="w-full">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/bh2Odj8PfdY?start=62" 
+                title="Wokkah AI Platform Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
+            </AspectRatio>
           </div>
         </div>
       </div>
