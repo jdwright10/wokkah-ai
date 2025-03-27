@@ -42,16 +42,20 @@ const PPCAutomation = () => {
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700 mb-4">PPC Automation</span>
             
             <div className="flex justify-center items-center gap-8 mb-6">
-              <img 
-                src="/lovable-uploads/fa83c7fc-4532-4096-b65c-54acc2514ee5.png" 
-                alt="Google Ads Logo" 
-                className="h-16 md:h-24"
-              />
-              <img 
-                src="/lovable-uploads/cbc40028-51d2-4a5c-8397-c478342fe906.png" 
-                alt="Bing Ads Logo" 
-                className="h-12 md:h-20"
-              />
+              <div className="bg-blue-50 p-1 rounded-lg">
+                <img 
+                  src="/lovable-uploads/fa83c7fc-4532-4096-b65c-54acc2514ee5.png" 
+                  alt="Google Ads Logo" 
+                  className="h-16 md:h-24"
+                />
+              </div>
+              <div className="bg-blue-50 p-1 rounded-lg">
+                <img 
+                  src="/lovable-uploads/cbc40028-51d2-4a5c-8397-c478342fe906.png" 
+                  alt="Bing Ads Logo" 
+                  className="h-12 md:h-20"
+                />
+              </div>
             </div>
 
             <h1 className="mt-4 text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
