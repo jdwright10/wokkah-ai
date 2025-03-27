@@ -23,6 +23,15 @@ const AmazonAutomation = () => {
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Amazon Automation</span>
+            
+            <div className="flex justify-center items-center mb-6">
+              <img 
+                src="/lovable-uploads/40a2197b-40e9-40ad-9313-bf1e2ed4d10e.png" 
+                alt="Amazon Logo" 
+                className="h-16 md:h-20"
+              />
+            </div>
+            
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">
               Dominate the Amazon Marketplace with Intelligent Automation
             </h1>
