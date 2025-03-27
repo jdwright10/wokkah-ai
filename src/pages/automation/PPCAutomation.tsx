@@ -40,6 +40,20 @@ const PPCAutomation = () => {
 
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700 mb-4">PPC Automation</span>
+            
+            <div className="flex justify-center items-center gap-8 mb-6">
+              <img 
+                src="/lovable-uploads/0fa5210f-4aad-46b5-8dd7-a87df694fe24.png" 
+                alt="Google Ads Logo" 
+                className="h-12 md:h-16"
+              />
+              <img 
+                src="/lovable-uploads/e6c20e40-9661-4c54-8f7f-061457c37648.png" 
+                alt="Bing Ads Logo" 
+                className="h-12 md:h-16"
+              />
+            </div>
+
             <h1 className="mt-4 text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
               Supercharge Your PPC Campaigns with Intelligent Automation
             </h1>
