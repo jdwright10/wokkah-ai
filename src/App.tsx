@@ -12,6 +12,7 @@ import AiPrdGenerator from "./pages/AiPrdGenerator";
 import ProjectManagement from "./pages/ProjectManagement";
 import TalentMatching from "./pages/TalentMatching";
 import FindTalent from "./pages/FindTalent";
+import AiMatching from "./pages/AiMatching";
 import Freelancers from "./pages/Freelancers";
 import BecomeFreelancer from "./pages/BecomeFreelancer";
 import Blog from "./pages/Blog";
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/features/project-management" element={<ProjectManagement />} />
           <Route path="/features/talent-matching" element={<TalentMatching />} />
           <Route path="/find-talent" element={<FindTalent />} />
+          <Route path="/ai-matching" element={<AiMatching />} />
           <Route path="/talent/:id" element={<TalentProfile />} />
           <Route path="/freelancers" element={<Freelancers />} />
           <Route path="/become-a-freelancer" element={<BecomeFreelancer />} />

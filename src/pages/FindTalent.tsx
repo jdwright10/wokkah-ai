@@ -166,7 +166,9 @@ const FindTalent = () => {
                 <p className="text-muted-foreground mb-4">
                   Let our AI matching system find the perfect professionals for your specific project requirements.
                 </p>
-                <Button className="w-full">Use AI Matching</Button>
+                <Button className="w-full" asChild>
+                  <Link to="/ai-matching">Use AI Matching</Link>
+                </Button>
               </div>
               
               <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
