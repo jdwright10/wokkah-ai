@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -21,10 +20,19 @@ const AiPrdGenerator = () => {
   const [showApiKey, setShowApiKey] = useState(false);
   const [isGeneratingPrd, setIsGeneratingPrd] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to top on component mount
+  // Ensure page starts at the top on component mount
   useEffect(() => {
+    // Force scroll to top immediately
     window.scrollTo(0, 0);
+    
+    // Also apply after a slight delay to ensure it works after all content is loaded
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -34,8 +42,11 @@ const AiPrdGenerator = () => {
     }
   }, []);
 
+  // Scroll messages to bottom when messages change, but contained within the chat area
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
   }, [messages]);
 
   const handleSendMessage = async () => {
@@ -184,7 +195,7 @@ const AiPrdGenerator = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-7 bg-white p-6 rounded-xl shadow-sm border border-neutral-100">
+            <div className="lg:col-span-7 bg-white p-6 rounded-xl shadow-sm border border-neutral-100" ref={chatContainerRef}>
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
                   <Brain className="h-5 w-5 text-primary" />
