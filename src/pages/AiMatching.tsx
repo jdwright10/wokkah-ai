@@ -2,29 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
-import { Slider } from '@/components/ui/slider';
-import { 
-  Card, 
-  CardContent,
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import { 
   BrainCircuit, 
   Briefcase, 
@@ -40,33 +20,43 @@ import {
 import { toast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
 import { talentData } from '@/data/talentData';
+import TalentMatchingChat from '@/components/TalentMatchingChat';
 
 const AiMatching = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [projectDescription, setProjectDescription] = useState('');
-  const [budget, setBudget] = useState('');
-  const [timeline, setTimeline] = useState('');
-  const [skillsNeeded, setSkillsNeeded] = useState('');
-  const [experienceLevel, setExperienceLevel] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [matchingResults, setMatchingResults] = useState<boolean>(false);
+  const [projectRequirements, setProjectRequirements] = useState<{
+    description: string;
+    budget: string;
+    timeline: string;
+    skills: string[];
+    experienceLevel: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const handleProjectRequirementsComplete = (requirements) => {
+    setProjectRequirements(requirements);
     
     // Simulate API call with loading state
+    toast({
+      title: "Processing...",
+      description: "Analyzing project requirements and finding talent matches.",
+    });
+    
     setTimeout(() => {
-      setIsSubmitting(false);
       setMatchingResults(true);
       toast({
         title: "Matching Complete",
         description: "We've found talent matches based on your project requirements.",
       });
     }, 1500);
+  };
+
+  const resetSearch = () => {
+    setMatchingResults(false);
+    setProjectRequirements(null);
   };
 
   return (
@@ -81,126 +71,91 @@ const AiMatching = () => {
               Find Your Perfect Team with AI
             </h1>
             <p className="text-lg text-muted-foreground">
-              Our AI-powered talent matching system analyzes your project requirements and connects you with the most qualified professionals.
+              Chat with our AI assistant to help define your project needs and match with the most qualified professionals.
             </p>
           </div>
 
           {!matchingResults ? (
-            <Card className="max-w-3xl mx-auto">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BrainCircuit className="h-6 w-6 text-primary" />
-                  <span>Project Requirements</span>
-                </CardTitle>
-                <CardDescription>
-                  Provide details about your project to help our AI find the best talent matches.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="projectDescription">Project Description</Label>
-                    <Textarea 
-                      id="projectDescription" 
-                      placeholder="Describe your project, goals, and deliverables..." 
-                      value={projectDescription}
-                      onChange={(e) => setProjectDescription(e.target.value)}
-                      className="min-h-[120px]"
-                      required
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="budget">Budget Range</Label>
-                      <Select value={budget} onValueChange={setBudget} required>
-                        <SelectTrigger id="budget">
-                          <SelectValue placeholder="Select budget range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="under-5k">Under $5,000</SelectItem>
-                          <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                          <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                          <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                          <SelectItem value="over-50k">Over $50,000</SelectItem>
-                        </SelectContent>
-                      </Select>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+              <div className="lg:col-span-7">
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <BrainCircuit className="h-6 w-6 text-primary" />
+                      <span>AI Talent Assistant</span>
+                    </CardTitle>
+                    <CardDescription>
+                      Chat with our AI to define your project requirements and find the perfect talent match.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="h-[550px]">
+                    <TalentMatchingChat onProjectRequirementsComplete={handleProjectRequirementsComplete} />
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <div className="lg:col-span-5">
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Sparkles className="h-6 w-6 text-primary" />
+                      <span>How It Works</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-6">
+                      <div className="flex gap-4">
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <span className="font-medium">1</span>
+                        </div>
+                        <div>
+                          <h3 className="font-medium mb-1">Chat About Your Project</h3>
+                          <p className="text-sm text-muted-foreground">
+                            Describe your project needs in your own words. Our AI will ask relevant questions to understand your requirements.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex gap-4">
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <span className="font-medium">2</span>
+                        </div>
+                        <div>
+                          <h3 className="font-medium mb-1">AI Analyzes Requirements</h3>
+                          <p className="text-sm text-muted-foreground">
+                            Our AI extracts key project details and required skills from your conversation.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex gap-4">
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <span className="font-medium">3</span>
+                        </div>
+                        <div>
+                          <h3 className="font-medium mb-1">Find Your Perfect Match</h3>
+                          <p className="text-sm text-muted-foreground">
+                            We match you with talent that has the exact skills and experience your project needs.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex gap-4">
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <span className="font-medium">4</span>
+                        </div>
+                        <div>
+                          <h3 className="font-medium mb-1">Connect & Collaborate</h3>
+                          <p className="text-sm text-muted-foreground">
+                            Review matched profiles and start working with the right talent for your project.
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="timeline">Timeline</Label>
-                      <Select value={timeline} onValueChange={setTimeline} required>
-                        <SelectTrigger id="timeline">
-                          <SelectValue placeholder="Select timeline" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="under-1-month">Less than 1 month</SelectItem>
-                          <SelectItem value="1-3-months">1-3 months</SelectItem>
-                          <SelectItem value="3-6-months">3-6 months</SelectItem>
-                          <SelectItem value="over-6-months">Over 6 months</SelectItem>
-                          <SelectItem value="ongoing">Ongoing</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="skillsNeeded">Skills Needed</Label>
-                    <Input 
-                      id="skillsNeeded" 
-                      placeholder="e.g., React, UI Design, Python, AWS (comma separated)" 
-                      value={skillsNeeded}
-                      onChange={(e) => setSkillsNeeded(e.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="experienceLevel">Required Experience Level</Label>
-                    <Select value={experienceLevel} onValueChange={setExperienceLevel} required>
-                      <SelectTrigger id="experienceLevel">
-                        <SelectValue placeholder="Select experience level" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="entry">Entry Level (0-2 years)</SelectItem>
-                        <SelectItem value="mid">Mid Level (3-5 years)</SelectItem>
-                        <SelectItem value="senior">Senior Level (5-8 years)</SelectItem>
-                        <SelectItem value="expert">Expert Level (8+ years)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="flex items-start space-x-2">
-                    <Checkbox id="availability" defaultChecked />
-                    <div className="grid gap-1.5 leading-none">
-                      <Label htmlFor="availability" className="text-sm font-medium leading-none">
-                        Only show professionals available for immediate start
-                      </Label>
-                    </div>
-                  </div>
-                </form>
-              </CardContent>
-              <CardFooter>
-                <Button 
-                  type="submit" 
-                  className="w-full"
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center gap-2">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                      Finding Matches...
-                    </div>
-                  ) : (
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4" />
-                      Find Matching Talent
-                    </div>
-                  )}
-                </Button>
-              </CardFooter>
-            </Card>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           ) : (
             <div className="space-y-8">
               <div className="bg-white rounded-xl p-6 shadow-sm border border-neutral-100 max-w-4xl mx-auto">
@@ -211,87 +166,142 @@ const AiMatching = () => {
                 <p className="text-muted-foreground mb-4">
                   Based on your project requirements, we've identified the following top matches. These professionals have the skills and experience needed for your project.
                 </p>
-                <Button variant="outline" onClick={() => setMatchingResults(false)} className="mb-4">
+                {projectRequirements && (
+                  <div className="bg-neutral-50 p-4 rounded-lg mb-4">
+                    <h3 className="font-medium mb-2">Project Summary</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <p className="text-muted-foreground">Description:</p>
+                        <p>{projectRequirements.description}</p>
+                      </div>
+                      {projectRequirements.budget && (
+                        <div>
+                          <p className="text-muted-foreground">Budget:</p>
+                          <p>{projectRequirements.budget}</p>
+                        </div>
+                      )}
+                      {projectRequirements.timeline && (
+                        <div>
+                          <p className="text-muted-foreground">Timeline:</p>
+                          <p>{projectRequirements.timeline}</p>
+                        </div>
+                      )}
+                      <div>
+                        <p className="text-muted-foreground">Experience Level:</p>
+                        <p>{projectRequirements.experienceLevel || 'Any'}</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <p className="text-muted-foreground">Skills Needed:</p>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {projectRequirements.skills.map((skill, i) => (
+                            <Badge key={i} variant="secondary">{skill}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <Button variant="outline" onClick={resetSearch}>
                   Refine Search
                 </Button>
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
-                {talentData.map((talent, index) => (
-                  <div key={talent.id} className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6 hover:shadow-md transition-shadow">
-                    <div className="flex flex-col md:flex-row gap-6">
-                      <div className="relative">
-                        <Avatar className="h-20 w-20">
-                          <AvatarImage src={talent.avatar} alt={talent.name} />
-                          <AvatarFallback>{talent.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                        <div className="absolute -top-2 -right-2 bg-primary text-white text-xs font-medium rounded-full w-6 h-6 flex items-center justify-center">
-                          {98 - index * 5}%
-                        </div>
-                      </div>
-                      
-                      <div className="flex-grow">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                          <h3 className="text-lg font-bold">{talent.name}</h3>
-                          <div className="flex items-center gap-1">
-                            <Star className="fill-yellow-400 stroke-yellow-400 h-4 w-4" />
-                            <span className="text-sm font-medium">{talent.rating}/5</span>
-                            <span className="text-sm text-muted-foreground">({talent.reviewCount})</span>
+                {/* Filter talent based on required skills if available */}
+                {talentData
+                  .filter(talent => {
+                    if (!projectRequirements?.skills.length) return true;
+                    return talent.skills.some(skill => 
+                      projectRequirements.skills.some(reqSkill => 
+                        skill.toLowerCase().includes(reqSkill.toLowerCase()) ||
+                        reqSkill.toLowerCase().includes(skill.toLowerCase())
+                      )
+                    );
+                  })
+                  .map((talent, index) => (
+                    <div key={talent.id} className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6 hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row gap-6">
+                        <div className="relative">
+                          <Avatar className="h-20 w-20">
+                            <AvatarImage src={talent.avatar} alt={talent.name} />
+                            <AvatarFallback>{talent.name.charAt(0)}</AvatarFallback>
+                          </Avatar>
+                          <div className="absolute -top-2 -right-2 bg-primary text-white text-xs font-medium rounded-full w-6 h-6 flex items-center justify-center">
+                            {98 - index * 5}%
                           </div>
                         </div>
                         
-                        <p className="font-medium text-primary mb-1">{talent.title}</p>
-                        
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-4 w-4" />
-                            <span>{talent.location}</span>
+                        <div className="flex-grow">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                            <h3 className="text-lg font-bold">{talent.name}</h3>
+                            <div className="flex items-center gap-1">
+                              <Star className="fill-yellow-400 stroke-yellow-400 h-4 w-4" />
+                              <span className="text-sm font-medium">{talent.rating}/5</span>
+                              <span className="text-sm text-muted-foreground">({talent.reviewCount})</span>
+                            </div>
                           </div>
-                          <span>•</span>
-                          <div className="flex items-center gap-1">
-                            <Briefcase className="h-4 w-4" />
-                            <span>{talent.experience}</span>
+                          
+                          <p className="font-medium text-primary mb-1">{talent.title}</p>
+                          
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                            <div className="flex items-center gap-1">
+                              <MapPin className="h-4 w-4" />
+                              <span>{talent.location}</span>
+                            </div>
+                            <span>•</span>
+                            <div className="flex items-center gap-1">
+                              <Briefcase className="h-4 w-4" />
+                              <span>{talent.experience}</span>
+                            </div>
+                            <span>•</span>
+                            <div className="flex items-center gap-1">
+                              <Clock className="h-4 w-4" />
+                              <span>{talent.availability}</span>
+                            </div>
                           </div>
-                          <span>•</span>
-                          <div className="flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            <span>{talent.availability}</span>
+                          
+                          <p className="text-muted-foreground mb-4 line-clamp-2">{talent.bio}</p>
+                          
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {talent.skills.map((skill, index) => (
+                              <Badge 
+                                key={index} 
+                                variant={
+                                  projectRequirements?.skills.some(reqSkill => 
+                                    skill.toLowerCase().includes(reqSkill.toLowerCase()) ||
+                                    reqSkill.toLowerCase().includes(skill.toLowerCase())
+                                  ) ? "default" : "secondary"
+                                } 
+                                className="rounded-full"
+                              >
+                                {skill}
+                              </Badge>
+                            ))}
                           </div>
-                        </div>
-                        
-                        <p className="text-muted-foreground mb-4 line-clamp-2">{talent.bio}</p>
-                        
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {talent.skills.map((skill, index) => (
-                            <Badge key={index} variant="secondary" className="rounded-full">
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                        
-                        <div className="flex gap-3">
-                          <Button variant="outline" size="sm" asChild className="flex items-center gap-2">
-                            <Link to={`/talent/${talent.id}`}>
-                              View Full Profile
-                            </Link>
-                          </Button>
-                          <Button 
-                            size="sm" 
-                            className="flex items-center gap-2"
-                            onClick={() => {
-                              toast({
-                                title: "Contact Request",
-                                description: `You've initiated contact with ${talent.name}. Check your messages for updates.`,
-                              });
-                            }}
-                          >
-                            <MessageSquare className="h-4 w-4" /> Contact
-                          </Button>
+                          
+                          <div className="flex gap-3">
+                            <Button variant="outline" size="sm" asChild className="flex items-center gap-2">
+                              <Link to={`/talent/${talent.id}`}>
+                                View Full Profile
+                              </Link>
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              className="flex items-center gap-2"
+                              onClick={() => {
+                                toast({
+                                  title: "Contact Request",
+                                  description: `You've initiated contact with ${talent.name}. Check your messages for updates.`,
+                                });
+                              }}
+                            >
+                              <MessageSquare className="h-4 w-4" /> Contact
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
 
               <div className="max-w-4xl mx-auto bg-primary/10 rounded-xl p-8 text-center">
