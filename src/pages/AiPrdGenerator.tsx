@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -21,7 +20,6 @@ const AiPrdGenerator = () => {
   const [isGeneratingPrd, setIsGeneratingPrd] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Load API key from localStorage on initial load
   useEffect(() => {
     const savedApiKey = localStorage.getItem('openai_api_key');
     if (savedApiKey) {
@@ -29,7 +27,6 @@ const AiPrdGenerator = () => {
     }
   }, []);
 
-  // Scroll to bottom of messages
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -37,21 +34,18 @@ const AiPrdGenerator = () => {
   const handleSendMessage = async () => {
     if (!input.trim()) return;
     
-    // Add user message
     const userMessage = { role: 'user' as const, content: input };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsTyping(true);
     
     try {
-      // Generate assistant response
       const responseContent = await generateAssistantResponse(
         [...messages, userMessage],
         input,
         apiKey
       );
       
-      // Add assistant message
       setMessages(prev => [...prev, { role: 'assistant', content: responseContent }]);
     } catch (error) {
       toast.error('Failed to generate response');
@@ -118,6 +112,15 @@ const AiPrdGenerator = () => {
     setShowApiKey(!showApiKey);
   };
 
+  const handleDeleteMessage = (index: number) => {
+    setMessages(prev => {
+      const newMessages = [...prev];
+      newMessages.splice(index, 1);
+      return newMessages;
+    });
+    toast.success("Message deleted");
+  };
+
   return (
     <MainLayout>
       <Helmet>
@@ -142,7 +145,6 @@ const AiPrdGenerator = () => {
             </p>
           </div>
 
-          {/* API Key Section */}
           <div className="mb-8 p-6 rounded-xl shadow-sm border border-neutral-100 bg-white">
             <div className="flex items-center gap-2 mb-4">
               <Lock className="h-5 w-5 text-primary" />
@@ -173,7 +175,6 @@ const AiPrdGenerator = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Chat Interface */}
             <div className="lg:col-span-7 bg-white p-6 rounded-xl shadow-sm border border-neutral-100">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
@@ -196,7 +197,8 @@ const AiPrdGenerator = () => {
                     <ChatMessage 
                       key={index} 
                       message={message} 
-                      isLast={index === messages.length - 1} 
+                      isLast={index === messages.length - 1}
+                      onDelete={message.role === 'user' ? () => handleDeleteMessage(index) : undefined}
                     />
                   ))}
                   {isTyping && (
@@ -254,7 +256,6 @@ const AiPrdGenerator = () => {
               </div>
             </div>
 
-            {/* Generated PRD */}
             <div className="lg:col-span-5 bg-white p-6 rounded-xl shadow-sm border border-neutral-100">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">

@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Avatar } from '@/components/ui/avatar';
-import { Brain, User } from 'lucide-react';
+import { Brain, User, Trash2 } from 'lucide-react';
 
 interface ChatMessageProps {
   message: {
@@ -10,14 +10,15 @@ interface ChatMessageProps {
     content: string;
   };
   isLast?: boolean;
+  onDelete?: () => void; // Add delete handler
 }
 
-const ChatMessage = ({ message, isLast = false }: ChatMessageProps) => {
+const ChatMessage = ({ message, isLast = false, onDelete }: ChatMessageProps) => {
   const isUser = message.role === 'user';
 
   return (
     <div className={cn(
-      "flex gap-3 p-4",
+      "flex gap-3 p-4 group",
       isLast && "animate-in fade-in",
       isUser ? "justify-end" : "justify-start"
     )}>
@@ -29,10 +30,20 @@ const ChatMessage = ({ message, isLast = false }: ChatMessageProps) => {
         </div>
       )}
       <div className={cn(
-        "prose prose-sm dark:prose-invert flex-1 max-w-[80%] overflow-hidden break-words rounded-xl p-3",
+        "prose prose-sm dark:prose-invert flex-1 max-w-[80%] overflow-hidden break-words rounded-xl p-3 relative",
         isUser ? "bg-primary text-primary-foreground" : "bg-muted"
       )}>
         {message.content}
+        
+        {isUser && onDelete && (
+          <button 
+            onClick={onDelete}
+            className="absolute -right-2 -top-2 opacity-0 group-hover:opacity-100 transition-opacity bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
+            aria-label="Delete message"
+          >
+            <Trash2 className="h-3 w-3" />
+          </button>
+        )}
       </div>
       {isUser && (
         <div className="flex-shrink-0">
