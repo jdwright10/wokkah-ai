@@ -43,14 +43,14 @@ const PPCAutomation = () => {
             
             <div className="flex justify-center items-center gap-8 mb-6">
               <img 
-                src="/lovable-uploads/f6fea5b8-0209-46d6-a50d-5cfa0e81a730.png" 
+                src="/lovable-uploads/fa83c7fc-4532-4096-b65c-54acc2514ee5.png" 
                 alt="Google Ads Logo" 
-                className="h-14 md:h-20"
+                className="h-16 md:h-24"
               />
               <img 
-                src="/lovable-uploads/b53dcf0d-f8e4-400e-a004-21cb1115a672.png" 
+                src="/lovable-uploads/cbc40028-51d2-4a5c-8397-c478342fe906.png" 
                 alt="Bing Ads Logo" 
-                className="h-12 md:h-16"
+                className="h-12 md:h-20"
               />
             </div>
 
