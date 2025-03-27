@@ -12,6 +12,7 @@ import {
   Zap 
 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { talentData } from '@/data/talentData';
 
 const TalentMatching = () => {
   // Scroll to top on page load
@@ -72,10 +73,11 @@ const TalentMatching = () => {
           <div className="mt-24">
             <h2 className="text-3xl font-bold text-center mb-12">Featured Talent</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {talentProfiles.map((profile, index) => (
+              {talentData.map((profile, index) => (
                 <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-neutral-100">
                   <div className="flex items-center mb-4">
                     <Avatar className="h-12 w-12 mr-4">
+                      <AvatarImage src={profile.avatar} alt={profile.name} />
                       <AvatarFallback>{profile.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div>
@@ -83,14 +85,14 @@ const TalentMatching = () => {
                       <p className="text-sm text-muted-foreground">{profile.title}</p>
                     </div>
                   </div>
-                  <p className="text-muted-foreground mb-4">{profile.bio}</p>
+                  <p className="text-muted-foreground mb-4">{profile.bio.substring(0, 100)}...</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {profile.skills.map((skill, i) => (
                       <span key={i} className="text-xs bg-neutral-100 px-2 py-1 rounded-full">{skill}</span>
                     ))}
                   </div>
                   <Button variant="outline" size="sm" className="w-full" asChild>
-                    <Link to="/find-talent">View Profile</Link>
+                    <Link to={`/talent/${profile.id}`}>View Profile</Link>
                   </Button>
                 </div>
               ))}
@@ -163,26 +165,5 @@ const TalentMatching = () => {
     </MainLayout>
   );
 };
-
-const talentProfiles = [
-  {
-    name: "Alex Rodriguez",
-    title: "Senior Full-Stack Developer",
-    bio: "10+ years of experience building scalable web applications with React, Node.js, and AWS.",
-    skills: ["React", "Node.js", "AWS", "TypeScript", "MongoDB"]
-  },
-  {
-    name: "Sarah Chen",
-    title: "AI Engineer & ML Specialist",
-    bio: "Machine learning expert with a focus on natural language processing and computer vision applications.",
-    skills: ["Python", "TensorFlow", "PyTorch", "NLP", "Computer Vision"]
-  },
-  {
-    name: "Marcus Johnson",
-    title: "UX/UI Designer",
-    bio: "Passionate about creating intuitive, accessible user experiences with a focus on conversion optimization.",
-    skills: ["UI Design", "User Research", "Figma", "Adobe XD", "Prototyping"]
-  }
-];
 
 export default TalentMatching;

@@ -12,7 +12,10 @@ import {
 } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Search, Filter, MapPin, Star, Briefcase, Clock } from 'lucide-react';
+import { Search, Filter, MapPin, Star, Briefcase, Clock, Eye, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { talentData } from '@/data/talentData';
+import { toast } from '@/components/ui/use-toast';
 
 const FindTalent = () => {
   // Scroll to top on page load
@@ -23,6 +26,13 @@ const FindTalent = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   
+  const handleContactClick = (talent) => {
+    toast({
+      title: "Contact Request",
+      description: `You've initiated contact with ${talent.name}. Check your messages for updates.`,
+    });
+  };
+
   return (
     <MainLayout>
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
@@ -126,8 +136,18 @@ const FindTalent = () => {
                         </div>
                         
                         <div className="flex flex-col xs:flex-row gap-3">
-                          <Button variant="outline" size="sm">View Profile</Button>
-                          <Button size="sm">Contact</Button>
+                          <Button variant="outline" size="sm" asChild className="flex items-center gap-2">
+                            <Link to={`/talent/${talent.id}`}>
+                              <Eye className="h-4 w-4" /> View Profile
+                            </Link>
+                          </Button>
+                          <Button 
+                            size="sm" 
+                            className="flex items-center gap-2"
+                            onClick={() => handleContactClick(talent)}
+                          >
+                            <MessageSquare className="h-4 w-4" /> Contact
+                          </Button>
                         </div>
                       </div>
                     </div>
@@ -166,48 +186,6 @@ const FindTalent = () => {
     </MainLayout>
   );
 };
-
-const talentData = [
-  {
-    id: 1,
-    name: "Alex Rodriguez",
-    title: "Senior Full-Stack Developer",
-    bio: "10+ years of experience building scalable web applications with React, Node.js, and AWS. Specialized in fintech and e-commerce solutions.",
-    skills: ["React", "Node.js", "AWS", "TypeScript", "MongoDB"],
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    rating: 4.9,
-    reviewCount: 124,
-    location: "New York, USA",
-    experience: "10+ years",
-    availability: "Available now"
-  },
-  {
-    id: 2,
-    name: "Sarah Chen",
-    title: "AI Engineer & ML Specialist",
-    bio: "Machine learning expert with a focus on natural language processing and computer vision applications. PhD in Computer Science from Stanford.",
-    skills: ["Python", "TensorFlow", "PyTorch", "NLP", "Computer Vision"],
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    rating: 4.8,
-    reviewCount: 86,
-    location: "San Francisco, USA",
-    experience: "8 years",
-    availability: "Available in 2 weeks"
-  },
-  {
-    id: 3,
-    name: "Marcus Johnson",
-    title: "UX/UI Designer",
-    bio: "Passionate about creating intuitive, accessible user experiences with a focus on conversion optimization. Worked with Fortune 500 companies.",
-    skills: ["UI Design", "User Research", "Figma", "Adobe XD", "Prototyping"],
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    rating: 4.7,
-    reviewCount: 92,
-    location: "London, UK",
-    experience: "6 years",
-    availability: "Available now"
-  }
-];
 
 const popularSkills = [
   "JavaScript", "React", "Python", "UI Design", "Node.js", 

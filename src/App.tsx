@@ -33,6 +33,7 @@ import PPCAutomation from "./pages/automation/PPCAutomation";
 import HiringAutomation from "./pages/automation/HiringAutomation";
 import SalesAutomation from "./pages/automation/SalesAutomation";
 import MarketResearch from "./pages/automation/MarketResearch";
+import TalentProfile from "./pages/talent/TalentProfile";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/features/project-management" element={<ProjectManagement />} />
           <Route path="/features/talent-matching" element={<TalentMatching />} />
           <Route path="/find-talent" element={<FindTalent />} />
+          <Route path="/talent/:id" element={<TalentProfile />} />
           <Route path="/freelancers" element={<Freelancers />} />
           <Route path="/become-a-freelancer" element={<BecomeFreelancer />} />
           <Route path="/blog" element={<Blog />} />
