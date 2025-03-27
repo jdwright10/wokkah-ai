@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,7 @@ import ChatMessage from '@/components/ChatMessage';
 import { initialMessages, generateAssistantResponse, generatePRDFromChat } from '@/utils/prdChatUtils';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNavigate } from 'react-router-dom';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const AiPrdGenerator = () => {
   const [messages, setMessages] = useState(initialMessages);
@@ -24,6 +26,13 @@ const AiPrdGenerator = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Breadcrumb items for navigation
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/features/ai-prd' },
+    { label: 'AI PRD Generator', isCurrent: true }
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -169,6 +178,8 @@ const AiPrdGenerator = () => {
 
       <section className="pt-32 pb-16">
         <div className="container max-w-5xl">
+          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
+          
           <div className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
               AI-Powered Tool
