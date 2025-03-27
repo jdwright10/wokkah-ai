@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -113,12 +114,14 @@ const AiPrdGenerator = () => {
   };
 
   const handleDeleteMessage = (index: number) => {
-    setMessages(prev => {
-      const newMessages = [...prev];
+    if (index >= 0 && index < messages.length) {
+      const newMessages = [...messages];
       newMessages.splice(index, 1);
-      return newMessages;
-    });
-    toast.success("Message deleted");
+      setMessages(newMessages);
+      toast.success("Message deleted");
+    } else {
+      toast.error("Could not delete message");
+    }
   };
 
   return (
