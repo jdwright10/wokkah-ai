@@ -24,7 +24,7 @@ const Team = () => {
       name: "Jason Wright",
       role: "Chief Operations Officer",
       bio: "Jason oversees Wokkah's daily operations, driving organizational efficiency and ensuring seamless execution of our strategic initiatives across all departments.",
-      image: "/lovable-uploads/e6c20e40-9661-4c54-8f7f-061457c37648.png",
+      image: "/lovable-uploads/c078099d-544f-466e-89e9-148044fba3ff.png",
       linkedin: "#",
       twitter: "#"
     },
