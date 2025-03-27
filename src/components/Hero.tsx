@@ -57,7 +57,7 @@ const Hero = () => {
             <AspectRatio ratio={16/9} className="w-full">
               <iframe 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/bh2Odj8PfdY?start=62" 
+                src="https://www.youtube.com/embed/bh2Odj8PfdY" 
                 title="Wokkah AI Platform Demo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen
