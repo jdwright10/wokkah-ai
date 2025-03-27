@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -139,6 +140,7 @@ const AiPrdGenerator = () => {
       localStorage.setItem('prd_for_matching', generatedPrd);
       setTimeout(() => {
         navigate('/ai-matching', { state: { fromPrd: true } });
+        setIsFindingTalent(false); // Reset the loading state after navigation
       }, 800);
     } catch (error) {
       console.error('Error finding talent:', error);

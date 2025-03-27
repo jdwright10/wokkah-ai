@@ -18,12 +18,14 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { talentData } from '@/data/talentData';
 import TalentMatchingChat from '@/components/TalentMatchingChat';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const AiMatching = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [matchingResults, setMatchingResults] = useState<boolean>(false);
   const [projectRequirements, setProjectRequirements] = useState<{
     description: string;
@@ -33,6 +35,13 @@ const AiMatching = () => {
     experienceLevel: string;
   } | null>(null);
   const [isProcessingPrd, setIsProcessingPrd] = useState<boolean>(false);
+
+  // Breadcrumb items for navigation
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/features' },
+    { label: 'AI Matching', isCurrent: true }
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -53,11 +62,11 @@ const AiMatching = () => {
 
   const processPrd = async (prd: string) => {
     try {
-      // Simulate processing the PRD to extract requirements
-      // In a real implementation, this would use an AI service to analyze the PRD
+      console.log("Processing PRD:", prd.substring(0, 100) + "...");
       
-      // Extract skills from the PRD (simple implementation - you may want to use AI for better extraction)
+      // Extract skills from the PRD
       const skills = extractSkillsFromPrd(prd);
+      console.log("Extracted skills:", skills);
       
       // Create project requirements
       const requirements = {
@@ -67,6 +76,8 @@ const AiMatching = () => {
         skills: skills,
         experienceLevel: "senior", // Default to senior for PRD-based projects
       };
+
+      console.log("Created requirements:", requirements);
 
       // Wait a moment to simulate processing
       setTimeout(() => {
@@ -86,17 +97,22 @@ const AiMatching = () => {
     }
   };
 
-  // Simple function to extract skills from PRD - in production, use AI
+  // Extract skills from PRD - improved to catch more keywords
   const extractSkillsFromPrd = (prd: string): string[] => {
     const commonSkills = [
       "React", "JavaScript", "TypeScript", "UI/UX", "Node.js", 
       "Python", "AWS", "Backend", "Frontend", "Full Stack", 
-      "Mobile Development", "DevOps", "Database", "API"
+      "Mobile Development", "DevOps", "Database", "API",
+      "Web", "App", "Website", "Application", "Development",
+      "Design", "UI", "UX", "User Interface", "User Experience",
+      "SEO", "Marketing", "Content", "Social Media", "Analytics",
+      "E-commerce", "Blockchain", "AI", "Machine Learning", "Data Science"
     ];
     
-    // Return skills that appear in the PRD
+    // Return skills that appear in the PRD (case insensitive)
+    const prdLower = prd.toLowerCase();
     return commonSkills.filter(skill => 
-      prd.toLowerCase().includes(skill.toLowerCase())
+      prdLower.includes(skill.toLowerCase())
     );
   };
 
@@ -108,6 +124,7 @@ const AiMatching = () => {
   };
 
   const handleProjectRequirementsComplete = (requirements) => {
+    console.log("Setting project requirements:", requirements);
     setProjectRequirements(requirements);
     
     // Simulate API call with loading state
@@ -138,6 +155,8 @@ const AiMatching = () => {
       <MainLayout>
         <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
           <div className="container">
+            <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
+            
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Processing Your PRD
@@ -162,6 +181,8 @@ const AiMatching = () => {
     <MainLayout>
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
+          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
+          
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
               AI Talent Matching
