@@ -35,6 +35,7 @@ import HiringAutomation from "./pages/automation/HiringAutomation";
 import SalesAutomation from "./pages/automation/SalesAutomation";
 import MarketResearch from "./pages/automation/MarketResearch";
 import TalentProfile from "./pages/talent/TalentProfile";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +76,7 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/comparison" element={<Comparison />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

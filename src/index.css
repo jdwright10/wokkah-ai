@@ -86,19 +86,67 @@
   @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-700;
 }
 
+.gradient-text-alt {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600;
+}
+
 .gradient-bg-blue-purple {
   @apply bg-gradient-to-r from-blue-500 to-purple-600;
+}
+
+.gradient-bg-cyan-blue {
+  @apply bg-gradient-to-r from-cyan-400 to-blue-500;
 }
 
 .gradient-bg-subtle {
   @apply bg-gradient-to-r from-blue-50 to-purple-50;
 }
 
+.gradient-bg-subtle-alt {
+  @apply bg-gradient-to-r from-cyan-50 to-blue-50;
+}
+
 .card-hover {
   @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Modern card styles with gradients */
+.card-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
+  @apply border border-purple-100;
+}
+
+.card-gradient-alt {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+  @apply border border-blue-100;
 }
 
 /* Styling for the chip component */
 .chip {
   @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700;
+}
+
+.chip-alt {
+  @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-blue-700;
+}
+
+/* Animated gradient backgrounds */
+.animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Glass morphism effect */
+.glass {
+  @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm;
+}
+
+/* Button gradient styles */
+.btn-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white transition-all;
+}
+
+.btn-gradient-alt {
+  @apply bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white transition-all;
 }
