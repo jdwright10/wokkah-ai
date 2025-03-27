@@ -22,6 +22,11 @@ const AiPrdGenerator = () => {
   const [isGeneratingPrd, setIsGeneratingPrd] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const savedApiKey = localStorage.getItem('openai_api_key');
     if (savedApiKey) {
