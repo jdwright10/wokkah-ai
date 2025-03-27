@@ -4,11 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Helmet } from 'react-helmet';
-import { Brain, Copy, Download, SendHorizontal, RefreshCw, Lock, Eye, EyeOff } from 'lucide-react';
+import { Brain, Copy, Download, SendHorizontal, RefreshCw, Lock, Eye, EyeOff, Users } from 'lucide-react';
 import { toast } from 'sonner';
 import ChatMessage from '@/components/ChatMessage';
 import { initialMessages, generateAssistantResponse, generatePRDFromChat } from '@/utils/prdChatUtils';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useNavigate } from 'react-router-dom';
 
 const AiPrdGenerator = () => {
   const [messages, setMessages] = useState(initialMessages);
@@ -19,19 +20,16 @@ const AiPrdGenerator = () => {
   const [apiKey, setApiKey] = useState('');
   const [showApiKey, setShowApiKey] = useState(false);
   const [isGeneratingPrd, setIsGeneratingPrd] = useState(false);
+  const [isFindingTalent, setIsFindingTalent] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
-  // Ensure page starts at the top on component mount
   useEffect(() => {
-    // Force scroll to top immediately
     window.scrollTo(0, 0);
-    
-    // Also apply after a slight delay to ensure it works after all content is loaded
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 100);
-    
     return () => clearTimeout(timer);
   }, []);
 
@@ -42,7 +40,6 @@ const AiPrdGenerator = () => {
     }
   }, []);
 
-  // Scroll messages to bottom when messages change, but contained within the chat area
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -74,7 +71,7 @@ const AiPrdGenerator = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault(); // Prevent default form submission behavior
+      e.preventDefault();
       handleSendMessage();
     }
   };
@@ -90,6 +87,25 @@ const AiPrdGenerator = () => {
       toast.error('Failed to generate PRD');
     } finally {
       setIsGeneratingPrd(false);
+    }
+  };
+
+  const handleFindTalent = async () => {
+    if (!generatedPrd) {
+      toast.error("Please generate a PRD first");
+      return;
+    }
+
+    setIsFindingTalent(true);
+    try {
+      localStorage.setItem('prd_for_matching', generatedPrd);
+      setTimeout(() => {
+        navigate('/ai-matching', { state: { fromPrd: true } });
+      }, 800);
+    } catch (error) {
+      console.error('Error finding talent:', error);
+      toast.error('Failed to find matching talent');
+      setIsFindingTalent(false);
     }
   };
 
@@ -305,11 +321,36 @@ const AiPrdGenerator = () => {
               </div>
 
               {generatedPrd ? (
-                <ScrollArea className="bg-neutral-50 p-4 rounded-lg h-[500px]">
-                  <div className="font-mono text-sm whitespace-pre-wrap pr-4">
-                    {generatedPrd}
+                <>
+                  <ScrollArea className="bg-neutral-50 p-4 rounded-lg h-[420px]">
+                    <div className="font-mono text-sm whitespace-pre-wrap pr-4">
+                      {generatedPrd}
+                    </div>
+                  </ScrollArea>
+                  
+                  <div className="mt-4">
+                    <Button 
+                      className="w-full" 
+                      variant="secondary"
+                      onClick={handleFindTalent}
+                      disabled={isFindingTalent}
+                    >
+                      {isFindingTalent ? (
+                        <>
+                          <div className="animate-spin mr-2">
+                            <RefreshCw className="h-4 w-4" />
+                          </div>
+                          Finding Talent...
+                        </>
+                      ) : (
+                        <>
+                          Find Matching Talent
+                          <Users className="ml-2" />
+                        </>
+                      )}
+                    </Button>
                   </div>
-                </ScrollArea>
+                </>
               ) : (
                 <div className="flex flex-col items-center justify-center h-[400px] text-center">
                   <Brain className="h-16 w-16 text-neutral-300 mb-4" />

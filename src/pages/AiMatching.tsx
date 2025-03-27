@@ -18,15 +18,12 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { talentData } from '@/data/talentData';
 import TalentMatchingChat from '@/components/TalentMatchingChat';
 
 const AiMatching = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+  const location = useLocation();
   const [matchingResults, setMatchingResults] = useState<boolean>(false);
   const [projectRequirements, setProjectRequirements] = useState<{
     description: string;
@@ -35,6 +32,80 @@ const AiMatching = () => {
     skills: string[];
     experienceLevel: string;
   } | null>(null);
+  const [isProcessingPrd, setIsProcessingPrd] = useState<boolean>(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    // Check if we're coming from the PRD generator
+    const fromPrd = location.state?.fromPrd;
+    const storedPrd = localStorage.getItem('prd_for_matching');
+    
+    if (fromPrd && storedPrd) {
+      setIsProcessingPrd(true);
+      
+      // Process the PRD to extract requirements
+      processPrd(storedPrd);
+    }
+  }, [location.state]);
+
+  const processPrd = async (prd: string) => {
+    try {
+      // Simulate processing the PRD to extract requirements
+      // In a real implementation, this would use an AI service to analyze the PRD
+      
+      // Extract skills from the PRD (simple implementation - you may want to use AI for better extraction)
+      const skills = extractSkillsFromPrd(prd);
+      
+      // Create project requirements
+      const requirements = {
+        description: extractDescriptionFromPrd(prd),
+        budget: "Based on PRD complexity",
+        timeline: "As per PRD specifications",
+        skills: skills,
+        experienceLevel: "senior", // Default to senior for PRD-based projects
+      };
+
+      // Wait a moment to simulate processing
+      setTimeout(() => {
+        // Update state with the requirements
+        handleProjectRequirementsComplete(requirements);
+        setIsProcessingPrd(false);
+      }, 2000);
+      
+    } catch (error) {
+      console.error("Error processing PRD:", error);
+      toast({
+        title: "Error",
+        description: "Failed to process the PRD. Please try again.",
+        variant: "destructive"
+      });
+      setIsProcessingPrd(false);
+    }
+  };
+
+  // Simple function to extract skills from PRD - in production, use AI
+  const extractSkillsFromPrd = (prd: string): string[] => {
+    const commonSkills = [
+      "React", "JavaScript", "TypeScript", "UI/UX", "Node.js", 
+      "Python", "AWS", "Backend", "Frontend", "Full Stack", 
+      "Mobile Development", "DevOps", "Database", "API"
+    ];
+    
+    // Return skills that appear in the PRD
+    return commonSkills.filter(skill => 
+      prd.toLowerCase().includes(skill.toLowerCase())
+    );
+  };
+
+  // Simple function to extract description from PRD
+  const extractDescriptionFromPrd = (prd: string): string => {
+    // Get the first 200 characters as a simple description
+    const firstParagraph = prd.split('\n\n')[0];
+    return firstParagraph.substring(0, 200) + (firstParagraph.length > 200 ? '...' : '');
+  };
 
   const handleProjectRequirementsComplete = (requirements) => {
     setProjectRequirements(requirements);
@@ -57,7 +128,35 @@ const AiMatching = () => {
   const resetSearch = () => {
     setMatchingResults(false);
     setProjectRequirements(null);
+    
+    // Clear the stored PRD when resetting
+    localStorage.removeItem('prd_for_matching');
   };
+
+  if (isProcessingPrd) {
+    return (
+      <MainLayout>
+        <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
+          <div className="container">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Processing Your PRD
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                We're analyzing your Product Requirements Document to find the perfect talent match.
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center justify-center py-12">
+              <div className="w-16 h-16 rounded-full border-4 border-primary border-t-transparent animate-spin mb-8"></div>
+              <p className="text-xl font-medium">Extracting requirements...</p>
+              <p className="text-muted-foreground mt-2">This will only take a moment</p>
+            </div>
+          </div>
+        </section>
+      </MainLayout>
+    );
+  }
 
   return (
     <MainLayout>
