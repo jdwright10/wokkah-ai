@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
@@ -45,13 +46,11 @@ const PPCAutomation = () => {
                 src="/lovable-uploads/fa83c7fc-4532-4096-b65c-54acc2514ee5.png" 
                 alt="Google Ads Logo" 
                 className="h-16 md:h-24 object-contain"
-                style={{ mixBlendMode: 'multiply' }}
               />
               <img 
                 src="/lovable-uploads/cbc40028-51d2-4a5c-8397-c478342fe906.png" 
                 alt="Bing Ads Logo" 
                 className="h-12 md:h-20 object-contain"
-                style={{ mixBlendMode: 'multiply' }}
               />
             </div>
 
