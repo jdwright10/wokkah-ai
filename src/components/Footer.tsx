@@ -68,13 +68,13 @@ const Footer = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-medium mb-4 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">Features</h3>
+              <h3 className="text-lg font-medium mb-4 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">Solutions</h3>
               <ul className="space-y-2">
+                <li><Link to="/solutions" className="text-muted-foreground hover:text-primary transition-colors">AI Solutions</Link></li>
+                <li><Link to="/solutions/business-automation" className="text-muted-foreground hover:text-primary transition-colors">Business Automation</Link></li>
                 <li><Link to="/features/ai-prd" className="text-muted-foreground hover:text-primary transition-colors">AI-Powered PRD</Link></li>
                 <li><Link to="/features/project-management" className="text-muted-foreground hover:text-primary transition-colors">Project Management</Link></li>
                 <li><Link to="/features/talent-matching" className="text-muted-foreground hover:text-primary transition-colors">Talent Matching</Link></li>
-                <li><Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link></li>
-                <li><Link to="/comparison" className="text-muted-foreground hover:text-primary transition-colors">Wokkah vs. Competitors</Link></li>
               </ul>
             </div>
             

@@ -10,7 +10,7 @@ import {
   Megaphone 
 } from 'lucide-react';
 
-const Services = () => {
+const Solutions = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -38,9 +38,9 @@ const Services = () => {
     <section ref={sectionRef} className="section bg-gradient-to-b from-white via-blue-50 to-purple-50">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700 mb-4 reveal-item opacity-0 transition-all duration-700 transform translate-y-8">Our Services</span>
+          <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700 mb-4 reveal-item opacity-0 transition-all duration-700 transform translate-y-8">Our Solutions</span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold reveal-item opacity-0 transition-all duration-700 transform translate-y-8 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
-            Expert Services to Infuse AI into Your Business
+            Expert Solutions to Infuse AI into Your Business
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto reveal-item opacity-0 transition-all duration-700 transform translate-y-8">
             From concept to deployment, our platform connects you with expert freelancers for all your AI implementation needs.
@@ -48,7 +48,7 @@ const Services = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {serviceItems.map((item, index) => (
+          {solutionItems.map((item, index) => (
             <div 
               key={item.title}
               className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-purple-200 reveal-item opacity-0 transition-all duration-700 transform translate-y-8"
@@ -67,7 +67,7 @@ const Services = () => {
   );
 };
 
-const serviceItems = [
+const solutionItems = [
   {
     title: "Web Design",
     description: "Create responsive, modern websites that engage users and drive conversions",
@@ -110,4 +110,4 @@ const serviceItems = [
   }
 ];
 
-export default Services;
+export default Solutions;

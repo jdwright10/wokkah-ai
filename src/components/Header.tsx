@@ -18,19 +18,19 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-const servicesLinks = [
-  { name: 'Business Automation', href: '/services/business-automation' },
-  { name: 'Marketing Automation', href: '/services/business-automation/marketing' },
-  { name: 'HR Automation', href: '/services/business-automation/hr' },
-  { name: 'Operations Automation', href: '/services/business-automation/operations' },
-  { name: 'Finance Automation', href: '/services/business-automation/finance' },
-  { name: 'Customer Service Automation', href: '/services/business-automation/customer-service' },
-  { name: 'Manufacturing Automation', href: '/services/business-automation/manufacturing' },
-  { name: 'Amazon Automation', href: '/services/business-automation/amazon' },
-  { name: 'PPC Automation', href: '/services/business-automation/ppc' },
-  { name: 'Hiring Automation', href: '/services/business-automation/hiring' },
-  { name: 'Sales Automation', href: '/services/business-automation/sales' },
-  { name: 'Market Research & Sentiment', href: '/services/business-automation/market-research' },
+const solutionsLinks = [
+  { name: 'Business Automation', href: '/solutions/business-automation' },
+  { name: 'Marketing Automation', href: '/solutions/business-automation/marketing' },
+  { name: 'HR Automation', href: '/solutions/business-automation/hr' },
+  { name: 'Operations Automation', href: '/solutions/business-automation/operations' },
+  { name: 'Finance Automation', href: '/solutions/business-automation/finance' },
+  { name: 'Customer Service Automation', href: '/solutions/business-automation/customer-service' },
+  { name: 'Manufacturing Automation', href: '/solutions/business-automation/manufacturing' },
+  { name: 'Amazon Automation', href: '/solutions/business-automation/amazon' },
+  { name: 'PPC Automation', href: '/solutions/business-automation/ppc' },
+  { name: 'Hiring Automation', href: '/solutions/business-automation/hiring' },
+  { name: 'Sales Automation', href: '/solutions/business-automation/sales' },
+  { name: 'Market Research & Sentiment', href: '/solutions/business-automation/market-research' },
 ];
 
 const featuresLinks = [
@@ -78,11 +78,11 @@ const Header = () => {
             <NavigationMenuList className="flex gap-6">
               <NavigationMenuItem className="relative">
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
-                  <span className="font-medium">Services</span>
+                  <span className="font-medium">Solutions</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="w-[400px]">
                   <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
-                    {servicesLinks.map((link) => (
+                    {solutionsLinks.map((link) => (
                       <li key={link.href}>
                         <Link
                           to={link.href}
@@ -180,12 +180,12 @@ const Header = () => {
           <nav className="container flex flex-col py-4 space-y-4">
             <DropdownMenu>
               <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">
-                <span>Services</span>
+                <span>Solutions</span>
                 <ChevronDown size={16} />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
                 <div className="grid gap-2">
-                  {servicesLinks.map((link) => (
+                  {solutionsLinks.map((link) => (
                     <DropdownMenuItem key={link.href} className="py-2 px-2" asChild>
                       <Link to={link.href} onClick={() => setIsMenuOpen(false)} className="w-full">
                         {link.name}

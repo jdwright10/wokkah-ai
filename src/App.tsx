@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
-import Services from "./pages/Services";
+import Solutions from "./pages/Solutions";
 import AiPrd from "./pages/AiPrd";
 import AiPrdGenerator from "./pages/AiPrdGenerator";
 import ProjectManagement from "./pages/ProjectManagement";
@@ -48,19 +48,19 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/pricing" element={<Pricing />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/business-automation" element={<BusinessAutomationTools />} />
-          <Route path="/services/business-automation/marketing" element={<MarketingAutomation />} />
-          <Route path="/services/business-automation/hr" element={<HRAutomation />} />
-          <Route path="/services/business-automation/operations" element={<OperationsAutomation />} />
-          <Route path="/services/business-automation/finance" element={<FinanceAutomation />} />
-          <Route path="/services/business-automation/customer-service" element={<CustomerServiceAutomation />} />
-          <Route path="/services/business-automation/manufacturing" element={<ManufacturingAutomation />} />
-          <Route path="/services/business-automation/amazon" element={<AmazonAutomation />} />
-          <Route path="/services/business-automation/ppc" element={<PPCAutomation />} />
-          <Route path="/services/business-automation/hiring" element={<HiringAutomation />} />
-          <Route path="/services/business-automation/sales" element={<SalesAutomation />} />
-          <Route path="/services/business-automation/market-research" element={<MarketResearch />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
+          <Route path="/solutions/business-automation/marketing" element={<MarketingAutomation />} />
+          <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />
+          <Route path="/solutions/business-automation/operations" element={<OperationsAutomation />} />
+          <Route path="/solutions/business-automation/finance" element={<FinanceAutomation />} />
+          <Route path="/solutions/business-automation/customer-service" element={<CustomerServiceAutomation />} />
+          <Route path="/solutions/business-automation/manufacturing" element={<ManufacturingAutomation />} />
+          <Route path="/solutions/business-automation/amazon" element={<AmazonAutomation />} />
+          <Route path="/solutions/business-automation/ppc" element={<PPCAutomation />} />
+          <Route path="/solutions/business-automation/hiring" element={<HiringAutomation />} />
+          <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
+          <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
           <Route path="/features/ai-prd" element={<AiPrd />} />
           <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
           <Route path="/features/project-management" element={<ProjectManagement />} />
