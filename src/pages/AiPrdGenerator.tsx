@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -43,6 +42,24 @@ const AiPrdGenerator = () => {
   }, []);
 
   useEffect(() => {
+    const savedMessages = localStorage.getItem('prd_chat_messages');
+    const savedPrd = localStorage.getItem('generated_prd');
+    
+    if (savedMessages) {
+      try {
+        const parsedMessages = JSON.parse(savedMessages);
+        if (Array.isArray(parsedMessages) && parsedMessages.length > 0) {
+          setMessages(parsedMessages);
+        }
+      } catch (e) {
+        console.error('Error parsing saved messages:', e);
+      }
+    }
+    
+    if (savedPrd) {
+      setGeneratedPrd(savedPrd);
+    }
+    
     const savedApiKey = localStorage.getItem('openai_api_key');
     if (savedApiKey) {
       setApiKey(savedApiKey);
@@ -54,6 +71,18 @@ const AiPrdGenerator = () => {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }, [messages]);
+
+  useEffect(() => {
+    if (messages.length > 0 && messages !== initialMessages) {
+      localStorage.setItem('prd_chat_messages', JSON.stringify(messages));
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    if (generatedPrd) {
+      localStorage.setItem('generated_prd', generatedPrd);
+    }
+  }, [generatedPrd]);
 
   const handleSendMessage = async () => {
     if (!input.trim()) return;
@@ -143,6 +172,8 @@ const AiPrdGenerator = () => {
   const handleReset = () => {
     setMessages(initialMessages);
     setGeneratedPrd(null);
+    localStorage.removeItem('prd_chat_messages');
+    localStorage.removeItem('generated_prd');
     toast.info("Conversation reset");
   };
 
