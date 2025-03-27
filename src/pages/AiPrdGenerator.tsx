@@ -9,6 +9,7 @@ import { Brain, Copy, Download, SendHorizontal, RefreshCw, Lock, Eye, EyeOff } f
 import { toast } from 'sonner';
 import ChatMessage from '@/components/ChatMessage';
 import { initialMessages, generateAssistantResponse, generatePRDFromChat } from '@/utils/prdChatUtils';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const AiPrdGenerator = () => {
   const [messages, setMessages] = useState(initialMessages);
@@ -57,7 +58,7 @@ const AiPrdGenerator = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
+      e.preventDefault(); // Prevent default form submission behavior
       handleSendMessage();
     }
   };
@@ -195,27 +196,29 @@ const AiPrdGenerator = () => {
               </div>
 
               <div className="flex flex-col h-[500px]">
-                <div className="flex-1 overflow-y-auto mb-4 space-y-2">
-                  {messages.map((message, index) => (
-                    <ChatMessage 
-                      key={index} 
-                      message={message} 
-                      isLast={index === messages.length - 1}
-                      onDelete={message.role === 'user' ? () => handleDeleteMessage(index) : undefined}
-                    />
-                  ))}
-                  {isTyping && (
-                    <div className="flex items-center gap-2 px-4 py-2">
-                      <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-primary/50 rounded-full animate-bounce" style={{ animationDelay: "0s" }}></div>
-                        <div className="w-2 h-2 bg-primary/50 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
-                        <div className="w-2 h-2 bg-primary/50 rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+                <ScrollArea className="flex-1 mb-4">
+                  <div className="space-y-2 pr-4">
+                    {messages.map((message, index) => (
+                      <ChatMessage 
+                        key={index} 
+                        message={message} 
+                        isLast={index === messages.length - 1}
+                        onDelete={message.role === 'user' ? () => handleDeleteMessage(index) : undefined}
+                      />
+                    ))}
+                    {isTyping && (
+                      <div className="flex items-center gap-2 px-4 py-2">
+                        <div className="flex space-x-1">
+                          <div className="w-2 h-2 bg-primary/50 rounded-full animate-bounce" style={{ animationDelay: "0s" }}></div>
+                          <div className="w-2 h-2 bg-primary/50 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                          <div className="w-2 h-2 bg-primary/50 rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+                        </div>
+                        <span className="text-sm text-muted-foreground">AI assistant is thinking...</span>
                       </div>
-                      <span className="text-sm text-muted-foreground">AI assistant is thinking...</span>
-                    </div>
-                  )}
-                  <div ref={messagesEndRef} />
-                </div>
+                    )}
+                    <div ref={messagesEndRef} />
+                  </div>
+                </ScrollArea>
 
                 <div className="flex items-center gap-2 pt-2 border-t">
                   <Textarea
@@ -286,9 +289,11 @@ const AiPrdGenerator = () => {
               </div>
 
               {generatedPrd ? (
-                <div className="bg-neutral-50 p-4 rounded-lg overflow-y-auto max-h-[500px] font-mono text-sm whitespace-pre-wrap">
-                  {generatedPrd}
-                </div>
+                <ScrollArea className="bg-neutral-50 p-4 rounded-lg h-[500px]">
+                  <div className="font-mono text-sm whitespace-pre-wrap pr-4">
+                    {generatedPrd}
+                  </div>
+                </ScrollArea>
               ) : (
                 <div className="flex flex-col items-center justify-center h-[400px] text-center">
                   <Brain className="h-16 w-16 text-neutral-300 mb-4" />
