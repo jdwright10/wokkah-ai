@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Helmet } from 'react-helmet';
-import { Brain, Copy, Download, SendHorizontal, RefreshCw } from 'lucide-react';
+import { Brain, Copy, Download, SendHorizontal, RefreshCw, Lock, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'sonner';
 import ChatMessage from '@/components/ChatMessage';
 import { initialMessages, generateAssistantResponse, generatePRDFromChat } from '@/utils/prdChatUtils';
@@ -16,7 +16,18 @@ const AiPrdGenerator = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [generatedPrd, setGeneratedPrd] = useState<string | null>(null);
   const [hasCopied, setHasCopied] = useState(false);
+  const [apiKey, setApiKey] = useState('');
+  const [showApiKey, setShowApiKey] = useState(false);
+  const [isGeneratingPrd, setIsGeneratingPrd] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Load API key from localStorage on initial load
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem('openai_api_key');
+    if (savedApiKey) {
+      setApiKey(savedApiKey);
+    }
+  }, []);
 
   // Scroll to bottom of messages
   useEffect(() => {
@@ -36,7 +47,8 @@ const AiPrdGenerator = () => {
       // Generate assistant response
       const responseContent = await generateAssistantResponse(
         [...messages, userMessage],
-        input
+        input,
+        apiKey
       );
       
       // Add assistant message
@@ -55,10 +67,18 @@ const AiPrdGenerator = () => {
     }
   };
 
-  const handleGeneratePRD = () => {
-    const prd = generatePRDFromChat(messages);
-    setGeneratedPrd(prd);
-    toast.success("PRD generated successfully!");
+  const handleGeneratePRD = async () => {
+    setIsGeneratingPrd(true);
+    try {
+      const prd = await generatePRDFromChat(messages, apiKey);
+      setGeneratedPrd(prd);
+      toast.success("PRD generated successfully!");
+    } catch (error) {
+      console.error('Error generating PRD:', error);
+      toast.error('Failed to generate PRD');
+    } finally {
+      setIsGeneratingPrd(false);
+    }
   };
 
   const handleCopyToClipboard = () => {
@@ -89,6 +109,15 @@ const AiPrdGenerator = () => {
     toast.info("Conversation reset");
   };
 
+  const handleSaveApiKey = () => {
+    localStorage.setItem('openai_api_key', apiKey);
+    toast.success('API key saved');
+  };
+
+  const toggleShowApiKey = () => {
+    setShowApiKey(!showApiKey);
+  };
+
   return (
     <MainLayout>
       <Helmet>
@@ -110,6 +139,36 @@ const AiPrdGenerator = () => {
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Chat with our AI assistant to craft the perfect Product Requirements Document for your idea.
+            </p>
+          </div>
+
+          {/* API Key Section */}
+          <div className="mb-8 p-6 rounded-xl shadow-sm border border-neutral-100 bg-white">
+            <div className="flex items-center gap-2 mb-4">
+              <Lock className="h-5 w-5 text-primary" />
+              <h2 className="text-xl font-bold">OpenAI API Key</h2>
+            </div>
+            <div className="flex gap-2 mb-2">
+              <div className="relative flex-1">
+                <Input
+                  type={showApiKey ? "text" : "password"}
+                  value={apiKey}
+                  onChange={(e) => setApiKey(e.target.value)}
+                  placeholder="Enter your OpenAI API key"
+                  className="pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={toggleShowApiKey}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-500"
+                >
+                  {showApiKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
+              <Button onClick={handleSaveApiKey}>Save Key</Button>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Your API key is stored locally and never sent to our servers. You can get an API key from <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">OpenAI</a>.
             </p>
           </div>
 
@@ -176,10 +235,21 @@ const AiPrdGenerator = () => {
                 <Button 
                   className="w-full" 
                   onClick={handleGeneratePRD}
-                  disabled={messages.length < 3}
+                  disabled={messages.length < 3 || isGeneratingPrd}
                 >
-                  Generate PRD
-                  <Brain className="ml-2" />
+                  {isGeneratingPrd ? (
+                    <>
+                      <div className="animate-spin mr-2">
+                        <RefreshCw className="h-4 w-4" />
+                      </div>
+                      Generating...
+                    </>
+                  ) : (
+                    <>
+                      Generate PRD
+                      <Brain className="ml-2" />
+                    </>
+                  )}
                 </Button>
               </div>
             </div>

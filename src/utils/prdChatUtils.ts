@@ -1,4 +1,6 @@
 
+import { toast } from "sonner";
+
 interface Message {
   role: 'user' | 'assistant';
   content: string;
@@ -23,11 +25,71 @@ export const followUpQuestions = [
   "What metrics will you use to measure success?",
 ];
 
-// Function to analyze user input and generate appropriate responses
-export const generateAssistantResponse = (
+// Function to call OpenAI API
+const callOpenAI = async (messages: Message[], apiKey: string): Promise<string> => {
+  if (!apiKey) {
+    throw new Error("API key is required");
+  }
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a helpful PRD assistant. You help users create product requirement documents. Ask relevant follow-up questions based on their product idea to gather all necessary information. Be concise but thorough.'
+          },
+          ...messages.map(m => ({
+            role: m.role,
+            content: m.content
+          }))
+        ],
+        temperature: 0.7,
+        max_tokens: 500
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error?.message || 'Failed to generate response');
+    }
+
+    const data = await response.json();
+    return data.choices[0]?.message?.content || 'No response generated';
+  } catch (error) {
+    console.error('Error calling OpenAI:', error);
+    throw error;
+  }
+};
+
+// Function to generate PRD assistant response using OpenAI
+export const generateAssistantResponse = async (
   messages: Message[],
-  userInput: string
+  userInput: string,
+  apiKey: string
 ): Promise<string> => {
+  try {
+    if (!apiKey) {
+      // Fallback to mock responses if no API key is provided
+      return generateMockResponse(messages);
+    }
+    
+    return await callOpenAI(messages, apiKey);
+  } catch (error) {
+    console.error('Error generating assistant response:', error);
+    toast.error('Failed to generate response. Please check your API key.');
+    return "I'm having trouble connecting to my AI services. Please check your API key or try again later.";
+  }
+};
+
+// Mock response function for fallback
+const generateMockResponse = (messages: Message[]): Promise<string> => {
   return new Promise((resolve) => {
     // Simulating AI processing time
     setTimeout(() => {
@@ -69,8 +131,70 @@ Also, ${followUpQuestions[4]}`);
   });
 };
 
-// Function to generate the actual PRD based on the chat history
-export const generatePRDFromChat = (messages: Message[]): string => {
+// Function to generate the actual PRD based on the chat history and OpenAI
+export const generatePRDFromChat = async (messages: Message[], apiKey: string): Promise<string> => {
+  try {
+    if (!apiKey) {
+      // Fallback to template PRD if no API key is provided
+      return generateTemplatePRD(messages);
+    }
+    
+    const systemPrompt = `
+    You are an expert in creating Product Requirement Documents (PRDs).
+    Based on the conversation history, create a comprehensive, well-structured PRD in markdown format.
+    Include these sections:
+    - Overview
+    - Problem Statement
+    - Target Users
+    - Feature Requirements (prioritized)
+    - Technical Requirements
+    - Competitive Analysis
+    - Success Metrics
+    - Timeline
+    - Appendix (if needed)
+    
+    Format it professionally with markdown. Be thorough but concise.
+    `;
+    
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          {
+            role: 'system',
+            content: systemPrompt
+          },
+          ...messages.map(m => ({
+            role: m.role,
+            content: m.content
+          }))
+        ],
+        temperature: 0.7,
+        max_tokens: 2000
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error?.message || 'Failed to generate PRD');
+    }
+
+    const data = await response.json();
+    return data.choices[0]?.message?.content || 'No PRD generated';
+  } catch (error) {
+    console.error('Error generating PRD:', error);
+    toast.error('Failed to generate PRD. Please check your API key.');
+    return generateTemplatePRD(messages);
+  }
+};
+
+// Template PRD generator as fallback
+const generateTemplatePRD = (messages: Message[]): string => {
   // Extract relevant information from chat
   const userMessages = messages.filter(msg => msg.role === 'user');
   
