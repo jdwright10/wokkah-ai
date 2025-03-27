@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   Lightbulb, 
@@ -32,8 +33,8 @@ const TalentMatching = () => {
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
               Our AI-powered talent matching system connects you with pre-vetted professionals who have the exact skills and experience your project needs.
             </p>
-            <Button size="lg" className="mt-8">
-              Find Talent Now
+            <Button size="lg" className="mt-8" asChild>
+              <Link to="/find-talent">Find Talent Now</Link>
             </Button>
           </div>
 
@@ -88,12 +89,16 @@ const TalentMatching = () => {
                       <span key={i} className="text-xs bg-neutral-100 px-2 py-1 rounded-full">{skill}</span>
                     ))}
                   </div>
-                  <Button variant="outline" size="sm" className="w-full">View Profile</Button>
+                  <Button variant="outline" size="sm" className="w-full" asChild>
+                    <Link to="/find-talent">View Profile</Link>
+                  </Button>
                 </div>
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button variant="outline">View All Talent</Button>
+              <Button variant="outline" asChild>
+                <Link to="/find-talent">View All Talent</Link>
+              </Button>
             </div>
           </div>
           
@@ -149,7 +154,9 @@ const TalentMatching = () => {
             <p className="text-lg max-w-2xl mx-auto mb-8">
               Join thousands of businesses that have successfully completed projects with our talent network.
             </p>
-            <Button size="lg">Start Matching Now</Button>
+            <Button size="lg" asChild>
+              <Link to="/find-talent">Start Matching Now</Link>
+            </Button>
           </div>
         </div>
       </section>
