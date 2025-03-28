@@ -2,7 +2,7 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
+import BreadcrumbNav, { BreadcrumbItem } from '@/components/BreadcrumbNav';
 import { useLocation } from 'react-router-dom';
 
 interface MainLayoutProps {
@@ -14,11 +14,11 @@ const MainLayout = ({ children, showBreadcrumbs = true }: MainLayoutProps) => {
   const location = useLocation();
   
   // Generate breadcrumb items based on the current path
-  const getBreadcrumbItems = () => {
+  const getBreadcrumbItems = (): BreadcrumbItem[] => {
     const pathSegments = location.pathname.split('/').filter(segment => segment);
     
     // Start with Home
-    const items = [{ label: 'Home', path: '/' }];
+    const items: BreadcrumbItem[] = [{ label: 'Home', path: '/' }];
     
     // Add path segments
     let currentPath = '';
