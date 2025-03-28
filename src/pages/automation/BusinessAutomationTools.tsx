@@ -14,12 +14,13 @@ import {
   MousePointer,
   UserPlus,
   BarChart3,
-  DollarSign
+  DollarSign,
+  ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const BusinessAutomationTools = () => {
   useEffect(() => {
@@ -46,68 +47,86 @@ const BusinessAutomationTools = () => {
             </p>
           </div>
           
-          {/* Featured Automation Solutions */}
-          <div className="mb-16">
+          {/* Featured Automation Solutions - Redesigned layout */}
+          <div className="mb-20">
             <h2 className="text-2xl font-bold text-center mb-10">Featured Automation Solutions</h2>
-            <Carousel className="w-full max-w-5xl mx-auto">
-              <CarouselContent>
-                {featuredSolutions.map((solution) => (
-                  <CarouselItem key={solution.title} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
-                      <Card className="h-full border-none shadow-lg overflow-hidden bg-gradient-to-br from-primary/5 to-white">
-                        <CardHeader className="pb-0">
-                          <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                            {solution.icon}
-                          </div>
-                          <CardTitle>{solution.title}</CardTitle>
-                          <CardDescription className="text-muted-foreground mt-2">
-                            {solution.description}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent className="pt-6">
-                          <Link to={solution.link}>
-                            <Button variant="outline" className="w-full group">
-                              Explore <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                          </Link>
-                        </CardContent>
-                      </Card>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {featuredSolutionsNew.map((solution, index) => (
+                <Link 
+                  key={solution.title} 
+                  to={solution.link}
+                  className="group"
+                >
+                  <div className={`relative overflow-hidden rounded-xl shadow-lg ${solution.bgGradient} h-full`}>
+                    <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300"></div>
+                    <div className="p-8 flex flex-col h-full">
+                      <div className="flex gap-6 items-start mb-6">
+                        <div className="w-16 h-16 rounded-lg bg-white/90 flex items-center justify-center shrink-0">
+                          {solution.icon}
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-white mb-2">{solution.title}</h3>
+                          <p className="text-white/80">{solution.description}</p>
+                        </div>
+                      </div>
+                      
+                      {solution.features && (
+                        <ul className="mt-4 space-y-2 mb-6 text-white/90">
+                          {solution.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <ArrowRight className="h-5 w-5 shrink-0 mt-0.5" />
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      
+                      <div className="mt-auto pt-4">
+                        <Button variant="outline-white" className="w-full group-hover:bg-white/90 transition-colors">
+                          Explore <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </div>
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="hidden md:block">
-                <CarouselPrevious className="-left-5 focus:outline-none" />
-                <CarouselNext className="-right-5 focus:outline-none" />
-              </div>
-            </Carousel>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
           
-          {/* All Automation Services */}
+          {/* All Automation Services - Alternative layout */}
           <div>
             <h2 className="text-2xl font-bold text-center mb-10">All Automation Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {allAutomationServices.map((service, index) => (
                 <Link 
                   key={service.title}
                   to={service.link} 
                   className="group"
                 >
-                  <div 
-                    className="relative overflow-hidden rounded-xl p-6 border border-neutral-100 bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full"
-                  >
-                    {/* Service icon with colored background */}
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${service.bgColor}`}>
-                      {service.icon}
+                  <Card className="h-full overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-none">
+                    <div className={`${service.bgColor} h-2`}></div>
+                    <div className="p-1">
+                      <AspectRatio ratio={4/1} className="overflow-hidden">
+                        <div className={`w-full h-full flex items-center justify-center ${service.bgColor} bg-opacity-10`}>
+                          <div className={`text-white ${service.bgColor} w-14 h-14 rounded-full flex items-center justify-center`}>
+                            {service.icon}
+                          </div>
+                        </div>
+                      </AspectRatio>
                     </div>
                     
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                    <p className="text-muted-foreground mb-4">{service.description}</p>
+                    <CardHeader className="pt-3">
+                      <CardTitle className="group-hover:text-primary transition-colors">{service.title}</CardTitle>
+                      <CardDescription>{service.description}</CardDescription>
+                    </CardHeader>
                     
-                    <span className="inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
-                      Learn more <ArrowRight className="ml-1 h-3 w-3" />
-                    </span>
-                  </div>
+                    <CardContent className="pt-0">
+                      <span className="inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
+                        Learn more <ArrowRight className="ml-1 h-3 w-3" />
+                      </span>
+                    </CardContent>
+                  </Card>
                 </Link>
               ))}
             </div>
@@ -118,110 +137,134 @@ const BusinessAutomationTools = () => {
   );
 };
 
-// Featured solutions for the carousel
-const featuredSolutions = [
+// Featured solutions with new design
+const featuredSolutionsNew = [
   {
     title: "Marketing Automation",
-    description: "Streamline your marketing efforts with AI-powered tools that personalize campaigns and drive conversions.",
-    icon: <Megaphone className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/marketing"
+    description: "Transform your marketing with AI-powered tools that deliver personalized campaigns and maximize ROI.",
+    icon: <Megaphone className="h-8 w-8 text-blue-600" />,
+    link: "/solutions/business-automation/marketing",
+    bgGradient: "bg-gradient-to-r from-blue-600 to-indigo-700",
+    features: [
+      "AI-powered content generation",
+      "Campaign performance analytics",
+      "Audience segmentation and targeting"
+    ]
   },
   {
     title: "Operations Automation",
-    description: "Optimize your business operations, increase efficiency, and reduce errors with intelligent process optimization.",
-    icon: <Settings className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/operations"
+    description: "Streamline workflows, reduce errors, and increase efficiency across your entire organization.",
+    icon: <Settings className="h-8 w-8 text-emerald-600" />,
+    link: "/solutions/business-automation/operations",
+    bgGradient: "bg-gradient-to-r from-emerald-500 to-teal-600",
+    features: [
+      "Process optimization and workflow mapping",
+      "Intelligent document processing",
+      "Real-time performance monitoring"
+    ]
   },
   {
     title: "Sales Automation",
-    description: "Boost sales efficiency with AI-powered lead management, proposal generation, and pipeline optimization tools.",
-    icon: <DollarSign className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/sales"
+    description: "Close more deals with AI-powered lead scoring, pipeline management, and proposal generation.",
+    icon: <DollarSign className="h-8 w-8 text-violet-600" />,
+    link: "/solutions/business-automation/sales",
+    bgGradient: "bg-gradient-to-r from-violet-600 to-purple-700",
+    features: [
+      "Intelligent lead scoring and qualification",
+      "Automated follow-ups and engagement",
+      "Sales performance analytics and forecasting"
+    ]
   },
   {
     title: "Amazon Automation",
-    description: "Optimize your Amazon listings, automate inventory management, and maximize sales with AI-powered marketplace automation.",
-    icon: <ShoppingCart className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/amazon"
+    description: "Maximize sales and efficiency on Amazon with AI-driven listing optimization and inventory management.",
+    icon: <ShoppingCart className="h-8 w-8 text-rose-600" />,
+    link: "/solutions/business-automation/amazon",
+    bgGradient: "bg-gradient-to-r from-rose-500 to-pink-600",
+    features: [
+      "Automated pricing optimization",
+      "Inventory forecasting and management",
+      "Competitor analysis and product research"
+    ]
   }
 ];
 
-// All automation services
+// All automation services with redesigned cards
 const allAutomationServices = [
   {
     title: "Marketing Automation",
     description: "Streamline your marketing efforts with AI-powered tools that personalize campaigns, optimize content, and drive conversions.",
-    icon: <Megaphone className="h-6 w-6 text-white" />,
+    icon: <Megaphone className="h-6 w-6" />,
     link: "/solutions/business-automation/marketing",
     bgColor: "bg-blue-500"
   },
   {
     title: "HR Automation",
     description: "Simplify talent acquisition, onboarding, performance management, and employee engagement with intelligent HR automation.",
-    icon: <Users className="h-6 w-6 text-white" />,
+    icon: <Users className="h-6 w-6" />,
     link: "/solutions/business-automation/hr",
     bgColor: "bg-purple-500"
   },
   {
     title: "Operations Automation",
     description: "Optimize your business operations, increase efficiency, and reduce errors with workflow automation and intelligent process optimization.",
-    icon: <Settings className="h-6 w-6 text-white" />,
+    icon: <Settings className="h-6 w-6" />,
     link: "/solutions/business-automation/operations",
     bgColor: "bg-emerald-500"
   },
   {
     title: "Finance Automation",
     description: "Automate invoicing, expense management, financial reporting, and compliance to improve accuracy and save valuable time.",
-    icon: <LineChart className="h-6 w-6 text-white" />,
+    icon: <LineChart className="h-6 w-6" />,
     link: "/solutions/business-automation/finance",
     bgColor: "bg-amber-500"
   },
   {
     title: "Customer Service Automation",
     description: "Enhance customer support with AI chatbots, automated ticket routing, and intelligent knowledge bases that deliver exceptional service.",
-    icon: <Building className="h-6 w-6 text-white" />,
+    icon: <Building className="h-6 w-6" />,
     link: "/solutions/business-automation/customer-service",
     bgColor: "bg-sky-500"
   },
   {
     title: "Manufacturing Automation",
     description: "Streamline production processes, quality control, and supply chain management with intelligent manufacturing automation solutions.",
-    icon: <Hammer className="h-6 w-6 text-white" />,
+    icon: <Hammer className="h-6 w-6" />,
     link: "/solutions/business-automation/manufacturing",
     bgColor: "bg-orange-500"
   },
   {
     title: "Amazon Automation",
     description: "Optimize your Amazon listings, automate inventory management, and maximize sales with AI-powered Amazon marketplace automation.",
-    icon: <ShoppingCart className="h-6 w-6 text-white" />,
+    icon: <ShoppingCart className="h-6 w-6" />,
     link: "/solutions/business-automation/amazon",
     bgColor: "bg-rose-500"
   },
   {
     title: "PPC Automation",
     description: "Enhance your pay-per-click campaigns with intelligent bid management, automated A/B testing, and data-driven optimization.",
-    icon: <MousePointer className="h-6 w-6 text-white" />,
+    icon: <MousePointer className="h-6 w-6" />,
     link: "/solutions/business-automation/ppc",
     bgColor: "bg-violet-500"
   },
   {
     title: "Hiring Automation",
     description: "Streamline your recruitment process with automated job posting, applicant screening, interview scheduling, and candidate engagement.",
-    icon: <UserPlus className="h-6 w-6 text-white" />,
+    icon: <UserPlus className="h-6 w-6" />,
     link: "/solutions/business-automation/hiring",
     bgColor: "bg-cyan-500"
   },
   {
     title: "Sales Automation",
     description: "Boost sales efficiency and conversion rates with AI-powered lead management, proposal generation, and pipeline optimization tools.",
-    icon: <DollarSign className="h-6 w-6 text-white" />,
+    icon: <DollarSign className="h-6 w-6" />,
     link: "/solutions/business-automation/sales",
     bgColor: "bg-indigo-500"
   },
   {
     title: "Market Research & Customer Sentiment",
     description: "Gain valuable insights into market trends and customer sentiment with AI-powered analytics, feedback collection, and sentiment analysis.",
-    icon: <BarChart3 className="h-6 w-6 text-white" />,
+    icon: <BarChart3 className="h-6 w-6" />,
     link: "/solutions/business-automation/market-research",
     bgColor: "bg-teal-500"
   }
