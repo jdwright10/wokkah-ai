@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -26,7 +27,7 @@ const BusinessAutomationTools = () => {
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
-    { label: 'Services', path: '/services' },
+    { label: 'Solutions', path: '/solutions' },
     { label: 'Business Automation', isCurrent: true }
   ];
 
@@ -82,67 +83,67 @@ const automationServices = [
     title: "Marketing Automation",
     description: "Streamline your marketing efforts with AI-powered tools that personalize campaigns, optimize content, and drive conversions.",
     icon: <Megaphone className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/marketing"
+    link: "/solutions/business-automation/marketing"
   },
   {
     title: "HR Automation",
     description: "Simplify talent acquisition, onboarding, performance management, and employee engagement with intelligent HR automation.",
     icon: <Users className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/hr"
+    link: "/solutions/business-automation/hr"
   },
   {
     title: "Operations Automation",
     description: "Optimize your business operations, increase efficiency, and reduce errors with workflow automation and intelligent process optimization.",
     icon: <Settings className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/operations"
+    link: "/solutions/business-automation/operations"
   },
   {
     title: "Finance Automation",
     description: "Automate invoicing, expense management, financial reporting, and compliance to improve accuracy and save valuable time.",
     icon: <LineChart className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/finance"
+    link: "/solutions/business-automation/finance"
   },
   {
     title: "Customer Service Automation",
     description: "Enhance customer support with AI chatbots, automated ticket routing, and intelligent knowledge bases that deliver exceptional service.",
     icon: <Building className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/customer-service"
+    link: "/solutions/business-automation/customer-service"
   },
   {
     title: "Manufacturing Automation",
     description: "Streamline production processes, quality control, and supply chain management with intelligent manufacturing automation solutions.",
     icon: <Hammer className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/manufacturing"
+    link: "/solutions/business-automation/manufacturing"
   },
   {
     title: "Amazon Automation",
     description: "Optimize your Amazon listings, automate inventory management, and maximize sales with AI-powered Amazon marketplace automation.",
     icon: <ShoppingCart className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/amazon"
+    link: "/solutions/business-automation/amazon"
   },
   {
     title: "PPC Automation",
     description: "Enhance your pay-per-click campaigns with intelligent bid management, automated A/B testing, and data-driven optimization.",
     icon: <MousePointer className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/ppc"
+    link: "/solutions/business-automation/ppc"
   },
   {
     title: "Hiring Automation",
     description: "Streamline your recruitment process with automated job posting, applicant screening, interview scheduling, and candidate engagement.",
     icon: <UserPlus className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/hiring"
+    link: "/solutions/business-automation/hiring"
   },
   {
     title: "Sales Automation",
     description: "Boost sales efficiency and conversion rates with AI-powered lead management, proposal generation, and pipeline optimization tools.",
     icon: <DollarSign className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/sales"
+    link: "/solutions/business-automation/sales"
   },
   {
     title: "Market Research & Customer Sentiment",
     description: "Gain valuable insights into market trends and customer sentiment with AI-powered analytics, feedback collection, and sentiment analysis.",
     icon: <BarChart3 className="h-7 w-7 text-primary" />,
-    link: "/services/business-automation/market-research"
+    link: "/solutions/business-automation/market-research"
   }
 ];
 
