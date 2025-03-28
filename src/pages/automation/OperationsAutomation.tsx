@@ -1,16 +1,16 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
-import { Button } from '@/components/ui/button';
 import { 
   Settings, 
-  LayoutGrid, 
-  Zap, 
-  BarChart2,
-  Layers,
+  BarChart, 
+  Workflow, 
+  FileText,
+  Clock,
   Calendar
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import DemoRequestForm from '@/components/DemoRequestForm';
 
 const OperationsAutomation = () => {
   // Scroll to top on page load
@@ -27,18 +27,18 @@ const OperationsAutomation = () => {
     <MainLayout>
       <Helmet>
         <title>Operations Automation Solutions | Wokkah</title>
-        <meta name="description" content="Optimize your business operations with AI-powered automation tools that streamline workflows and boost efficiency." />
+        <meta name="description" content="Streamline your business operations with AI-powered automation tools that enhance efficiency, reduce costs, and improve decision-making." />
       </Helmet>
 
-      <section className="pt-32 pb-16 bg-gradient-to-b from-white to-green-50">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-white to-orange-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Operations Automation</span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">
-              Streamline Your Operations with Intelligent Automation
+              Transform Your Business Operations with Intelligent Automation
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Optimize workflows, reduce manual tasks, and increase operational efficiency with our AI-powered automation solutions.
+              Optimize workflows, streamline processes, and improve efficiency across your organization with our AI-powered operations automation solutions.
             </p>
             <Button 
               size="lg" 
@@ -64,18 +64,7 @@ const OperationsAutomation = () => {
             ))}
           </div>
           
-          <div className="bg-white p-8 md:p-12 rounded-xl shadow-md border border-neutral-200 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Optimize Your Operations?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              Let's discuss how our operations automation solutions can help you streamline processes and boost efficiency. Schedule a no-obligation consultation with our operations automation experts.
-            </p>
-            <Button 
-              size="lg"
-              onClick={handleCalendlySchedule}
-            >
-              <Calendar className="mr-2" /> Schedule a Consultation
-            </Button>
-          </div>
+          <DemoRequestForm serviceName="Operations Automation" />
         </div>
       </section>
     </MainLayout>
@@ -85,33 +74,33 @@ const OperationsAutomation = () => {
 const operationsFeatures = [
   {
     title: "Workflow Automation",
-    description: "Streamline complex business processes with automated workflows that reduce manual tasks and human error.",
-    icon: <LayoutGrid className="h-6 w-6 text-primary" />
+    description: "Automate repetitive tasks, streamline processes, and improve efficiency with custom workflow automation solutions.",
+    icon: <Workflow className="h-6 w-6 text-primary" />
   },
   {
     title: "Process Optimization",
-    description: "Identify bottlenecks and inefficiencies with AI-powered process analysis and continuous improvement.",
+    description: "Identify bottlenecks, eliminate waste, and optimize processes with AI-powered process analysis and improvement tools.",
     icon: <Settings className="h-6 w-6 text-primary" />
   },
   {
+    title: "Document Automation",
+    description: "Automate document creation, routing, and approval to reduce errors and improve compliance.",
+    icon: <FileText className="h-6 w-6 text-primary" />
+  },
+  {
     title: "Task Management",
-    description: "Automate task assignment, tracking, and notifications to ensure deadlines are met and nothing falls through the cracks.",
-    icon: <Layers className="h-6 w-6 text-primary" />
+    description: "Assign tasks, track progress, and manage deadlines with automated task management tools.",
+    icon: <Clock className="h-6 w-6 text-primary" />
   },
   {
-    title: "Document Processing",
-    description: "Extract data from documents, automate approvals, and streamline document management workflows.",
-    icon: <Layers className="h-6 w-6 text-primary" />
+    title: "Performance Monitoring",
+    description: "Monitor key performance indicators (KPIs) and track progress towards goals with automated performance dashboards.",
+    icon: <BarChart className="h-6 w-6 text-primary" />
   },
   {
-    title: "Operational Analytics",
-    description: "Gain real-time insights into operational performance with automated data collection and visualization.",
-    icon: <BarChart2 className="h-6 w-6 text-primary" />
-  },
-  {
-    title: "Integration Automation",
-    description: "Connect your business systems and automate data flow between applications without complex coding.",
-    icon: <Zap className="h-6 w-6 text-primary" />
+    title: "Scheduling Automation",
+    description: "Automate scheduling of meetings, appointments, and events to save time and improve coordination.",
+    icon: <Calendar className="h-6 w-6 text-primary" />
   }
 ];
 
