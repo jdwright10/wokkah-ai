@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -18,18 +17,11 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const BusinessAutomationTools = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const breadcrumbItems = [
-    { label: 'Home', path: '/' },
-    { label: 'Solutions', path: '/solutions' },
-    { label: 'Business Automation', isCurrent: true }
-  ];
 
   return (
     <MainLayout>
@@ -41,8 +33,6 @@ const BusinessAutomationTools = () => {
 
       <section className="section pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
-          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
-          
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Business Automation</span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">
