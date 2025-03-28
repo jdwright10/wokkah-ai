@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
@@ -34,6 +35,19 @@ const PPCAutomation = () => {
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
               Drive more qualified leads, increase conversions, and maximize your advertising ROI with our AI-powered PPC automation solutions.
             </p>
+          </div>
+          
+          {/* Trusted By Companies Section */}
+          <div className="mb-16">
+            <p className="text-center text-sm font-medium text-muted-foreground mb-6">TRUSTED BY LEADING ADVERTISERS</p>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
+              <img src="https://api.iconify.design/logos:google.svg" alt="Google" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="https://api.iconify.design/logos:facebook.svg" alt="Facebook" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="https://api.iconify.design/logos:amazon.svg" alt="Amazon" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="https://api.iconify.design/logos:microsoft.svg" alt="Microsoft" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="https://api.iconify.design/logos:adobe.svg" alt="Adobe" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="https://api.iconify.design/logos:shopify.svg" alt="Shopify" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
