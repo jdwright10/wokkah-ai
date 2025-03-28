@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -67,7 +68,7 @@ const Team = () => {
 
   return (
     <MainLayout>
-      <section className="pt-32 pb-16">
+      <section className="pt-16 pb-16"> {/* Reduced top padding since we have breadcrumbs now */}
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
