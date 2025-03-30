@@ -2,15 +2,18 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import { 
   UserPlus, 
   Search, 
   ClipboardCheck, 
   Calendar, 
   MessagesSquare, 
-  FileText 
+  FileText,
+  ArrowRight
 } from 'lucide-react';
 import DemoRequestForm from '@/components/DemoRequestForm';
+import { Button } from '@/components/ui/button';
 
 const HiringAutomation = () => {
   // Scroll to top on page load
@@ -41,13 +44,18 @@ const HiringAutomation = () => {
             {hiringFeatures.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100"
+                className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100 hover:shadow-md transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <p className="text-muted-foreground mb-6">{feature.description}</p>
+                <Link to={feature.link}>
+                  <Button variant="ghost" className="group text-primary hover:text-primary/80 hover:bg-transparent px-0">
+                    Learn more <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>
@@ -63,32 +71,38 @@ const hiringFeatures = [
   {
     title: "Job Distribution",
     description: "Automatically post open positions to multiple job boards, social media, and career sites to maximize applicant reach.",
-    icon: <UserPlus className="h-6 w-6 text-primary" />
+    icon: <UserPlus className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/hiring/job-distribution"
   },
   {
     title: "AI Resume Screening",
     description: "Efficiently analyze resumes and applications to identify the best candidates based on skills, experience, and job requirements.",
-    icon: <Search className="h-6 w-6 text-primary" />
+    icon: <Search className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/hiring/resume-screening"
   },
   {
     title: "Skills Assessment",
     description: "Automate pre-employment assessments to evaluate candidates' qualifications and job-readiness with customizable tests.",
-    icon: <ClipboardCheck className="h-6 w-6 text-primary" />
+    icon: <ClipboardCheck className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/hiring/skills-assessment"
   },
   {
     title: "Interview Scheduling",
     description: "Eliminate scheduling hassles with automated calendar coordination between candidates and hiring managers.",
-    icon: <Calendar className="h-6 w-6 text-primary" />
+    icon: <Calendar className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/hiring/interview-scheduling"
   },
   {
     title: "Candidate Communication",
     description: "Maintain engagement with automated, personalized messaging that keeps candidates informed throughout the process.",
-    icon: <MessagesSquare className="h-6 w-6 text-primary" />
+    icon: <MessagesSquare className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/hiring/candidate-communication"
   },
   {
     title: "Onboarding Preparation",
     description: "Streamline the transition from candidate to employee with automated document collection and onboarding workflows.",
-    icon: <FileText className="h-6 w-6 text-primary" />
+    icon: <FileText className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/hiring/onboarding-preparation"
   }
 ];
 

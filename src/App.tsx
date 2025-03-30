@@ -39,6 +39,14 @@ import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
 
+// Import the new hiring automation pages
+import JobDistribution from "./pages/automation/hiring/JobDistribution";
+import AIResumeScreening from "./pages/automation/hiring/AIResumeScreening";
+import SkillsAssessment from "./pages/automation/hiring/SkillsAssessment";
+import InterviewScheduling from "./pages/automation/hiring/InterviewScheduling";
+import CandidateCommunication from "./pages/automation/hiring/CandidateCommunication";
+import OnboardingPreparation from "./pages/automation/hiring/OnboardingPreparation";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -63,6 +71,15 @@ const App = () => (
           <Route path="/solutions/business-automation/hiring" element={<HiringAutomation />} />
           <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
           <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
+          
+          {/* Add routes for the new hiring automation pages */}
+          <Route path="/solutions/business-automation/hiring/job-distribution" element={<JobDistribution />} />
+          <Route path="/solutions/business-automation/hiring/resume-screening" element={<AIResumeScreening />} />
+          <Route path="/solutions/business-automation/hiring/skills-assessment" element={<SkillsAssessment />} />
+          <Route path="/solutions/business-automation/hiring/interview-scheduling" element={<InterviewScheduling />} />
+          <Route path="/solutions/business-automation/hiring/candidate-communication" element={<CandidateCommunication />} />
+          <Route path="/solutions/business-automation/hiring/onboarding-preparation" element={<OnboardingPreparation />} />
+          
           <Route path="/features/ai-prd" element={<AiPrd />} />
           <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
           <Route path="/features/project-management" element={<ProjectManagement />} />
