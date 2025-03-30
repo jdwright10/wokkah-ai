@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FileDown } from 'lucide-react';
@@ -10,18 +9,22 @@ const Footer = () => {
   const [showLeadPopup, setShowLeadPopup] = useState(false);
   
   const downloadReport = () => {
-    // Trigger download of the PDF
-    const link = document.createElement('a');
-    link.href = '/ai-landscape-guide.pdf';
-    link.download = 'Demystifying the AI Landscape - A Complete Guide.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Check if user has already provided their information
+    const hasSubmittedInfo = localStorage.getItem('leadGeneratorEmail') && 
+                           localStorage.getItem('leadGeneratorName');
     
-    toast({
-      title: "Download Started",
-      description: "Your AI guide is downloading now.",
-    });
+    if (hasSubmittedInfo) {
+      // Trigger download of the PDF
+      window.open('https://drive.google.com/file/d/1DbWnQrAEwb2-YxiyZKXblDM28b3EMw2-/view?usp=sharing', '_blank');
+      
+      toast({
+        title: "Report Opened",
+        description: "Your AI business transformation report is opening in a new tab.",
+      });
+    } else {
+      // Show the lead generator popup if user hasn't submitted info
+      setShowLeadPopup(true);
+    }
   };
   
   return (
@@ -47,12 +50,12 @@ const Footer = () => {
                 href="#" 
                 onClick={(e) => {
                   e.preventDefault();
-                  setShowLeadPopup(true);
+                  downloadReport();
                 }}
                 className="mt-6 inline-flex items-center text-primary hover:text-primary/80 transition-colors"
               >
                 <FileDown className="h-4 w-4 mr-2" />
-                Download the Free AI Guide
+                Download Our Free Report: Unlocking the Future: How AI Can Transform Your Business
               </a>
             </div>
             

@@ -12,18 +12,26 @@ const DownloadGuideButton: React.FC<DownloadGuideButtonProps> = ({ className }) 
   const { toast } = useToast();
   
   const downloadReport = () => {
-    // Trigger download of the PDF
-    const link = document.createElement('a');
-    link.href = '/ai-landscape-guide.pdf';
-    link.download = 'Demystifying the AI Landscape - A Complete Guide.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Check if user has already provided their information
+    const hasSubmittedInfo = localStorage.getItem('leadGeneratorEmail') && 
+                           localStorage.getItem('leadGeneratorName');
     
-    toast({
-      title: "Download Started",
-      description: "Your AI guide is downloading now.",
-    });
+    if (hasSubmittedInfo) {
+      // Open the PDF in a new tab
+      window.open('https://drive.google.com/file/d/1DbWnQrAEwb2-YxiyZKXblDM28b3EMw2-/view?usp=sharing', '_blank');
+      
+      toast({
+        title: "Report Opened",
+        description: "Your AI business transformation report is opening in a new tab.",
+      });
+    } else {
+      // Show toast with an error message if user hasn't submitted info
+      toast({
+        title: "Information Required",
+        description: "Please provide your information first to access the report.",
+        variant: "destructive",
+      });
+    }
   };
   
   // Check if the user has submitted their information before
@@ -42,7 +50,7 @@ const DownloadGuideButton: React.FC<DownloadGuideButtonProps> = ({ className }) 
         size="lg"
       >
         <Download className="h-5 w-5" />
-        <span className="text-xs writing-mode-vertical-rl transform rotate-180">Free AI Guide</span>
+        <span className="text-xs writing-mode-vertical-rl transform rotate-180">AI Business Report</span>
       </Button>
     </div>
   );

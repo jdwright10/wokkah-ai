@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Download, Check } from "lucide-react";
+import { Mail, Download, Check, Building } from "lucide-react";
 import AIGuideCover from "./AIGuideCover";
 
 interface LeadGeneratorPopupProps {
@@ -22,6 +22,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
   const [internalOpen, setInternalOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
+  const [company, setCompany] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
 
@@ -57,31 +58,33 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !firstName) {
+    if (!email || !firstName || !company) {
       toast({
         title: "Error",
-        description: "Please enter your first name and email address.",
+        description: "Please enter your name, company, and email address.",
         variant: "destructive",
       });
       return;
     }
 
-    // Store the email in localStorage for demo purposes
+    // Store the information in localStorage
     localStorage.setItem("leadGeneratorEmail", email);
     localStorage.setItem("leadGeneratorName", firstName);
+    localStorage.setItem("leadGeneratorCompany", company);
     
     // Show success state
     setSubmitted(true);
     
     toast({
       title: "Success!",
-      description: "Your free AI guide is ready to download.",
+      description: "Your free business transformation report is ready.",
     });
   };
 
   const resetForm = () => {
     setEmail("");
     setFirstName("");
+    setCompany("");
     setSubmitted(false);
   };
 
@@ -91,13 +94,8 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
   };
 
   const downloadReport = () => {
-    // Trigger download of the PDF
-    const link = document.createElement('a');
-    link.href = '/ai-landscape-guide.pdf';
-    link.download = 'Demystifying the AI Landscape - A Complete Guide.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open the PDF in a new tab
+    window.open('https://drive.google.com/file/d/1DbWnQrAEwb2-YxiyZKXblDM28b3EMw2-/view?usp=sharing', '_blank');
   };
 
   return (
@@ -105,12 +103,12 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
       <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-center text-xl font-bold">
-            {submitted ? "Your Guide is Ready!" : "Confused About the AI Landscape?"}
+            {submitted ? "Your Report is Ready!" : "Unlock the Future of Business with AI"}
           </DialogTitle>
           <DialogDescription className="text-center pt-2 text-sm">
             {submitted 
-              ? "Thank you for your interest in demystifying AI with us."
-              : "Download our free guide to help you navigate the complex world of AI and how it can transform your business."}
+              ? "Thank you for your interest in transforming your business with AI."
+              : "Download our free report to discover how AI can revolutionize your business operations and drive growth."}
           </DialogDescription>
         </DialogHeader>
         
@@ -124,7 +122,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
           <div className="space-y-3">
             <div className="bg-green-50 p-3 rounded-md border border-green-100 flex items-center gap-3">
               <Check className="text-green-500 h-4 w-4" />
-              <p className="text-xs text-green-700">Your download is ready! Click the button below to get your guide.</p>
+              <p className="text-xs text-green-700">Your report is ready! Click the button below to access it.</p>
             </div>
             
             <Button 
@@ -132,7 +130,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
               className="w-full"
               size="sm"
             >
-              <Download className="mr-2 h-4 w-4" /> Download Your Free Guide
+              <Download className="mr-2 h-4 w-4" /> Access Your Free Report
             </Button>
             
             <p className="text-xs text-center text-muted-foreground pt-1">
@@ -153,6 +151,17 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
             </div>
             
             <div className="space-y-1">
+              <Label htmlFor="company" className="text-sm">Company</Label>
+              <Input 
+                id="company" 
+                value={company} 
+                onChange={(e) => setCompany(e.target.value)}
+                placeholder="Enter your company name"
+                className="h-9"
+              />
+            </div>
+            
+            <div className="space-y-1">
               <Label htmlFor="email" className="text-sm">Email Address</Label>
               <Input 
                 id="email" 
@@ -165,7 +174,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
             </div>
             
             <Button type="submit" className="w-full" size="sm">
-              <Mail className="mr-2 h-4 w-4" /> Get Your Free Guide
+              <Mail className="mr-2 h-4 w-4" /> Get Your Free Report
             </Button>
             
             <p className="text-xs text-center text-muted-foreground pt-1">
