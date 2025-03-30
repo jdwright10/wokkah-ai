@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, Globe } from 'lucide-react';
+import { Linkedin, X, Globe } from 'lucide-react';
 
 const Team = () => {
   useEffect(() => {
@@ -106,7 +106,7 @@ const Team = () => {
                     )}
                     {member.twitter && (
                       <a href={member.twitter} className="text-neutral-500 hover:text-primary transition-colors">
-                        <Twitter className="h-5 w-5" />
+                        <X className="h-5 w-5" />
                       </a>
                     )}
                     {member.website && (
