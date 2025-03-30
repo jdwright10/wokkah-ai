@@ -36,6 +36,7 @@ import SalesAutomation from "./pages/automation/SalesAutomation";
 import MarketResearch from "./pages/automation/MarketResearch";
 import TalentProfile from "./pages/talent/TalentProfile";
 import FAQ from "./pages/FAQ";
+import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +78,7 @@ const App = () => (
           <Route path="/comparison" element={<Comparison />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

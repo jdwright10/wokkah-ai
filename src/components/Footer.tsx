@@ -76,6 +76,7 @@ const Footer = () => {
                 <li><Link to="/features/project-management" className="text-muted-foreground hover:text-primary transition-colors">Project Management</Link></li>
                 <li><Link to="/features/talent-matching" className="text-muted-foreground hover:text-primary transition-colors">Talent Matching</Link></li>
                 <li><Link to="/comparison" className="text-muted-foreground hover:text-primary transition-colors">Wokkah vs. Competitors</Link></li>
+                <li><Link to="/ai-needs-assessment" className="text-muted-foreground hover:text-primary transition-colors">60 Second AI Needs Assessment</Link></li>
               </ul>
             </div>
             
