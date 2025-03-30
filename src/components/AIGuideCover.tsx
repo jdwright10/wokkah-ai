@@ -7,10 +7,10 @@ const AIGuideCover: React.FC = () => {
       <div className="border-2 border-white/30 rounded-lg p-2 h-full flex flex-col justify-between backdrop-blur-sm bg-white/5">
         <div className="text-center">
           <div className="text-[10px] uppercase tracking-wider mb-1 font-medium">FREE GUIDE</div>
-          <h1 className="text-sm font-bold mb-0.5">Demystifying</h1>
-          <h1 className="text-sm font-bold mb-0.5">the AI</h1>
-          <h1 className="text-sm font-bold mb-0.5">Landscape</h1>
-          <h2 className="text-xs mb-1">A Complete Guide</h2>
+          <h1 className="text-[9px] font-bold mb-0.5">Unlocking the</h1>
+          <h1 className="text-[9px] font-bold mb-0.5">Future: How AI</h1>
+          <h1 className="text-[9px] font-bold mb-0.5">Can Transform</h1>
+          <h1 className="text-[9px] font-bold mb-0.5">Your Business</h1>
         </div>
         
         <div className="grid grid-cols-3 gap-0.5 mb-1">
