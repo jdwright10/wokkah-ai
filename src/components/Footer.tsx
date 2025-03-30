@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FileDown } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import LeadGeneratorPopup from './LeadGeneratorPopup';
@@ -7,6 +7,7 @@ import LeadGeneratorPopup from './LeadGeneratorPopup';
 const Footer = () => {
   const { toast } = useToast();
   const [showLeadPopup, setShowLeadPopup] = useState(false);
+  const navigate = useNavigate();
   
   const downloadReport = () => {
     // Check if user has already provided their information
@@ -21,6 +22,9 @@ const Footer = () => {
         title: "Report Opened",
         description: "Your AI business transformation report is opening in a new tab.",
       });
+      
+      // Redirect to the next steps page
+      navigate('/report');
     } else {
       // Show the lead generator popup if user hasn't submitted info
       setShowLeadPopup(true);

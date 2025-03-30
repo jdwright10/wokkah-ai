@@ -37,6 +37,7 @@ import MarketResearch from "./pages/automation/MarketResearch";
 import TalentProfile from "./pages/talent/TalentProfile";
 import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
+import ReportNextSteps from "./pages/ReportNextSteps";
 
 const queryClient = new QueryClient();
 
@@ -79,6 +80,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
+          <Route path="/report" element={<ReportNextSteps />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

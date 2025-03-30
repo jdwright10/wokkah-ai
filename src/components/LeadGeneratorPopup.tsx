@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -7,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Download, Check, Building } from "lucide-react";
 import AIGuideCover from "./AIGuideCover";
+import { useNavigate } from 'react-router-dom';
 
 interface LeadGeneratorPopupProps {
   delay?: number; // Delay in milliseconds before showing the popup
@@ -25,6 +25,7 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
   const [company, setCompany] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   // Determine if the component is controlled or uncontrolled
   const isControlled = controlledOpen !== undefined;
@@ -96,6 +97,12 @@ const LeadGeneratorPopup: React.FC<LeadGeneratorPopupProps> = ({
   const downloadReport = () => {
     // Open the PDF in a new tab
     window.open('https://drive.google.com/file/d/1DbWnQrAEwb2-YxiyZKXblDM28b3EMw2-/view?usp=sharing', '_blank');
+    
+    // Close the dialog
+    closeDialog();
+    
+    // Redirect to the next steps page
+    navigate('/report');
   };
 
   return (

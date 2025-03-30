@@ -3,6 +3,7 @@ import React from 'react';
 import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 interface DownloadGuideButtonProps {
   className?: string;
@@ -10,6 +11,7 @@ interface DownloadGuideButtonProps {
 
 const DownloadGuideButton: React.FC<DownloadGuideButtonProps> = ({ className }) => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   
   const downloadReport = () => {
     // Check if user has already provided their information
@@ -24,6 +26,9 @@ const DownloadGuideButton: React.FC<DownloadGuideButtonProps> = ({ className }) 
         title: "Report Opened",
         description: "Your AI business transformation report is opening in a new tab.",
       });
+      
+      // Redirect to the next steps page
+      navigate('/report');
     } else {
       // Show toast with an error message if user hasn't submitted info
       toast({
