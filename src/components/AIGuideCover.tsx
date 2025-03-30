@@ -22,7 +22,6 @@ const AIGuideCover: React.FC = () => {
         </div>
         
         <div className="text-[10px] mt-auto text-center">
-          <p>By Dr. Iyanu Odebode</p>
           <p>Wokkah © 2025</p>
         </div>
       </div>
