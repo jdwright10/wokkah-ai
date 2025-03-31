@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
+import HireWokkah from "./pages/HireWokkah";
 import AiPrd from "./pages/AiPrd";
 import AiPrdGenerator from "./pages/AiPrdGenerator";
 import ProjectManagement from "./pages/ProjectManagement";
@@ -40,7 +41,7 @@ import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
 
-// Import the new hiring automation pages
+// Import the hiring automation pages
 import JobDistribution from "./pages/automation/hiring/JobDistribution";
 import AIResumeScreening from "./pages/automation/hiring/AIResumeScreening";
 import SkillsAssessment from "./pages/automation/hiring/SkillsAssessment";
@@ -61,6 +62,7 @@ const App = () => (
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/hire-wokkah" element={<HireWokkah />} />
           <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
           <Route path="/solutions/business-automation/marketing" element={<MarketingAutomation />} />
           <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />
@@ -74,7 +76,7 @@ const App = () => (
           <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
           <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
           
-          {/* Add routes for the new hiring automation pages */}
+          {/* Routes for the hiring automation pages */}
           <Route path="/solutions/business-automation/hiring/job-distribution" element={<JobDistribution />} />
           <Route path="/solutions/business-automation/hiring/resume-screening" element={<AIResumeScreening />} />
           <Route path="/solutions/business-automation/hiring/skills-assessment" element={<SkillsAssessment />} />
