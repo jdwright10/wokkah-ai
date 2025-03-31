@@ -31,7 +31,7 @@ const HomeOptions = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-white">
+    <section id="home-options" className="py-16 bg-white">
       <div className="container">
         <div 
           ref={sectionRef} 

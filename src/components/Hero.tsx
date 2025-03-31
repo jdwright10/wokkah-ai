@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Hero = () => {
@@ -29,6 +29,13 @@ const Hero = () => {
     };
   }, []);
 
+  const scrollToOptions = () => {
+    const optionsSection = document.querySelector('#home-options');
+    if (optionsSection) {
+      optionsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-blue-50 via-white to-purple-50 overflow-hidden">
       <div className="container">
@@ -40,13 +47,14 @@ const Hero = () => {
             <p className="mt-6 text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-balance">
               One platform to create, manage, and deliver your projects with AI-assistance and expert freelancers who bring your vision to life.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 transition-all duration-300 shadow-md">
-                Start Free Trial
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-purple-400 text-purple-700 hover:bg-purple-50 transition-colors">
-                See How It Works
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <Button 
+                size="lg" 
+                onClick={scrollToOptions}
+                className="bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 transition-all duration-300 shadow-md"
+              >
+                Explore Solutions
+                <ArrowDown className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>
