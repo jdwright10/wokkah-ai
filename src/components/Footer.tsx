@@ -48,7 +48,7 @@ const Footer = () => {
                 Wokkah
               </Link>
               <p className="mt-4 text-muted-foreground">
-                Turn your skills into a thriving freelance career. Connect with quality clients, access AI-powered tools, and develop your expertise with our courses.
+                Transform your business with AI-powered solutions. Streamline operations, reduce costs, and boost productivity with our all-in-one AI platform.
               </p>
               
               <a 
