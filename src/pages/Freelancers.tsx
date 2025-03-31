@@ -1,8 +1,7 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Users, Star, BadgeCheck, Search, Filter, MessageSquare, ExternalLink, Lock, Shield } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 
@@ -12,12 +11,10 @@ const Freelancers = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const navigate = useNavigate();
+
   const handleUnlockContact = () => {
-    toast({
-      title: "Premium Feature",
-      description: "Please subscribe to our Pro or Enterprise plan to unlock contact information.",
-      duration: 5000,
-    });
+    navigate('/pricing');
   };
 
   return (
