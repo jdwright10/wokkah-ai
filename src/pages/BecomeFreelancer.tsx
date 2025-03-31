@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -199,9 +200,11 @@ const BecomeFreelancer = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Access our library of courses and workshops designed to help you stay competitive in the market and expand your service offerings.
               </p>
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-700 text-white hover:from-blue-700 hover:to-purple-800">
-                Browse All Courses
-              </Button>
+              <Link to="/courses">
+                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-700 text-white hover:from-blue-700 hover:to-purple-800">
+                  Browse All Courses
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
