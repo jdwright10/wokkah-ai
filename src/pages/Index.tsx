@@ -3,14 +3,10 @@ import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import Hero from '@/components/Hero';
 import HomeOptions from '@/components/HomeOptions';
-import Problem from '@/components/Problem';
-import Guide from '@/components/Guide';
-import Plan from '@/components/Plan';
-import Services from '@/components/Services';
-import CallToAction from '@/components/CallToAction';
-import Success from '@/components/Success';
-import Failure from '@/components/Failure';
+import ValueProposition from '@/components/ValueProposition';
+import Partners from '@/components/Partners';
 import SocialProof from '@/components/SocialProof';
+import CallToAction from '@/components/CallToAction';
 
 const Index = () => {
   // Scroll to top on page load
@@ -22,14 +18,10 @@ const Index = () => {
     <MainLayout>
       <Hero />
       <HomeOptions />
-      <Problem />
-      <Guide />
-      <Plan />
-      <Services />
-      <CallToAction />
-      <Success />
-      <Failure />
+      <ValueProposition />
+      <Partners />
       <SocialProof />
+      <CallToAction />
     </MainLayout>
   );
 };

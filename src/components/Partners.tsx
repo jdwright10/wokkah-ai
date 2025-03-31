@@ -1,7 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 
 const Partners = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -31,35 +29,30 @@ const Partners = () => {
   }, []);
   
   return (
-    <section 
-      ref={sectionRef} 
-      className="section bg-white opacity-0 transition-all duration-700 transform translate-y-8"
-    >
+    <section className="py-16 bg-gray-50">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="chip">Find Experts</span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold">
-            Find experts for every phase of your project
-          </h2>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            Connect with our network of certified partners to help you get the most out of Wokkah
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
-          {partners.map((partner, index) => (
-            <div key={index} className="flex flex-col items-center justify-center p-4 hover:shadow-md rounded-lg transition-all">
-              <img src={partner.logo} alt={partner.name} className="h-10 mb-2" />
-              <span className="text-sm font-medium">{partner.name}</span>
-            </div>
-          ))}
-        </div>
-        
-        <div className="text-center mt-8">
-          <Button>
-            View All Partners
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+        <div 
+          ref={sectionRef} 
+          className="opacity-0 transition-all duration-700 transform translate-y-8"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold">Trusted by Innovative Companies</h2>
+            <p className="mt-4 text-muted-foreground">
+              Partnering with leading organizations to deliver AI-powered solutions
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {partners.map((partner, index) => (
+              <div key={index} className="grayscale hover:grayscale-0 transition-all duration-300">
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name} 
+                  className="h-12 object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -67,18 +60,30 @@ const Partners = () => {
 };
 
 const partners = [
-  { name: "Google", logo: "https://api.iconify.design/logos:google.svg" },
-  { name: "Microsoft", logo: "https://api.iconify.design/logos:microsoft.svg" },
-  { name: "IBM", logo: "https://api.iconify.design/logos:ibm.svg" },
-  { name: "AWS", logo: "https://api.iconify.design/logos:aws.svg" },
-  { name: "Oracle", logo: "https://api.iconify.design/logos:oracle.svg" },
-  { name: "Slack", logo: "https://api.iconify.design/logos:slack.svg" },
-  { name: "Salesforce", logo: "https://api.iconify.design/logos:salesforce.svg" },
-  { name: "Adobe", logo: "https://api.iconify.design/logos:adobe.svg" },
-  { name: "Zoom", logo: "https://api.iconify.design/logos:zoom.svg" },
-  { name: "GitHub", logo: "https://api.iconify.design/logos:github-icon.svg" },
-  { name: "Atlassian", logo: "https://api.iconify.design/logos:atlassian.svg" },
-  { name: "Figma", logo: "https://api.iconify.design/logos:figma.svg" }
+  {
+    name: "Microsoft",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png"
+  },
+  {
+    name: "Amazon",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png"
+  },
+  {
+    name: "Google",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
+  },
+  {
+    name: "IBM",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png"
+  },
+  {
+    name: "Salesforce",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/2560px-Salesforce.com_logo.svg.png"
+  },
+  {
+    name: "Adobe",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.png/1280px-Adobe_Corporate_Logo.png"
+  }
 ];
 
 export default Partners;
