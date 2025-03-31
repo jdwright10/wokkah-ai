@@ -3,13 +3,22 @@ import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Users, Star, BadgeCheck, Search, Filter, MessageSquare, ExternalLink } from 'lucide-react';
+import { Users, Star, BadgeCheck, Search, Filter, MessageSquare, ExternalLink, Lock, Shield } from 'lucide-react';
+import { toast } from '@/components/ui/use-toast';
 
 const Freelancers = () => {
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleUnlockContact = () => {
+    toast({
+      title: "Premium Feature",
+      description: "Please subscribe to our Pro or Enterprise plan to unlock contact information.",
+      duration: 5000,
+    });
+  };
 
   return (
     <MainLayout>
@@ -62,13 +71,28 @@ const Freelancers = () => {
           {/* Freelancer Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {freelancers.map((freelancer, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm border border-neutral-100 overflow-hidden hover:shadow-md transition-shadow">
+              <div key={index} className="relative bg-white rounded-xl shadow-sm border border-neutral-100 overflow-hidden hover:shadow-md transition-shadow">
+                {freelancer.vetted && (
+                  <div className="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded-md flex items-center gap-1 z-10">
+                    <Shield className="h-3 w-3" />
+                    Vetted
+                  </div>
+                )}
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-14 h-14 bg-neutral-100 rounded-full mr-4 flex-shrink-0"></div>
+                    <div className="w-14 h-14 bg-neutral-100 rounded-full mr-4 flex-shrink-0 overflow-hidden relative">
+                      {/* Placeholder for profile image */}
+                      <div className="w-full h-full flex items-center justify-center text-neutral-400">
+                        <Users className="w-6 h-6" />
+                      </div>
+                      {/* Blur overlay on image */}
+                      <div className="absolute inset-0 bg-white/70 flex items-center justify-center">
+                        <Lock className="w-4 h-4 text-neutral-500" />
+                      </div>
+                    </div>
                     <div>
                       <h3 className="font-bold flex items-center">
-                        {freelancer.name}
+                        {freelancer.name.split(' ')[0]} {freelancer.name.split(' ')[1].charAt(0)}.
                         {freelancer.verified && (
                           <BadgeCheck className="h-4 w-4 text-primary ml-1" />
                         )}
@@ -85,7 +109,7 @@ const Freelancers = () => {
                     <span className="text-sm">{freelancer.rating.toFixed(1)}</span>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
-                    {freelancer.description}
+                    {freelancer.description.substring(0, 100)}...
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {freelancer.skills.map((skill, i) => (
@@ -96,9 +120,14 @@ const Freelancers = () => {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-neutral-100">
                     <span className="font-medium">${freelancer.hourlyRate}/hr</span>
-                    <Button size="sm" variant="outline" className="flex items-center gap-1">
-                      <MessageSquare className="h-4 w-4" />
-                      Contact
+                    <Button 
+                      size="sm" 
+                      variant="default" 
+                      className="flex items-center gap-1"
+                      onClick={handleUnlockContact}
+                    >
+                      <Lock className="h-4 w-4" />
+                      Unlock Contact
                     </Button>
                   </div>
                 </div>
@@ -150,6 +179,7 @@ const freelancers = [
     name: "Alex Morgan",
     role: "Full Stack Developer",
     verified: true,
+    vetted: true,
     rating: 4.9,
     description: "Specialized in React, Node.js, and AWS with 6+ years of experience building scalable web applications.",
     skills: ["React", "Node.js", "TypeScript", "AWS"],
@@ -159,6 +189,7 @@ const freelancers = [
     name: "Sarah Chen",
     role: "UX/UI Designer",
     verified: true,
+    vetted: true,
     rating: 5.0,
     description: "Award-winning designer with expertise in user-centered design processes and design systems.",
     skills: ["Figma", "UI Design", "UX Research", "Design Systems"],
@@ -168,6 +199,7 @@ const freelancers = [
     name: "Marcus Wilson",
     role: "DevOps Engineer",
     verified: false,
+    vetted: false,
     rating: 4.7,
     description: "Infrastructure specialist focused on containerization, CI/CD pipelines, and cloud architecture.",
     skills: ["Docker", "Kubernetes", "AWS", "CI/CD"],
@@ -177,6 +209,7 @@ const freelancers = [
     name: "Elena Rodriguez",
     role: "Project Manager",
     verified: true,
+    vetted: true,
     rating: 4.8,
     description: "Certified PMP with experience leading complex technical projects for Fortune 500 companies.",
     skills: ["Agile", "Scrum", "Risk Management", "Stakeholder Communication"],
@@ -186,6 +219,7 @@ const freelancers = [
     name: "David Kim",
     role: "Mobile Developer",
     verified: true,
+    vetted: false,
     rating: 4.6,
     description: "iOS and Android expert specializing in cross-platform development with React Native and Flutter.",
     skills: ["React Native", "Flutter", "iOS", "Android"],
@@ -195,6 +229,7 @@ const freelancers = [
     name: "Priya Patel",
     role: "Data Scientist",
     verified: false,
+    vetted: false,
     rating: 4.9,
     description: "AI/ML specialist with experience in predictive analytics, NLP, and computer vision applications.",
     skills: ["Python", "TensorFlow", "PyTorch", "Data Analysis"],
