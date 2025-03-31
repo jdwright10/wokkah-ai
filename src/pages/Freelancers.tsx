@@ -1,8 +1,9 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
-import { Users, Star, BadgeCheck, Search, Filter, MessageSquare, ExternalLink, Lock, Shield } from 'lucide-react';
+import { Users, Star, BadgeCheck, Search, Filter, MessageSquare, ExternalLink, Lock, Shield, MapPin, Briefcase } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 import { Badge } from '@/components/ui/badge';
 
@@ -109,6 +110,19 @@ const Freelancers = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     {freelancer.description.substring(0, 100)}...
                   </p>
+                  
+                  {/* Location and completed jobs */}
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      <span>{freelancer.country}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Briefcase className="h-3 w-3" />
+                      <span>{freelancer.completedJobs} jobs completed</span>
+                    </div>
+                  </div>
+                  
                   <div className="flex flex-wrap gap-2 mb-4">
                     {freelancer.skills.map((skill, i) => (
                       <span key={i} className="text-xs px-2 py-1 bg-neutral-100 rounded-full">
@@ -181,7 +195,9 @@ const freelancers = [
     rating: 4.9,
     description: "Specialized in React, Node.js, and AWS with 6+ years of experience building scalable web applications.",
     skills: ["React", "Node.js", "TypeScript", "AWS"],
-    hourlyRate: 85
+    hourlyRate: 85,
+    country: "United States",
+    completedJobs: 48
   },
   {
     name: "Sarah Chen",
@@ -191,7 +207,9 @@ const freelancers = [
     rating: 5.0,
     description: "Award-winning designer with expertise in user-centered design processes and design systems.",
     skills: ["Figma", "UI Design", "UX Research", "Design Systems"],
-    hourlyRate: 75
+    hourlyRate: 75,
+    country: "Canada",
+    completedJobs: 37
   },
   {
     name: "Marcus Wilson",
@@ -201,7 +219,9 @@ const freelancers = [
     rating: 4.7,
     description: "Infrastructure specialist focused on containerization, CI/CD pipelines, and cloud architecture.",
     skills: ["Docker", "Kubernetes", "AWS", "CI/CD"],
-    hourlyRate: 90
+    hourlyRate: 90,
+    country: "United Kingdom",
+    completedJobs: 26
   },
   {
     name: "Elena Rodriguez",
@@ -211,7 +231,9 @@ const freelancers = [
     rating: 4.8,
     description: "Certified PMP with experience leading complex technical projects for Fortune 500 companies.",
     skills: ["Agile", "Scrum", "Risk Management", "Stakeholder Communication"],
-    hourlyRate: 95
+    hourlyRate: 95,
+    country: "Spain",
+    completedJobs: 52
   },
   {
     name: "David Kim",
@@ -221,7 +243,9 @@ const freelancers = [
     rating: 4.6,
     description: "iOS and Android expert specializing in cross-platform development with React Native and Flutter.",
     skills: ["React Native", "Flutter", "iOS", "Android"],
-    hourlyRate: 80
+    hourlyRate: 80,
+    country: "South Korea",
+    completedJobs: 31
   },
   {
     name: "Priya Patel",
@@ -231,7 +255,9 @@ const freelancers = [
     rating: 4.9,
     description: "AI/ML specialist with experience in predictive analytics, NLP, and computer vision applications.",
     skills: ["Python", "TensorFlow", "PyTorch", "Data Analysis"],
-    hourlyRate: 100
+    hourlyRate: 100,
+    country: "India",
+    completedJobs: 23
   }
 ];
 
