@@ -46,16 +46,14 @@ const HireWokkah = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
         <title>Hire Wokkah for Your Project | Wokkah</title>
         <meta name="description" content="Let Wokkah's team of experts bring your project to life. Submit your requirements and we'll handle the rest." />
       </Helmet>
 
-      <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
+      <section className="pt-12 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
-          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
-          
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="chip inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
               <Briefcase className="inline-block w-4 h-4 mr-1" /> Hire Wokkah

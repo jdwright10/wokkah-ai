@@ -8,9 +8,10 @@ import { useLocation } from 'react-router-dom';
 interface MainLayoutProps {
   children: React.ReactNode;
   showBreadcrumbs?: boolean;
+  customBreadcrumbs?: React.ReactNode; // Add this prop
 }
 
-const MainLayout = ({ children, showBreadcrumbs = true }: MainLayoutProps) => {
+const MainLayout = ({ children, showBreadcrumbs = true, customBreadcrumbs }: MainLayoutProps) => {
   const location = useLocation();
   
   // Generate breadcrumb items based on the current path
@@ -45,10 +46,16 @@ const MainLayout = ({ children, showBreadcrumbs = true }: MainLayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      {showBreadcrumbs && location.pathname !== '/' && (
+      {customBreadcrumbs ? (
         <div className="container mt-24 pt-4">
-          <BreadcrumbNav items={getBreadcrumbItems()} />
+          {customBreadcrumbs}
         </div>
+      ) : (
+        showBreadcrumbs && location.pathname !== '/' && (
+          <div className="container mt-24 pt-4">
+            <BreadcrumbNav items={getBreadcrumbItems()} />
+          </div>
+        )
       )}
       <main className="flex-grow">{children}</main>
       <Footer />

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -29,17 +28,15 @@ const Solutions = () => {
   ];
 
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
         <title>AI-Powered Solutions | Wokkah</title>
         <meta name="description" content="Wokkah connects you with expert freelancers for all your AI implementation needs, from concept to deployment." />
         <meta name="keywords" content="AI solutions, web design, AI agents, app development, cybersecurity, machine learning, AI integration" />
       </Helmet>
 
-      <section className="section pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
-        <div className="container">
-          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
-          
+      <section className="section pt-12 pb-16 bg-gradient-to-b from-white to-neutral-50">
+        <div className="container">          
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="chip inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Our Solutions</span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">

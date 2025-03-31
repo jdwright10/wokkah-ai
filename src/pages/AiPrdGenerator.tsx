@@ -71,7 +71,7 @@ const AiPrdGenerator = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
         <title>AI PRD Generator | Wokkah</title>
         <meta 
@@ -80,10 +80,8 @@ const AiPrdGenerator = () => {
         />
       </Helmet>
 
-      <section className="pt-32 pb-16">
+      <section className="pt-12 pb-16">
         <div className="container max-w-5xl">
-          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
-          
           <div className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
               AI-Powered Tool
