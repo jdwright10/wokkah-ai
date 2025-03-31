@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
@@ -24,7 +23,6 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
-// Define schema for form validation
 const formSchema = z.object({
   companyName: z.string().min(1, { message: 'Company name is required' }),
   industry: z.string().min(1, { message: 'Industry is required' }),
@@ -76,7 +74,10 @@ const AiNeedsAssessment = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Initialize form with react-hook-form
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -128,7 +129,6 @@ const AiNeedsAssessment = () => {
   const onSubmit = (data: FormValues) => {
     console.log('Form submitted:', data);
     
-    // In a real application, you would send this data to your backend
     toast({
       title: "Assessment Submitted",
       description: "Thank you for completing the AI Needs Assessment. We'll be in touch shortly.",
@@ -136,15 +136,12 @@ const AiNeedsAssessment = () => {
     
     setIsSubmitted(true);
     
-    // Reset form
     form.reset();
     
-    // Scroll to the top of the page
     window.scrollTo(0, 0);
   };
 
   const downloadReport = () => {
-    // Trigger download of the PDF
     const link = document.createElement('a');
     link.href = '/ai-landscape-guide.pdf';
     link.download = 'Unlocking the Future: How AI Can Transform Your Business.pdf';
