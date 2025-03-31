@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -211,7 +210,7 @@ const FindTalent = () => {
                   </li>
                 </ul>
                 <Button className="w-full" onClick={handleUnlockClick}>
-                  Upgrade to Premium
+                  Subscribe to Unlock
                 </Button>
               </div>
               
