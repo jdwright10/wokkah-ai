@@ -34,8 +34,8 @@ const Freelancers = () => {
               Access our curated network of skilled developers, designers, and project managers who have been vetted for their expertise and professionalism.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-              <Button size="lg">
-                Find Talent
+              <Button size="lg" asChild>
+                <Link to="/find-talent">Find Talent</Link>
               </Button>
               <Link to="/become-a-freelancer">
                 <Button size="lg" variant="outline" className="group">
@@ -156,8 +156,12 @@ const Freelancers = () => {
               Our talent matching specialists can help you identify the perfect freelancers for your specific project needs.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg">Request Talent Match</Button>
-              <Button size="lg" variant="outline">Learn About Vetting Process</Button>
+              <Button size="lg" asChild>
+                <Link to="/ai-matching">Request Talent Match</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link to="/vetting-process">Learn About Vetting Process</Link>
+              </Button>
             </div>
           </div>
         </div>

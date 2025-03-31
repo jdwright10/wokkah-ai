@@ -42,6 +42,7 @@ import TalentProfile from "./pages/talent/TalentProfile";
 import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
+import VettingProcess from "./pages/VettingProcess";
 
 // Import the hiring automation pages
 import JobDistribution from "./pages/automation/hiring/JobDistribution";
@@ -98,6 +99,7 @@ const App = () => {
             <Route path="/talent/:id" element={<TalentProfile />} />
             <Route path="/freelancers" element={<Freelancers />} />
             <Route path="/become-a-freelancer" element={<BecomeFreelancer />} />
+            <Route path="/vetting-process" element={<VettingProcess />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<AboutUs />} />
