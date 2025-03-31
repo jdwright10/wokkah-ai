@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import { Users, Star, BadgeCheck, Search, Filter, MessageSquare, ExternalLink, Lock, Shield } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
+import { Badge } from '@/components/ui/badge';
 
 const Freelancers = () => {
   // Scroll to top on page load
@@ -70,7 +71,7 @@ const Freelancers = () => {
             {freelancers.map((freelancer, index) => (
               <div key={index} className="relative bg-white rounded-xl shadow-sm border border-neutral-100 overflow-hidden hover:shadow-md transition-shadow">
                 {freelancer.vetted && (
-                  <div className="absolute top-3 right-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded-md flex items-center gap-1 z-10">
+                  <div className="absolute top-3 right-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-md flex items-center gap-1 z-10">
                     <Shield className="h-3 w-3" />
                     Vetted
                   </div>
