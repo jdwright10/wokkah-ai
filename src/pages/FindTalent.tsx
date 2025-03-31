@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -80,14 +79,14 @@ const FindTalent = () => {
     }
     
     // Apply category filter
-    if (selectedCategory) {
+    if (selectedCategory && selectedCategory !== 'all') {
       results = results.filter(talent => 
         talent.skills.some(skill => skill.toLowerCase().includes(selectedCategory.toLowerCase()))
       );
     }
     
     // Apply location filter
-    if (selectedLocation) {
+    if (selectedLocation && selectedLocation !== 'all') {
       results = results.filter(talent => 
         talent.location.toLowerCase().includes(selectedLocation.toLowerCase())
       );
@@ -191,7 +190,6 @@ const FindTalent = () => {
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                             <div className="flex items-center gap-2">
                               <h3 className="text-lg font-bold">{formatName(talent.name)}</h3>
-                              {/* Add vetted badge to some profiles */}
                               {talent.id % 3 === 0 && (
                                 <Badge variant="default" className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-1">
                                   <ShieldCheck className="h-3 w-3" /> Vetted

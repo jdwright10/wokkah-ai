@@ -38,5 +38,70 @@ export const talentData = [
     location: "London, UK",
     experience: "6 years",
     availability: "Available now"
+  },
+  {
+    id: 4,
+    name: "Chioma Okonkwo",
+    title: "Backend Developer",
+    bio: "Experienced backend developer with expertise in building scalable APIs and microservices. Passionate about clean code and performance optimization. I have successfully implemented payment processing systems for fintech companies and built data processing pipelines for analytics platforms. My focus is on creating reliable, maintainable backend systems that can handle high traffic loads.",
+    skills: ["Node.js", "Python", "MongoDB", "PostgreSQL", "Docker"],
+    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    rating: 4.9,
+    reviewCount: 76,
+    location: "Lagos, Nigeria",
+    experience: "7 years",
+    availability: "Available now"
+  },
+  {
+    id: 5,
+    name: "Adebayo Oluwaseun",
+    title: "Mobile Developer",
+    bio: "Passionate about creating beautiful, intuitive mobile experiences. Specialized in React Native and Flutter development for cross-platform applications. I've launched over 20 mobile apps on iOS and Android platforms with millions of downloads collectively. My experience includes developing apps for startups, enterprise clients, and government agencies across various industries including fintech, health, and e-commerce.",
+    skills: ["React Native", "Flutter", "iOS", "Android", "TypeScript"],
+    avatar: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    rating: 4.8,
+    reviewCount: 63,
+    location: "Abuja, Nigeria",
+    experience: "5 years",
+    availability: "Available in 1 week"
+  },
+  {
+    id: 6,
+    name: "Emma Wright",
+    title: "Data Scientist",
+    bio: "Expert in turning data into actionable insights. Specialized in predictive analytics and machine learning models for business optimization. My work has helped companies increase revenue through targeted marketing campaigns, reduce operational costs through predictive maintenance, and improve customer satisfaction through personalized recommendation systems. I enjoy tackling complex problems with creative data-driven solutions.",
+    skills: ["Python", "R", "SQL", "Machine Learning", "Data Visualization"],
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    rating: 4.6,
+    reviewCount: 58,
+    location: "Berlin, Germany",
+    experience: "4 years",
+    availability: "Available now"
+  },
+  {
+    id: 7,
+    name: "Olufemi Adeyemi",
+    title: "DevOps Engineer",
+    bio: "DevOps specialist focused on automating and optimizing infrastructure processes. Expert in cloud technologies and containerization. I've helped organizations implement CI/CD pipelines that reduced deployment times from days to minutes, set up monitoring systems that improved incident response times, and created infrastructure-as-code solutions that enhanced scalability and reliability of critical systems.",
+    skills: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+    avatar: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    rating: 4.7,
+    reviewCount: 43,
+    location: "Port Harcourt, Nigeria",
+    experience: "6 years",
+    availability: "Available in 3 weeks"
+  },
+  {
+    id: 8,
+    name: "Sophia Martinez",
+    title: "Product Manager",
+    bio: "Strategic product leader with a passion for delivering user-centered solutions. Background in both design and development, allowing for effective cross-functional team leadership. I've successfully launched products that generated millions in revenue, led Agile teams through complete product lifecycles, and developed roadmaps that aligned business goals with user needs. My approach combines data-driven decision making with creative problem solving.",
+    skills: ["Product Strategy", "Agile", "User Research", "Roadmapping", "Analytics"],
+    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    rating: 4.9,
+    reviewCount: 71,
+    location: "Toronto, Canada",
+    experience: "9 years",
+    availability: "Available in 2 weeks"
   }
 ];
