@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -71,6 +70,12 @@ const App = () => {
             <Route path="/hire-wokkah" element={<HireWokkah />} />
             <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
             <Route path="/solutions/business-automation/marketing" element={<MarketingAutomation />} />
+            <Route path="/solutions/business-automation/marketing/website-building" element={<WebsiteBuilding />} />
+            <Route path="/solutions/business-automation/marketing/email-campaigns" element={<EmailCampaigns />} />
+            <Route path="/solutions/business-automation/marketing/social-media" element={<SocialMedia />} />
+            <Route path="/solutions/business-automation/marketing/lead-nurturing" element={<LeadNurturing />} />
+            <Route path="/solutions/business-automation/marketing/content-personalization" element={<ContentPersonalization />} />
+            <Route path="/solutions/business-automation/marketing/analytics" element={<MarketingAnalytics />} />
             <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />
             <Route path="/solutions/business-automation/operations" element={<OperationsAutomation />} />
             <Route path="/solutions/business-automation/finance" element={<FinanceAutomation />} />
