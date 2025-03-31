@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FileDown } from 'lucide-react';
@@ -47,7 +48,7 @@ const Footer = () => {
                 Wokkah
               </Link>
               <p className="mt-4 text-muted-foreground">
-                Infuse AI into your company. Simplify project management, connect with top talent, and bring your vision to life.
+                Turn your skills into a thriving freelance career. Connect with quality clients, access AI-powered tools, and develop your expertise with our courses.
               </p>
               
               <a 
