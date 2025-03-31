@@ -2,21 +2,23 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import { 
   Users, 
   UserPlus, 
-  ClipboardCheck, 
-  Briefcase,
-  GraduationCap,
+  Clock, 
+  Award, 
+  Heart, 
+  ClipboardList,
+  MessageSquare,
   Calendar,
-  FileText,
-  MessagesSquare,
-  Search,
-  ArrowRight
+  Brain,
+  BarChart,
+  ArrowLeft
 } from 'lucide-react';
-import PageHeader from '@/components/talent/PageHeader';
+import { Button } from '@/components/ui/button';
+import DemoRequestForm from '@/components/DemoRequestForm';
+import { Link } from 'react-router-dom';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const HRAutomation = () => {
   // Scroll to top on page load
@@ -24,62 +26,57 @@ const HRAutomation = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleCalendlySchedule = () => {
-    // Open Calendly in a new window
-    window.open('https://calendly.com/wokkah/hr-automation', '_blank');
-  };
+  // Define breadcrumb items
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Solutions', path: '/solutions' },
+    { label: 'Business Automation', path: '/solutions/business-automation' },
+    { label: 'HR Automation', isCurrent: true }
+  ];
 
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
-        <title>HR & Recruitment Automation Solutions | Wokkah</title>
-        <meta name="description" content="Streamline your HR and recruitment processes with AI-powered automation tools that enhance hiring, onboarding, and employee management." />
+        <title>HR & Hiring Automation Solutions | Wokkah</title>
+        <meta name="description" content="Streamline your HR processes with AI-powered automation tools for recruitment, onboarding, performance management, and employee engagement." />
       </Helmet>
 
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-purple-50">
         <div className="container">
-          <PageHeader 
-            badge="HR & Recruitment Automation"
-            title="Transform Human Resources with Intelligent Automation"
-            subtitle="Streamline hiring, onboarding, performance management, and employee engagement with our AI-powered HR automation solutions."
-          />
+          <Link to="/solutions/business-automation" className="inline-flex items-center text-primary hover:underline mb-8">
+            <ArrowLeft className="h-4 w-4 mr-2" /> Back to Business Automation
+          </Link>
           
-          <div className="text-center mb-12">
-            <Button 
-              size="lg" 
-              className="mt-8"
-              onClick={handleCalendlySchedule}
-            >
-              Schedule a Consultation
-            </Button>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">HR & Hiring Automation</span>
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold">
+              Transform Your HR and Talent Acquisition with Intelligent Automation
+            </h1>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Streamline your entire employee lifecycle from recruitment to retirement with AI-powered tools that save time, reduce costs, and improve the employee experience.
+            </p>
           </div>
           
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-center">Recruitment & Hiring Automation</h2>
+            <h2 className="text-2xl font-bold text-center mb-8">Talent Acquisition Automation</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {hiringFeatures.map((feature, index) => (
-                <Link 
+                <div 
                   key={index}
-                  to={feature.link || "#"}
-                  className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="bg-white p-8 rounded-xl shadow-sm border border-neutral-100"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground mb-4">{feature.description}</p>
-                  {feature.link && (
-                    <div className="flex items-center text-primary text-sm font-medium group">
-                      Learn more <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  )}
-                </Link>
+                  <p className="text-muted-foreground">{feature.description}</p>
+                </div>
               ))}
             </div>
           </div>
           
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-center">Employee Management Automation</h2>
+            <h2 className="text-2xl font-bold text-center mb-8">Employee Management Automation</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {hrFeatures.map((feature, index) => (
                 <div 
@@ -96,18 +93,7 @@ const HRAutomation = () => {
             </div>
           </div>
           
-          <div className="bg-white p-8 md:p-12 rounded-xl shadow-md border border-neutral-200 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Transform Your HR Department?</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              Let's discuss how our HR and recruiting automation solutions can help you streamline processes and enhance employee experience. Schedule a no-obligation consultation with our HR automation experts.
-            </p>
-            <Button 
-              size="lg"
-              onClick={handleCalendlySchedule}
-            >
-              <Calendar className="mr-2" /> Schedule a Consultation
-            </Button>
-          </div>
+          <DemoRequestForm serviceName="HR & Hiring Automation" />
         </div>
       </section>
     </MainLayout>
@@ -117,67 +103,56 @@ const HRAutomation = () => {
 const hiringFeatures = [
   {
     title: "Job Distribution",
-    description: "Automatically post open positions to multiple job boards, social media, and career sites to maximize applicant reach.",
-    icon: <UserPlus className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/hr/job-distribution"
+    description: "Automatically post job openings to multiple job boards, career sites, and social platforms with AI-optimized job descriptions to attract top talent.",
+    icon: <UserPlus className="h-6 w-6 text-primary" />
   },
   {
     title: "AI Resume Screening",
-    description: "Efficiently analyze resumes and applications to identify the best candidates based on skills, experience, and job requirements.",
-    icon: <Search className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/hr/resume-screening"
-  },
-  {
-    title: "Skills Assessment",
-    description: "Automate pre-employment assessments to evaluate candidates' qualifications and job-readiness with customizable tests.",
-    icon: <ClipboardCheck className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/hr/skills-assessment"
-  },
-  {
-    title: "Interview Scheduling",
-    description: "Eliminate scheduling hassles with automated calendar coordination between candidates and hiring managers.",
-    icon: <Calendar className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/hr/interview-scheduling"
+    description: "Intelligently scan, parse, and rank resumes based on job requirements, skills matching, and candidate potential to identify the best applicants.",
+    icon: <Brain className="h-6 w-6 text-primary" />
   },
   {
     title: "Candidate Communication",
-    description: "Maintain engagement with automated, personalized messaging that keeps candidates informed throughout the process.",
-    icon: <MessagesSquare className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/hr/candidate-communication"
+    description: "Maintain engagement with automated, personalized emails, SMS, and chatbots that keep candidates informed throughout the hiring process.",
+    icon: <MessageSquare className="h-6 w-6 text-primary" />
+  },
+  {
+    title: "Interview Scheduling",
+    description: "Eliminate scheduling headaches with automated calendar management, interviewer coordination, and candidate self-scheduling tools.",
+    icon: <Calendar className="h-6 w-6 text-primary" />
+  },
+  {
+    title: "Skills Assessment",
+    description: "Deliver customized pre-employment tests and skill evaluations with automated scoring to objectively assess candidate qualifications.",
+    icon: <Award className="h-6 w-6 text-primary" />
   },
   {
     title: "Onboarding Preparation",
-    description: "Streamline the transition from candidate to employee with automated document collection and onboarding workflows.",
-    icon: <FileText className="h-6 w-6 text-primary" />,
-    link: "/solutions/business-automation/hr/onboarding-preparation"
+    description: "Streamline the transition from candidate to employee with automated document collection, welcome sequences, and training enrollment.",
+    icon: <ClipboardList className="h-6 w-6 text-primary" />
   }
 ];
 
 const hrFeatures = [
   {
     title: "Employee Onboarding",
-    description: "Automate paperwork, training schedules, and welcome workflows to create a seamless onboarding experience.",
-    icon: <Briefcase className="h-6 w-6 text-primary" />
+    description: "Create seamless onboarding experiences with automated workflows for paperwork, training, introductions, and equipment provisioning.",
+    icon: <Users className="h-6 w-6 text-primary" />
+  },
+  {
+    title: "Time & Attendance",
+    description: "Automate time tracking, schedule management, and absence requests with intelligent systems that integrate with payroll and compliance.",
+    icon: <Clock className="h-6 w-6 text-primary" />
   },
   {
     title: "Performance Management",
-    description: "Simplify goal setting, feedback collection, and performance reviews with automated workflows.",
-    icon: <ClipboardCheck className="h-6 w-6 text-primary" />
+    description: "Streamline review cycles, goal setting, feedback collection, and development planning with intelligent performance management tools.",
+    icon: <BarChart className="h-6 w-6 text-primary" />
   },
   {
     title: "Employee Engagement",
-    description: "Build a better workplace culture with automated pulse surveys, recognition programs, and feedback loops.",
-    icon: <Users className="h-6 w-6 text-primary" />
-  },
-  {
-    title: "Training & Development",
-    description: "Automate learning pathways, skill assessments, and professional development tracking for your team.",
-    icon: <GraduationCap className="h-6 w-6 text-primary" />
-  },
-  {
-    title: "HR Analytics",
-    description: "Gain actionable insights with automated reporting on workforce metrics, turnover, and engagement.",
-    icon: <Users className="h-6 w-6 text-primary" />
+    description: "Boost satisfaction and retention with automated pulse surveys, recognition programs, and personalized employee communications.",
+    icon: <Heart className="h-6 w-6 text-primary" />
   }
 ];
 

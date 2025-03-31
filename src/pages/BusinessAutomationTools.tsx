@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -9,29 +10,34 @@ import {
   LineChart, 
   Building, 
   Hammer, 
-  ShoppingCart,
-  MousePointer,
-  UserPlus,
+  DollarSign,
   BarChart3,
-  DollarSign
+  ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const BusinessAutomationTools = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Define breadcrumb items
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Solutions', path: '/solutions' },
+    { label: 'Business Automation', isCurrent: true }
+  ];
+
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
         <title>Business Automation Tools | Wokkah</title>
         <meta name="description" content="Streamline your business with our AI-powered automation tools for marketing, HR, operations, finance, sales, and market research." />
         <meta name="keywords" content="business automation, workflow automation, marketing automation, HR automation, operations automation, finance automation, sales automation, market research automation" />
       </Helmet>
 
-      <section className="section pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Business Automation</span>
@@ -43,7 +49,7 @@ const BusinessAutomationTools = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {automationServices.map((service) => (
               <div 
                 key={service.title}
@@ -71,13 +77,13 @@ const BusinessAutomationTools = () => {
 const automationServices = [
   {
     title: "Marketing Automation",
-    description: "Streamline your marketing efforts with AI-powered tools that personalize campaigns, optimize content, and drive conversions.",
+    description: "Streamline your marketing efforts with AI-powered tools that personalize campaigns, optimize content, and drive conversions. Includes Amazon and PPC automation.",
     icon: <Megaphone className="h-7 w-7 text-primary" />,
     link: "/solutions/business-automation/marketing"
   },
   {
     title: "HR Automation",
-    description: "Simplify talent acquisition, onboarding, performance management, and employee engagement with intelligent HR automation.",
+    description: "Simplify talent acquisition, onboarding, performance management, and employee engagement with intelligent HR and recruiting automation.",
     icon: <Users className="h-7 w-7 text-primary" />,
     link: "/solutions/business-automation/hr"
   },
@@ -104,24 +110,6 @@ const automationServices = [
     description: "Streamline production processes, quality control, and supply chain management with intelligent manufacturing automation solutions.",
     icon: <Hammer className="h-7 w-7 text-primary" />,
     link: "/solutions/business-automation/manufacturing"
-  },
-  {
-    title: "Amazon Automation",
-    description: "Optimize your Amazon listings, automate inventory management, and maximize sales with AI-powered Amazon marketplace automation.",
-    icon: <ShoppingCart className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/amazon"
-  },
-  {
-    title: "PPC Automation",
-    description: "Enhance your pay-per-click campaigns with intelligent bid management, automated A/B testing, and data-driven optimization.",
-    icon: <MousePointer className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/ppc"
-  },
-  {
-    title: "Hiring Automation",
-    description: "Streamline your recruitment process with automated job posting, applicant screening, interview scheduling, and candidate engagement.",
-    icon: <UserPlus className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/hiring"
   },
   {
     title: "Sales Automation",

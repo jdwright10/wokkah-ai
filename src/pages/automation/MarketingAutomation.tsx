@@ -17,6 +17,7 @@ import {
   MousePointer
 } from 'lucide-react';
 import PageHeader from '@/components/talent/PageHeader';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const MarketingAutomation = () => {
   // Scroll to top on page load
@@ -29,8 +30,16 @@ const MarketingAutomation = () => {
     window.open('https://calendly.com/wokkah/marketing-automation', '_blank');
   };
 
+  // Define breadcrumb items
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Solutions', path: '/solutions' },
+    { label: 'Business Automation', path: '/solutions/business-automation' },
+    { label: 'Marketing Automation', isCurrent: true }
+  ];
+
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
         <title>Marketing Automation Solutions | Wokkah</title>
         <meta name="description" content="Transform your marketing with AI-powered automation tools that save time, increase conversions, and deliver measurable results." />
