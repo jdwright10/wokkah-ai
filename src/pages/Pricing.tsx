@@ -30,6 +30,8 @@ const Pricing = () => {
         'Project Manager': false,
         'Premium Support': false,
         'Advanced Analytics': false,
+        'End-to-End Management': false,
+        'Access to Employee Talent Pool': false,
       },
       buttonText: 'Get Started',
       popular: false,
@@ -45,6 +47,8 @@ const Pricing = () => {
         'Project Manager': false,
         'Premium Support': true,
         'Advanced Analytics': false,
+        'End-to-End Management': false,
+        'Access to Employee Talent Pool': false,
       },
       buttonText: 'Get Started',
       popular: true,
@@ -52,7 +56,7 @@ const Pricing = () => {
     {
       name: 'Enterprise',
       price: '$149',
-      description: 'For businesses seeking the complete managed solution',
+      description: 'For businesses who want additional project management support',
       features: {
         'Create AI-Powered PRDs': true,
         'Connect with Freelancers': true,
@@ -60,8 +64,27 @@ const Pricing = () => {
         'Project Manager': true,
         'Premium Support': true,
         'Advanced Analytics': true,
+        'End-to-End Management': false,
+        'Access to Employee Talent Pool': false,
       },
       buttonText: 'Get Started',
+      popular: false,
+    },
+    {
+      name: 'Custom Development',
+      price: 'Custom',
+      description: 'Complete end-to-end project management with our internal talent pool',
+      features: {
+        'Create AI-Powered PRDs': true,
+        'Connect with Freelancers': true,
+        'Vetted Talent Access': true,
+        'Project Manager': true,
+        'Premium Support': true,
+        'Advanced Analytics': true,
+        'End-to-End Management': true,
+        'Access to Employee Talent Pool': true,
+      },
+      buttonText: 'Get Quote',
       popular: false,
     }
   ];
@@ -102,7 +125,7 @@ const Pricing = () => {
                   <h3 className="text-xl font-bold">{plan.name}</h3>
                   <div className="mt-2">
                     <span className="text-3xl font-bold">{plan.price}</span>
-                    <span className="text-muted-foreground">/month</span>
+                    {plan.price !== 'Custom' && <span className="text-muted-foreground">/month</span>}
                   </div>
                   <p className="mt-2 text-muted-foreground">{plan.description}</p>
                 </div>
@@ -152,7 +175,7 @@ const Pricing = () => {
                         <div className="text-xl font-bold">{plan.name}</div>
                         <div className="mt-2">
                           <span className="text-2xl font-bold">{plan.price}</span>
-                          <span className="text-muted-foreground">/month</span>
+                          {plan.price !== 'Custom' && <span className="text-muted-foreground">/month</span>}
                         </div>
                         <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
                       </div>
