@@ -132,7 +132,7 @@ const FindTalent = () => {
                     <SelectValue placeholder="Category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">All Categories</SelectItem>
+                    <SelectItem value="all">All Categories</SelectItem>
                     <SelectItem value="development">Development</SelectItem>
                     <SelectItem value="design">Design</SelectItem>
                     <SelectItem value="marketing">Marketing</SelectItem>
@@ -147,7 +147,7 @@ const FindTalent = () => {
                     <SelectValue placeholder="Location" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">All Locations</SelectItem>
+                    <SelectItem value="all">All Locations</SelectItem>
                     {uniqueLocations.map((location) => (
                       <SelectItem key={location} value={location}>
                         {location}
