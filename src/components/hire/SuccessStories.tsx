@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Star, TrendingUp, Lightbulb, Sparkles } from 'lucide-react';
 
 interface SuccessStory {
   company: string;
@@ -36,19 +37,57 @@ const stories: SuccessStory[] = [
 
 const SuccessStories = () => {
   return (
-    <Card className="shadow-md">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-xl">Success Stories</CardTitle>
+    <Card className="shadow-lg border-t-4 border-t-primary/70">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-2xl font-bold flex items-center gap-2">
+          <Star className="h-5 w-5 text-amber-500" />
+          Success Stories
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 gap-6">
           {stories.map((story, index) => (
-            <div key={index} className="border-l-4 border-primary/70 pl-4 py-1">
-              <h3 className="font-bold text-base">{story.company} <span className="font-normal text-sm text-muted-foreground ml-1">({story.industry})</span></h3>
-              <div className="mt-2 space-y-2 text-sm">
-                <p><span className="font-medium">Challenge:</span> {story.challenge}</p>
-                <p><span className="font-medium">Solution:</span> {story.solution}</p>
-                <p><span className="font-medium">Result:</span> {story.result}</p>
+            <div 
+              key={index} 
+              className="bg-gradient-to-r from-white to-primary/5 rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300"
+            >
+              <div className="flex justify-between items-start">
+                <h3 className="font-bold text-lg text-primary/90">{story.company}</h3>
+                <span className="text-sm px-3 py-1 bg-primary/10 text-primary/80 rounded-full font-medium">
+                  {story.industry}
+                </span>
+              </div>
+              
+              <div className="mt-4 space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+                    <Lightbulb className="h-4 w-4 text-amber-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm text-muted-foreground mb-1">Challenge:</p>
+                    <p>{story.challenge}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <Sparkles className="h-4 w-4 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm text-muted-foreground mb-1">Solution:</p>
+                    <p>{story.solution}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="h-4 w-4 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm text-muted-foreground mb-1">Result:</p>
+                    <p className="font-medium text-green-700">{story.result}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
