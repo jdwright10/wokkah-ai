@@ -76,11 +76,15 @@ const HireWokkah = () => {
                 isSubmitting={isSubmitting}
                 isSubmitted={isSubmitted}
               />
+              
+              {/* Success Stories moved here, below the form */}
+              <div className="mt-10">
+                <SuccessStories />
+              </div>
             </div>
             
             <div className="space-y-8">
               <NextSteps />
-              <SuccessStories />
             </div>
           </div>
           
