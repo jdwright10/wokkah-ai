@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import Hero from '@/components/Hero';
+import HomeOptions from '@/components/HomeOptions';
 import Problem from '@/components/Problem';
 import Guide from '@/components/Guide';
 import Plan from '@/components/Plan';
@@ -20,6 +21,7 @@ const Index = () => {
   return (
     <MainLayout>
       <Hero />
+      <HomeOptions />
       <Problem />
       <Guide />
       <Plan />
