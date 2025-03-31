@@ -51,17 +51,17 @@ const Footer = () => {
                 Transform your business with AI-powered solutions. Streamline operations, reduce costs, and boost productivity with our all-in-one AI platform.
               </p>
               
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  downloadReport();
-                }}
-                className="mt-6 inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+              <button 
+                onClick={downloadReport}
+                className="mt-6 inline-flex items-center text-primary hover:text-primary/80 transition-colors bg-transparent border-none p-0 cursor-pointer group"
               >
-                <FileDown className="h-4 w-4 mr-2" />
-                Download Our Free Report: Unlocking the Future: How AI Can Transform Your Business
-              </a>
+                <div className="flex items-center gap-2">
+                  <div className="bg-primary/10 rounded-md p-1.5 group-hover:bg-primary/20 transition-colors">
+                    <FileDown className="h-5 w-5 text-primary" />
+                  </div>
+                  <span>Download Our Free Report: Unlocking the Future: How AI Can Transform Your Business</span>
+                </div>
+              </button>
             </div>
             
             <div>
