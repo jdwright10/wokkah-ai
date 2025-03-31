@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -42,6 +43,14 @@ import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
 import VettingProcess from "./pages/VettingProcess";
+
+// Import marketing automation pages
+import WebsiteBuilding from "./pages/automation/marketing/WebsiteBuilding";
+import EmailCampaigns from "./pages/automation/marketing/EmailCampaigns";
+import SocialMedia from "./pages/automation/marketing/SocialMedia";
+import LeadNurturing from "./pages/automation/marketing/LeadNurturing";
+import ContentPersonalization from "./pages/automation/marketing/ContentPersonalization";
+import MarketingAnalytics from "./pages/automation/marketing/MarketingAnalytics";
 
 // Import the hiring automation pages
 import JobDistribution from "./pages/automation/hiring/JobDistribution";
