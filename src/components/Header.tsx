@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -68,9 +67,8 @@ const Header = () => {
       )}
     >
       <div className="container flex items-center justify-between">
-        <Link to="/" className="flex flex-col">
+        <Link to="/" className="flex items-center">
           <span className="text-2xl font-bold font-heading text-primary">Wokkah</span>
-          <span className="text-xs text-muted-foreground -mt-1">Infuse the Power of AI Into Your Company</span>
         </Link>
         
         <div className="hidden md:block">
