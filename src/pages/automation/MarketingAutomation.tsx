@@ -12,7 +12,9 @@ import {
   Share2, 
   Calendar,
   Globe,
-  ArrowRight
+  ArrowRight,
+  ShoppingCart,
+  MousePointer
 } from 'lucide-react';
 import PageHeader from '@/components/talent/PageHeader';
 
@@ -127,6 +129,18 @@ const marketingFeatures = [
     description: "Gain actionable insights with automated reporting and analytics that track campaign performance and ROI.",
     icon: <BarChart className="h-6 w-6 text-primary" />,
     link: "/solutions/business-automation/marketing/analytics"
+  },
+  {
+    title: "Amazon Marketplace Automation",
+    description: "Optimize your Amazon listings, automate inventory management, and maximize sales with AI-powered marketplace tools.",
+    icon: <ShoppingCart className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/marketing/amazon"
+  },
+  {
+    title: "PPC Advertising Automation",
+    description: "Enhance your pay-per-click campaigns with intelligent bid management, automated A/B testing, and data-driven optimization.",
+    icon: <MousePointer className="h-6 w-6 text-primary" />,
+    link: "/solutions/business-automation/marketing/ppc"
   }
 ];
 

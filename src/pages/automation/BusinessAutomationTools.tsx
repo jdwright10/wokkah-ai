@@ -10,11 +10,8 @@ import {
   LineChart, 
   Building, 
   Hammer, 
-  ShoppingCart,
-  MousePointer,
-  UserPlus,
-  BarChart3,
   DollarSign,
+  BarChart3,
   ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -148,7 +145,19 @@ const featuredSolutionsNew = [
     features: [
       "AI-powered content generation",
       "Campaign performance analytics",
-      "Audience segmentation and targeting"
+      "Social media and advertising automation"
+    ]
+  },
+  {
+    title: "HR Automation",
+    description: "Streamline hiring, onboarding, and employee management with intelligent automation tools.",
+    icon: <Users className="h-8 w-8 text-purple-600" />,
+    link: "/solutions/business-automation/hr",
+    bgGradient: "bg-gradient-to-r from-purple-600 to-violet-700",
+    features: [
+      "Automated recruitment and screening",
+      "Seamless onboarding workflows",
+      "Employee engagement and performance tracking"
     ]
   },
   {
@@ -174,18 +183,6 @@ const featuredSolutionsNew = [
       "Automated follow-ups and engagement",
       "Sales performance analytics and forecasting"
     ]
-  },
-  {
-    title: "Amazon Automation",
-    description: "Maximize sales and efficiency on Amazon with AI-driven listing optimization and inventory management.",
-    icon: <ShoppingCart className="h-8 w-8 text-rose-600" />,
-    link: "/solutions/business-automation/amazon",
-    bgGradient: "bg-gradient-to-r from-rose-500 to-pink-600",
-    features: [
-      "Automated pricing optimization",
-      "Inventory forecasting and management",
-      "Competitor analysis and product research"
-    ]
   }
 ];
 
@@ -193,7 +190,7 @@ const featuredSolutionsNew = [
 const allAutomationServices = [
   {
     title: "Marketing Automation",
-    description: "Streamline your marketing efforts with AI-powered tools that personalize campaigns, optimize content, and drive conversions.",
+    description: "Streamline your marketing efforts with AI-powered tools for campaigns, social media, PPC, and Amazon marketplace management.",
     icon: <Megaphone className="h-6 w-6" />,
     link: "/solutions/business-automation/marketing",
     bgColor: "bg-blue-500"
@@ -232,27 +229,6 @@ const allAutomationServices = [
     icon: <Hammer className="h-6 w-6" />,
     link: "/solutions/business-automation/manufacturing",
     bgColor: "bg-orange-500"
-  },
-  {
-    title: "Amazon Automation",
-    description: "Optimize your Amazon listings, automate inventory management, and maximize sales with AI-powered Amazon marketplace automation.",
-    icon: <ShoppingCart className="h-6 w-6" />,
-    link: "/solutions/business-automation/amazon",
-    bgColor: "bg-rose-500"
-  },
-  {
-    title: "PPC Automation",
-    description: "Enhance your pay-per-click campaigns with intelligent bid management, automated A/B testing, and data-driven optimization.",
-    icon: <MousePointer className="h-6 w-6" />,
-    link: "/solutions/business-automation/ppc",
-    bgColor: "bg-violet-500"
-  },
-  {
-    title: "Hiring Automation",
-    description: "Streamline your recruitment process with automated job posting, applicant screening, interview scheduling, and candidate engagement.",
-    icon: <UserPlus className="h-6 w-6" />,
-    link: "/solutions/business-automation/hiring",
-    bgColor: "bg-cyan-500"
   },
   {
     title: "Sales Automation",

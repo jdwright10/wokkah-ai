@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -25,9 +26,6 @@ const solutionsLinks = [
   { name: 'Finance Automation', href: '/solutions/business-automation/finance' },
   { name: 'Customer Service Automation', href: '/solutions/business-automation/customer-service' },
   { name: 'Manufacturing Automation', href: '/solutions/business-automation/manufacturing' },
-  { name: 'Amazon Automation', href: '/solutions/business-automation/amazon' },
-  { name: 'PPC Automation', href: '/solutions/business-automation/ppc' },
-  { name: 'Hiring Automation', href: '/solutions/business-automation/hiring' },
   { name: 'Sales Automation', href: '/solutions/business-automation/sales' },
   { name: 'Market Research & Sentiment', href: '/solutions/business-automation/market-research' },
 ];

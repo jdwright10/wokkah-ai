@@ -33,9 +33,6 @@ import OperationsAutomation from "./pages/automation/OperationsAutomation";
 import FinanceAutomation from "./pages/automation/FinanceAutomation";
 import CustomerServiceAutomation from "./pages/automation/CustomerServiceAutomation";
 import ManufacturingAutomation from "./pages/automation/ManufacturingAutomation";
-import AmazonAutomation from "./pages/automation/AmazonAutomation";
-import PPCAutomation from "./pages/automation/PPCAutomation";
-import HiringAutomation from "./pages/automation/HiringAutomation";
 import SalesAutomation from "./pages/automation/SalesAutomation";
 import MarketResearch from "./pages/automation/MarketResearch";
 import TalentProfile from "./pages/talent/TalentProfile";
@@ -51,14 +48,8 @@ import SocialMedia from "./pages/automation/marketing/SocialMedia";
 import LeadNurturing from "./pages/automation/marketing/LeadNurturing";
 import ContentPersonalization from "./pages/automation/marketing/ContentPersonalization";
 import MarketingAnalytics from "./pages/automation/marketing/MarketingAnalytics";
-
-// Import the hiring automation pages
-import JobDistribution from "./pages/automation/hiring/JobDistribution";
-import AIResumeScreening from "./pages/automation/hiring/AIResumeScreening";
-import SkillsAssessment from "./pages/automation/hiring/SkillsAssessment";
-import InterviewScheduling from "./pages/automation/hiring/InterviewScheduling";
-import CandidateCommunication from "./pages/automation/hiring/CandidateCommunication";
-import OnboardingPreparation from "./pages/automation/hiring/OnboardingPreparation";
+import AmazonAutomation from "./pages/automation/marketing/AmazonAutomation";
+import PPCAutomation from "./pages/automation/marketing/PPCAutomation";
 
 // Create a new QueryClient instance for React Query
 const queryClient = new QueryClient();
@@ -85,24 +76,15 @@ const App = () => {
             <Route path="/solutions/business-automation/marketing/lead-nurturing" element={<LeadNurturing />} />
             <Route path="/solutions/business-automation/marketing/content-personalization" element={<ContentPersonalization />} />
             <Route path="/solutions/business-automation/marketing/analytics" element={<MarketingAnalytics />} />
+            <Route path="/solutions/business-automation/marketing/amazon" element={<AmazonAutomation />} />
+            <Route path="/solutions/business-automation/marketing/ppc" element={<PPCAutomation />} />
             <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />
             <Route path="/solutions/business-automation/operations" element={<OperationsAutomation />} />
             <Route path="/solutions/business-automation/finance" element={<FinanceAutomation />} />
             <Route path="/solutions/business-automation/customer-service" element={<CustomerServiceAutomation />} />
             <Route path="/solutions/business-automation/manufacturing" element={<ManufacturingAutomation />} />
-            <Route path="/solutions/business-automation/amazon" element={<AmazonAutomation />} />
-            <Route path="/solutions/business-automation/ppc" element={<PPCAutomation />} />
-            <Route path="/solutions/business-automation/hiring" element={<HiringAutomation />} />
             <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
             <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
-            
-            {/* Routes for the hiring automation pages */}
-            <Route path="/solutions/business-automation/hiring/job-distribution" element={<JobDistribution />} />
-            <Route path="/solutions/business-automation/hiring/resume-screening" element={<AIResumeScreening />} />
-            <Route path="/solutions/business-automation/hiring/skills-assessment" element={<SkillsAssessment />} />
-            <Route path="/solutions/business-automation/hiring/interview-scheduling" element={<InterviewScheduling />} />
-            <Route path="/solutions/business-automation/hiring/candidate-communication" element={<CandidateCommunication />} />
-            <Route path="/solutions/business-automation/hiring/onboarding-preparation" element={<OnboardingPreparation />} />
             
             <Route path="/features/ai-prd" element={<AiPrd />} />
             <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />

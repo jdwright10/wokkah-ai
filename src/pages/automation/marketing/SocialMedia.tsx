@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import PageHeader from '@/components/talent/PageHeader';
 import { Card, CardContent } from '@/components/ui/card';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const SocialMedia = () => {
   useEffect(() => {
@@ -30,8 +31,17 @@ const SocialMedia = () => {
     window.open('https://calendly.com/wokkah/marketing-automation', '_blank');
   };
 
+  // Define breadcrumb items
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Solutions', path: '/solutions' },
+    { label: 'Business Automation', path: '/solutions/business-automation' },
+    { label: 'Marketing Automation', path: '/solutions/business-automation/marketing' },
+    { label: 'Social Media Automation', isCurrent: true }
+  ];
+
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
         <title>Social Media Automation | Marketing Automation | Wokkah</title>
         <meta name="description" content="Schedule, publish, and analyze social media content across multiple platforms from a single dashboard." />
