@@ -5,23 +5,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Pricing from "./pages/Pricing";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import HireWokkah from "./pages/HireWokkah";
-import AiPrd from "./pages/AiPrd";
 import AiPrdGenerator from "./pages/AiPrdGenerator";
-import ProjectManagement from "./pages/ProjectManagement";
-import TalentMatching from "./pages/TalentMatching";
-import FindTalent from "./pages/FindTalent";
-import AiMatching from "./pages/AiMatching";
-import Freelancers from "./pages/Freelancers";
-import BecomeFreelancer from "./pages/BecomeFreelancer";
-import Courses from "./pages/Courses";
-import Blog from "./pages/Blog";
 import AboutUs from "./pages/AboutUs";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
+import Blog from "./pages/Blog";
 import Comparison from "./pages/Comparison";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -34,7 +25,6 @@ import CustomerServiceAutomation from "./pages/automation/CustomerServiceAutomat
 import ManufacturingAutomation from "./pages/automation/ManufacturingAutomation";
 import SalesAutomation from "./pages/automation/SalesAutomation";
 import MarketResearch from "./pages/automation/MarketResearch";
-import TalentProfile from "./pages/talent/TalentProfile";
 import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
@@ -62,7 +52,6 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/pricing" element={<Pricing />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/services" element={<Services />} />
             <Route path="/hire-wokkah" element={<HireWokkah />} />
@@ -84,17 +73,6 @@ const App = () => {
             <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
             <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
             
-            <Route path="/features/ai-prd" element={<AiPrd />} />
-            <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
-            <Route path="/features/project-management" element={<ProjectManagement />} />
-            <Route path="/features/talent-matching" element={<TalentMatching />} />
-            <Route path="/find-talent" element={<FindTalent />} />
-            <Route path="/ai-matching" element={<AiMatching />} />
-            <Route path="/talent/:id" element={<TalentProfile />} />
-            <Route path="/freelancers" element={<Freelancers />} />
-            <Route path="/become-a-freelancer" element={<BecomeFreelancer />} />
-            <Route path="/vetting-process" element={<VettingProcess />} />
-            <Route path="/courses" element={<Courses />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/team" element={<Team />} />
@@ -104,6 +82,7 @@ const App = () => {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
             <Route path="/report" element={<ReportNextSteps />} />
+            <Route path="/vetting-process" element={<VettingProcess />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
