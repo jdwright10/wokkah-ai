@@ -55,7 +55,7 @@ const stories: SuccessStory[] = [
   }
 ];
 
-const SuccessStories = () => {
+const SuccessStories: React.FC = () => {
   return (
     <div className="py-8 bg-gradient-to-b from-white to-primary/5 rounded-xl">
       <div className="flex justify-center mb-8">

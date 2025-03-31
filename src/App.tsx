@@ -49,65 +49,68 @@ import InterviewScheduling from "./pages/automation/hiring/InterviewScheduling";
 import CandidateCommunication from "./pages/automation/hiring/CandidateCommunication";
 import OnboardingPreparation from "./pages/automation/hiring/OnboardingPreparation";
 
+// Create a new QueryClient instance for React Query
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/hire-wokkah" element={<HireWokkah />} />
-          <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
-          <Route path="/solutions/business-automation/marketing" element={<MarketingAutomation />} />
-          <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />
-          <Route path="/solutions/business-automation/operations" element={<OperationsAutomation />} />
-          <Route path="/solutions/business-automation/finance" element={<FinanceAutomation />} />
-          <Route path="/solutions/business-automation/customer-service" element={<CustomerServiceAutomation />} />
-          <Route path="/solutions/business-automation/manufacturing" element={<ManufacturingAutomation />} />
-          <Route path="/solutions/business-automation/amazon" element={<AmazonAutomation />} />
-          <Route path="/solutions/business-automation/ppc" element={<PPCAutomation />} />
-          <Route path="/solutions/business-automation/hiring" element={<HiringAutomation />} />
-          <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
-          <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
-          
-          {/* Routes for the hiring automation pages */}
-          <Route path="/solutions/business-automation/hiring/job-distribution" element={<JobDistribution />} />
-          <Route path="/solutions/business-automation/hiring/resume-screening" element={<AIResumeScreening />} />
-          <Route path="/solutions/business-automation/hiring/skills-assessment" element={<SkillsAssessment />} />
-          <Route path="/solutions/business-automation/hiring/interview-scheduling" element={<InterviewScheduling />} />
-          <Route path="/solutions/business-automation/hiring/candidate-communication" element={<CandidateCommunication />} />
-          <Route path="/solutions/business-automation/hiring/onboarding-preparation" element={<OnboardingPreparation />} />
-          
-          <Route path="/features/ai-prd" element={<AiPrd />} />
-          <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
-          <Route path="/features/project-management" element={<ProjectManagement />} />
-          <Route path="/features/talent-matching" element={<TalentMatching />} />
-          <Route path="/find-talent" element={<FindTalent />} />
-          <Route path="/ai-matching" element={<AiMatching />} />
-          <Route path="/talent/:id" element={<TalentProfile />} />
-          <Route path="/freelancers" element={<Freelancers />} />
-          <Route path="/become-a-freelancer" element={<BecomeFreelancer />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/comparison" element={<Comparison />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
-          <Route path="/report" element={<ReportNextSteps />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/hire-wokkah" element={<HireWokkah />} />
+            <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
+            <Route path="/solutions/business-automation/marketing" element={<MarketingAutomation />} />
+            <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />
+            <Route path="/solutions/business-automation/operations" element={<OperationsAutomation />} />
+            <Route path="/solutions/business-automation/finance" element={<FinanceAutomation />} />
+            <Route path="/solutions/business-automation/customer-service" element={<CustomerServiceAutomation />} />
+            <Route path="/solutions/business-automation/manufacturing" element={<ManufacturingAutomation />} />
+            <Route path="/solutions/business-automation/amazon" element={<AmazonAutomation />} />
+            <Route path="/solutions/business-automation/ppc" element={<PPCAutomation />} />
+            <Route path="/solutions/business-automation/hiring" element={<HiringAutomation />} />
+            <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
+            <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
+            
+            {/* Routes for the hiring automation pages */}
+            <Route path="/solutions/business-automation/hiring/job-distribution" element={<JobDistribution />} />
+            <Route path="/solutions/business-automation/hiring/resume-screening" element={<AIResumeScreening />} />
+            <Route path="/solutions/business-automation/hiring/skills-assessment" element={<SkillsAssessment />} />
+            <Route path="/solutions/business-automation/hiring/interview-scheduling" element={<InterviewScheduling />} />
+            <Route path="/solutions/business-automation/hiring/candidate-communication" element={<CandidateCommunication />} />
+            <Route path="/solutions/business-automation/hiring/onboarding-preparation" element={<OnboardingPreparation />} />
+            
+            <Route path="/features/ai-prd" element={<AiPrd />} />
+            <Route path="/features/ai-prd/generator" element={<AiPrdGenerator />} />
+            <Route path="/features/project-management" element={<ProjectManagement />} />
+            <Route path="/features/talent-matching" element={<TalentMatching />} />
+            <Route path="/find-talent" element={<FindTalent />} />
+            <Route path="/ai-matching" element={<AiMatching />} />
+            <Route path="/talent/:id" element={<TalentProfile />} />
+            <Route path="/freelancers" element={<Freelancers />} />
+            <Route path="/become-a-freelancer" element={<BecomeFreelancer />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/comparison" element={<Comparison />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
+            <Route path="/report" element={<ReportNextSteps />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
