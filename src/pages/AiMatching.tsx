@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -35,6 +36,12 @@ const AiMatching = () => {
     experienceLevel: string;
   } | null>(null);
   const [isProcessingPrd, setIsProcessingPrd] = useState<boolean>(false);
+
+  // Add the missing handleContactClick function
+  const handleContactClick = () => {
+    // Redirect to pricing page
+    navigate('/pricing');
+  };
 
   const formatName = (fullName) => {
     const nameParts = fullName.split(' ');
