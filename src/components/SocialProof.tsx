@@ -138,20 +138,6 @@ const SocialProof = () => {
             ))}
           </div>
         </div>
-        
-        <div className="mt-16 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center">
-            <img src="https://api.iconify.design/logos:google.svg" alt="Google" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-            <img src="https://api.iconify.design/logos:microsoft.svg" alt="Microsoft" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-            <img src="https://api.iconify.design/logos:ibm.svg" alt="IBM" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-            <img src="https://api.iconify.design/logos:amazon.svg" alt="Amazon" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-            <img src="https://api.iconify.design/logos:slack.svg" alt="Slack" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-            <img src="https://api.iconify.design/logos:adobe.svg" alt="Adobe" className="h-8 mx-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-          </div>
-          <p className="mt-8 text-muted-foreground">
-            Trusted by innovative teams at leading companies worldwide
-          </p>
-        </div>
       </div>
     </section>
   );

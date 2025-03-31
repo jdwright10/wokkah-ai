@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Search, Filter, MapPin, Star, Briefcase, Clock, Eye, MessageSquare } from 'lucide-react';
+import { Search, Filter, MapPin, Star, Briefcase, Clock, Eye, MessageSquare, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { talentData } from '@/data/talentData';
 import { toast } from '@/components/ui/use-toast';
@@ -28,8 +28,15 @@ const FindTalent = () => {
   
   const handleContactClick = (talent) => {
     toast({
-      title: "Contact Request",
-      description: `You've initiated contact with ${talent.name}. Check your messages for updates.`,
+      title: "Premium Feature",
+      description: "Please subscribe to our premium plan to contact freelancers directly.",
+    });
+  };
+
+  const handleUnlockClick = () => {
+    toast({
+      title: "Premium Access Required",
+      description: "Subscribe to our premium plan to unlock full freelancer profiles and contact information.",
     });
   };
 
@@ -91,14 +98,19 @@ const FindTalent = () => {
                 {talentData.map((talent) => (
                   <div key={talent.id} className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6 hover:shadow-md transition-shadow">
                     <div className="flex flex-col md:flex-row gap-6">
-                      <Avatar className="h-20 w-20">
-                        <AvatarImage src={talent.avatar} alt={talent.name} />
-                        <AvatarFallback>{talent.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
+                      <div className="relative">
+                        <Avatar className="h-20 w-20">
+                          <AvatarImage src={talent.avatar} alt={talent.name} />
+                          <AvatarFallback>{talent.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div className="absolute inset-0 bg-neutral-200/50 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer" onClick={handleUnlockClick}>
+                          <Lock className="h-6 w-6 text-neutral-700" />
+                        </div>
+                      </div>
                       
                       <div className="flex-grow">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                          <h3 className="text-lg font-bold">{talent.name}</h3>
+                          <h3 className="text-lg font-bold">{talent.name.split(' ')[0]} {talent.name.split(' ')[1]?.charAt(0)}.</h3>
                           <div className="flex items-center gap-1">
                             <Star className="fill-yellow-400 stroke-yellow-400 h-4 w-4" />
                             <span className="text-sm font-medium">{talent.rating}/5</span>
@@ -111,34 +123,46 @@ const FindTalent = () => {
                         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                           <div className="flex items-center gap-1">
                             <MapPin className="h-4 w-4" />
-                            <span>{talent.location}</span>
+                            <span>{talent.location.split(',')[0]}</span>
                           </div>
                           <span>•</span>
                           <div className="flex items-center gap-1">
                             <Briefcase className="h-4 w-4" />
                             <span>{talent.experience}</span>
                           </div>
-                          <span>•</span>
-                          <div className="flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            <span>{talent.availability}</span>
+                        </div>
+                        
+                        <div className="relative">
+                          <p className="text-muted-foreground mb-4 line-clamp-2">{talent.bio.substring(0, 100)}...</p>
+                          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white flex items-end justify-center">
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="mb-2 flex items-center gap-1"
+                              onClick={handleUnlockClick}
+                            >
+                              <Lock className="h-3 w-3" /> Unlock Full Bio
+                            </Button>
                           </div>
                         </div>
                         
-                        <p className="text-muted-foreground mb-4 line-clamp-2">{talent.bio}</p>
-                        
                         <div className="flex flex-wrap gap-2 mb-4">
-                          {talent.skills.map((skill, index) => (
+                          {talent.skills.slice(0, 4).map((skill, index) => (
                             <Badge key={index} variant="secondary" className="rounded-full">
                               {skill}
                             </Badge>
                           ))}
+                          {talent.skills.length > 4 && (
+                            <Badge variant="outline" className="rounded-full cursor-pointer" onClick={handleUnlockClick}>
+                              +{talent.skills.length - 4} more
+                            </Badge>
+                          )}
                         </div>
                         
                         <div className="flex flex-col xs:flex-row gap-3">
                           <Button variant="outline" size="sm" asChild className="flex items-center gap-2">
                             <Link to={`/talent/${talent.id}`}>
-                              <Eye className="h-4 w-4" /> View Profile
+                              <Eye className="h-4 w-4" /> View Preview
                             </Link>
                           </Button>
                           <Button 
@@ -146,7 +170,7 @@ const FindTalent = () => {
                             className="flex items-center gap-2"
                             onClick={() => handleContactClick(talent)}
                           >
-                            <MessageSquare className="h-4 w-4" /> Contact
+                            <MessageSquare className="h-4 w-4" /> Unlock Contact
                           </Button>
                         </div>
                       </div>
@@ -161,6 +185,36 @@ const FindTalent = () => {
             </div>
             
             <div className="space-y-6">
+              <div className="bg-primary/10 rounded-xl shadow-sm border border-neutral-100 p-6">
+                <h3 className="text-lg font-bold mb-4">Unlock Premium Access</h3>
+                <p className="text-muted-foreground mb-4">
+                  Get full access to our talent network including:
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                    </div>
+                    <span>Complete freelancer profiles</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                    </div>
+                    <span>Direct contact information</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                    </div>
+                    <span>Exclusive talent matches</span>
+                  </li>
+                </ul>
+                <Button className="w-full" onClick={handleUnlockClick}>
+                  Upgrade to Premium
+                </Button>
+              </div>
+              
               <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
                 <h3 className="text-lg font-bold mb-4">Need Help Finding Talent?</h3>
                 <p className="text-muted-foreground mb-4">
