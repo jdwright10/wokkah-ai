@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -11,7 +12,7 @@ import {
 } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Search, Filter, MapPin, Star, Briefcase, Clock, Eye, MessageSquare, Lock, ShieldCheck } from 'lucide-react';
+import { Search, Filter, MapPin, Star, Briefcase, Clock, Eye, MessageSquare, Lock, ShieldCheck, Loader2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { talentData } from '@/data/talentData';
 import { toast } from '@/components/ui/use-toast';
@@ -25,6 +26,8 @@ const FindTalent = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [visibleTalent, setVisibleTalent] = useState(6); // Initially show 6 talents
+  const [isLoading, setIsLoading] = useState(false);
   
   const handleContactClick = () => {
     // Redirect to pricing page instead of showing toast
@@ -34,6 +37,16 @@ const FindTalent = () => {
   const handleUnlockClick = () => {
     // Redirect to pricing page
     navigate('/pricing');
+  };
+
+  // Function to handle loading more talents
+  const handleLoadMore = () => {
+    setIsLoading(true);
+    // Simulate a network request
+    setTimeout(() => {
+      setVisibleTalent(prev => Math.min(prev + 6, talentData.length));
+      setIsLoading(false);
+    }, 800);
   };
 
   // Function to format name as first name + last initial
@@ -100,7 +113,7 @@ const FindTalent = () => {
               <h2 className="text-xl font-bold mb-6">Top Talent Available</h2>
               
               <div className="space-y-6">
-                {talentData.map((talent) => (
+                {talentData.slice(0, visibleTalent).map((talent) => (
                   <div key={talent.id} className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6 hover:shadow-md transition-shadow">
                     <div className="flex flex-col md:flex-row gap-6">
                       <div className="relative">
@@ -192,9 +205,24 @@ const FindTalent = () => {
                 ))}
               </div>
               
-              <div className="mt-8 text-center">
-                <Button variant="outline">Load More</Button>
-              </div>
+              {visibleTalent < talentData.length && (
+                <div className="mt-8 text-center">
+                  <Button 
+                    variant="outline" 
+                    onClick={handleLoadMore}
+                    disabled={isLoading}
+                    className="flex items-center gap-2"
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" /> Loading...
+                      </>
+                    ) : (
+                      'Load More'
+                    )}
+                  </Button>
+                </div>
+              )}
             </div>
             
             <div className="space-y-6">
