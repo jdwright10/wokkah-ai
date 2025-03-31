@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Solutions from "./pages/Solutions";
+import Services from "./pages/Services";
 import AiPrd from "./pages/AiPrd";
 import AiPrdGenerator from "./pages/AiPrdGenerator";
 import ProjectManagement from "./pages/ProjectManagement";
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
           <Route path="/solutions/business-automation/marketing" element={<MarketingAutomation />} />
           <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />

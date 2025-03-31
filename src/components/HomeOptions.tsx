@@ -56,7 +56,7 @@ const HomeOptions = () => {
             </CardContent>
             <CardFooter>
               <Button className="w-full group" asChild>
-                <Link to="/services">
+                <Link to="/find-talent">
                   Get Started <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -82,7 +82,7 @@ const HomeOptions = () => {
             </CardContent>
             <CardFooter>
               <Button className="w-full group" asChild>
-                <Link to="/services/business-automation">
+                <Link to="/solutions/business-automation">
                   Explore Solutions <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
