@@ -103,5 +103,31 @@ export const talentData = [
     location: "Toronto, Canada",
     experience: "9 years",
     availability: "Available in 2 weeks"
+  },
+  {
+    id: 9,
+    name: "Tunde Oladipo",
+    title: "Frontend Developer",
+    bio: "Expert in creating responsive, accessible, and performant web applications. I specialize in React and modern JavaScript frameworks with a focus on user experience. My projects have helped businesses increase user engagement and conversion rates through intuitive interfaces and optimized performance. I'm passionate about web standards and staying on top of the latest frontend developments.",
+    skills: ["React", "JavaScript", "TypeScript", "CSS", "Web Performance"],
+    avatar: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    rating: 4.8,
+    reviewCount: 58,
+    location: "Lagos, Nigeria",
+    experience: "6 years",
+    availability: "Available now"
+  },
+  {
+    id: 10,
+    name: "Ngozi Eze",
+    title: "Blockchain Developer",
+    bio: "Specialized in developing secure and efficient blockchain solutions for various industries. My expertise includes smart contract development, decentralized applications (dApps), and integration with existing systems. I've helped companies implement blockchain technologies to enhance transparency, security, and efficiency in their operations.",
+    skills: ["Solidity", "Ethereum", "Smart Contracts", "Web3.js", "DeFi"],
+    avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    rating: 4.7,
+    reviewCount: 42,
+    location: "Enugu, Nigeria",
+    experience: "5 years",
+    availability: "Available in 2 weeks"
   }
 ];

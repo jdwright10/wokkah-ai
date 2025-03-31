@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -24,8 +25,8 @@ const FindTalent = () => {
 
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedLocation, setSelectedLocation] = useState('all');
   const [visibleTalent, setVisibleTalent] = useState(6); // Initially show 6 talents
   const [isLoading, setIsLoading] = useState(false);
   const [filteredTalent, setFilteredTalent] = useState(talentData);
