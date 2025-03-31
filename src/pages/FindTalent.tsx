@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -11,8 +12,8 @@ import {
 } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Search, Filter, MapPin, Star, Briefcase, Clock, Eye, MessageSquare, Lock } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Search, Filter, MapPin, Star, Briefcase, Clock, Eye, MessageSquare, Lock, ShieldCheck } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { talentData } from '@/data/talentData';
 import { toast } from '@/components/ui/use-toast';
 
@@ -22,21 +23,18 @@ const FindTalent = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   
-  const handleContactClick = (talent) => {
-    toast({
-      title: "Premium Feature",
-      description: "Please subscribe to our premium plan to contact freelancers directly.",
-    });
+  const handleContactClick = () => {
+    // Redirect to pricing page instead of showing toast
+    navigate('/pricing');
   };
 
   const handleUnlockClick = () => {
-    toast({
-      title: "Premium Access Required",
-      description: "Subscribe to our premium plan to unlock full freelancer profiles and contact information.",
-    });
+    // Redirect to pricing page
+    navigate('/pricing');
   };
 
   return (
@@ -109,7 +107,15 @@ const FindTalent = () => {
                       
                       <div className="flex-grow">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                          <h3 className="text-lg font-bold">{talent.name.split(' ')[0]} {talent.name.split(' ')[1]?.charAt(0)}.</h3>
+                          <div className="flex items-center gap-2">
+                            <h3 className="text-lg font-bold">{talent.name.split(' ')[0]} {talent.name.split(' ')[1]?.charAt(0)}.</h3>
+                            {/* Add vetted badge to some profiles */}
+                            {talent.id % 3 === 0 && (
+                              <Badge variant="default" className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-1">
+                                <ShieldCheck className="h-3 w-3" /> Vetted
+                              </Badge>
+                            )}
+                          </div>
                           <div className="flex items-center gap-1">
                             <Star className="fill-yellow-400 stroke-yellow-400 h-4 w-4" />
                             <span className="text-sm font-medium">{talent.rating}/5</span>
@@ -167,7 +173,7 @@ const FindTalent = () => {
                           <Button 
                             size="sm" 
                             className="flex items-center gap-2"
-                            onClick={() => handleContactClick(talent)}
+                            onClick={handleContactClick}
                           >
                             <MessageSquare className="h-4 w-4" /> Unlock Contact
                           </Button>

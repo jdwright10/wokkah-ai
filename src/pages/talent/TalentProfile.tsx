@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import MainLayout from '@/layout/MainLayout';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -17,6 +17,8 @@ import {
   ArrowLeft,
   Mail,
   Phone,
+  Lock,
+  ShieldCheck
 } from 'lucide-react';
 import { talentData } from '@/data/talentData';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -25,6 +27,7 @@ import { useToast } from '@/components/ui/use-toast';
 const TalentProfile = () => {
   const { id } = useParams();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [talent, setTalent] = useState(talentData.find(t => t.id === Number(id)));
   
   useEffect(() => {
@@ -36,24 +39,9 @@ const TalentProfile = () => {
     setTalent(foundTalent);
   }, [id]);
 
-  const handleContactClick = (method: 'message' | 'email' | 'phone') => {
-    let actionText = '';
-    switch(method) {
-      case 'message':
-        actionText = 'sent a message to';
-        break;
-      case 'email':
-        actionText = 'sent an email to';
-        break;
-      case 'phone':
-        actionText = 'requested a call with';
-        break;
-    }
-    
-    toast({
-      title: "Contact Request Sent",
-      description: `You have successfully ${actionText} ${talent?.name}.`,
-    });
+  const handleContactClick = () => {
+    // Redirect to pricing page instead of showing contact success toast
+    navigate('/pricing');
   };
 
   if (!talent) {
@@ -68,6 +56,9 @@ const TalentProfile = () => {
       </MainLayout>
     );
   }
+
+  // Check if this talent should be displayed as vetted (for example, every 3rd profile)
+  const isVetted = talent.id % 3 === 0;
 
   return (
     <MainLayout>
@@ -89,7 +80,15 @@ const TalentProfile = () => {
               
               <div className="flex-grow">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                  <h1 className="text-2xl font-bold">{talent.name}</h1>
+                  <div className="flex items-center gap-2">
+                    <h1 className="text-2xl font-bold">{talent.name}</h1>
+                    {/* Add vetted badge if applicable */}
+                    {isVetted && (
+                      <Badge variant="default" className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-1">
+                        <ShieldCheck className="h-3 w-3" /> Vetted
+                      </Badge>
+                    )}
+                  </div>
                   <div className="flex items-center gap-1 mt-2 md:mt-0">
                     <Star className="fill-yellow-400 stroke-yellow-400 h-5 w-5" />
                     <span className="text-lg font-medium">{talent.rating}/5</span>
@@ -122,15 +121,13 @@ const TalentProfile = () => {
                   ))}
                 </div>
                 
+                {/* Contact buttons that redirect to pricing page */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                  <Button onClick={() => handleContactClick('message')} className="flex items-center gap-2">
+                  <Button onClick={handleContactClick} className="flex items-center gap-2">
+                    <Lock className="h-4 w-4" /> Unlock Contact Options
+                  </Button>
+                  <Button variant="outline" onClick={handleContactClick} className="flex items-center gap-2">
                     <MessageSquare className="h-4 w-4" /> Message
-                  </Button>
-                  <Button variant="outline" onClick={() => handleContactClick('email')} className="flex items-center gap-2">
-                    <Mail className="h-4 w-4" /> Email
-                  </Button>
-                  <Button variant="outline" onClick={() => handleContactClick('phone')} className="flex items-center gap-2">
-                    <Phone className="h-4 w-4" /> Request Call
                   </Button>
                 </div>
               </div>
@@ -247,6 +244,16 @@ const TalentProfile = () => {
             
             <div className="space-y-6">
               <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
+                <h3 className="text-lg font-bold mb-4">Unlock Full Profile</h3>
+                <p className="text-muted-foreground mb-4">
+                  Subscribe to access complete profiles and contact information.
+                </p>
+                <Button className="w-full" onClick={handleContactClick}>
+                  Subscribe to Unlock
+                </Button>
+              </div>
+            
+              <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
                 <h3 className="text-lg font-bold mb-4">Quick Info</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
@@ -257,10 +264,12 @@ const TalentProfile = () => {
                     <Calendar className="h-5 w-5 text-primary" />
                     <span>Member since {new Date().getFullYear() - 3}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="h-5 w-5 text-yellow-500" />
-                    <span>Top Rated Freelancer</span>
-                  </div>
+                  {isVetted && (
+                    <div className="flex items-center gap-2">
+                      <Award className="h-5 w-5 text-yellow-500" />
+                      <span>Top Rated Freelancer</span>
+                    </div>
+                  )}
                 </div>
               </div>
               
