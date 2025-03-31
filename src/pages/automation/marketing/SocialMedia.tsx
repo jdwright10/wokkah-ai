@@ -10,7 +10,7 @@ import {
   Calendar, 
   Instagram, 
   Facebook, 
-  Twitter, 
+  X, 
   Linkedin, 
   Clock, 
   BarChart4,
@@ -180,8 +180,8 @@ const socialPlatforms = [
     icon: <Facebook className="h-6 w-6 text-primary" />
   },
   {
-    name: "Twitter",
-    icon: <Twitter className="h-6 w-6 text-primary" />
+    name: "X",
+    icon: <X className="h-6 w-6 text-primary" />
   },
   {
     name: "LinkedIn",
