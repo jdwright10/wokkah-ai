@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Briefcase, Zap, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
@@ -42,23 +42,37 @@ const CallToAction = () => {
             Ready to Infuse AI Into Your Business?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance mb-8">
-            Join hundreds of companies that have simplified their AI implementation journey with Wokkah.
+            Choose how you'd like to work with Wokkah and start your AI journey today.
           </p>
           
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Link to="/pricing">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 transition-all duration-300 shadow-md">
-                See Pricing Plans
-                <ArrowRight className="ml-2 h-5 w-5" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <Link to="/hire-wokkah" className="w-full">
+              <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md gap-2">
+                <Briefcase className="h-5 w-5" />
+                Hire Wokkah
+                <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-purple-400 text-purple-700 hover:bg-purple-50 transition-colors">
-              Schedule a Demo
-            </Button>
+            
+            <Link to="/solutions/business-automation" className="w-full">
+              <Button size="lg" className="w-full bg-purple-600 hover:bg-purple-700 transition-all duration-300 shadow-md gap-2">
+                <Zap className="h-5 w-5" />
+                Explore Solutions
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
+            
+            <Link to="/find-talent" className="w-full">
+              <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 transition-all duration-300 shadow-md gap-2">
+                <Users className="h-5 w-5" />
+                Find Talent
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
           
           <p className="mt-8 text-muted-foreground">
-            No credit card required. 14-day free trial.
+            No credit card required. Start with a free consultation.
           </p>
         </div>
       </div>
