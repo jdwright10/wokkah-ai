@@ -42,10 +42,10 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div ref={heroRef} className="w-full lg:w-1/2 text-center lg:text-left opacity-0 transition-all duration-700 transform translate-y-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
-              Infuse the Power of AI Into Your Company
+              Transform Your Business with AI-Powered Solutions
             </h1>
             <p className="mt-6 text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-balance">
-              One platform to create, manage, and deliver your projects with AI-assistance and expert freelancers who bring your vision to life.
+              Streamline operations, reduce costs, and boost productivity with our all-in-one AI platform.
             </p>
             <div className="mt-8 flex justify-center lg:justify-start">
               <Button 
