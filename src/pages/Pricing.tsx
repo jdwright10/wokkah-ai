@@ -166,9 +166,9 @@ const Pricing = () => {
                   <TableHead className="w-[200px]">Features</TableHead>
                   {plans.map((plan) => (
                     <TableHead key={plan.name} className="text-center">
-                      <div className={`relative pb-6 ${plan.popular ? 'text-primary' : ''}`}>
+                      <div className={`relative pt-4 pb-6 ${plan.popular ? 'text-primary' : ''}`}>
                         {plan.popular && (
-                          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-semibold">
+                          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-semibold">
                             Most Popular
                           </div>
                         )}
