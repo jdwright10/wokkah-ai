@@ -44,6 +44,15 @@ const TalentProfile = () => {
     navigate('/pricing');
   };
 
+  // Function to format name as first name + last initial
+  const formatName = (fullName) => {
+    const nameParts = fullName.split(' ');
+    if (nameParts.length > 1) {
+      return `${nameParts[0]} ${nameParts[1].charAt(0)}.`;
+    }
+    return nameParts[0];
+  };
+
   if (!talent) {
     return (
       <MainLayout>
@@ -74,14 +83,14 @@ const TalentProfile = () => {
           <div className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6 mb-8">
             <div className="flex flex-col md:flex-row gap-6">
               <Avatar className="h-24 w-24 md:h-32 md:w-32">
-                <AvatarImage src={talent.avatar} alt={talent.name} />
+                <AvatarImage src={talent.avatar} alt={formatName(talent.name)} />
                 <AvatarFallback>{talent.name.charAt(0)}</AvatarFallback>
               </Avatar>
               
               <div className="flex-grow">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                   <div className="flex items-center gap-2">
-                    <h1 className="text-2xl font-bold">{talent.name}</h1>
+                    <h1 className="text-2xl font-bold">{formatName(talent.name)}</h1>
                     {/* Add vetted badge if applicable */}
                     {isVetted && (
                       <Badge variant="default" className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-1">
@@ -101,24 +110,25 @@ const TalentProfile = () => {
                 <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mt-3">
                   <div className="flex items-center gap-1">
                     <MapPin className="h-4 w-4" />
-                    <span>{talent.location}</span>
+                    <span>{talent.location.split(',')[0]}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Briefcase className="h-4 w-4" />
-                    <span>{talent.experience}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
                     <span>{talent.availability}</span>
                   </div>
                 </div>
                 
                 <div className="flex flex-wrap gap-2 mt-4">
-                  {talent.skills.map((skill, index) => (
+                  {talent.skills.slice(0, 6).map((skill, index) => (
                     <Badge key={index} variant="secondary" className="rounded-full">
                       {skill}
                     </Badge>
                   ))}
+                  {talent.skills.length > 6 && (
+                    <Badge variant="outline" className="rounded-full cursor-pointer" onClick={handleContactClick}>
+                      +{talent.skills.length - 6} more
+                    </Badge>
+                  )}
                 </div>
                 
                 {/* Contact buttons that redirect to pricing page */}
@@ -145,54 +155,91 @@ const TalentProfile = () => {
                 </TabsList>
                 
                 <TabsContent value="about" className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
-                  <h2 className="text-xl font-bold mb-4">About {talent.name}</h2>
-                  <p className="text-muted-foreground mb-6">{talent.bio}</p>
+                  <h2 className="text-xl font-bold mb-4">About {formatName(talent.name)}</h2>
+                  <p className="text-muted-foreground mb-6">{talent.bio.substring(0, 200)}...</p>
                   
-                  <h3 className="text-lg font-bold mb-3">Experience</h3>
-                  <div className="space-y-4 mb-6">
-                    <div className="border-l-2 border-primary pl-4 py-1">
-                      <p className="font-medium">Senior Developer</p>
-                      <p className="text-primary text-sm">Tech Innovations Inc.</p>
-                      <p className="text-sm text-muted-foreground">2018 - Present</p>
+                  {/* Blur experience section until payment */}
+                  <div className="relative">
+                    <h3 className="text-lg font-bold mb-3">Experience</h3>
+                    <div className="space-y-4 mb-6 blur-sm">
+                      <div className="border-l-2 border-primary pl-4 py-1">
+                        <p className="font-medium">Senior Developer</p>
+                        <p className="text-primary text-sm">Tech Innovations Inc.</p>
+                        <p className="text-sm text-muted-foreground">2018 - Present</p>
+                      </div>
+                      <div className="border-l-2 border-neutral-200 pl-4 py-1">
+                        <p className="font-medium">Tech Lead</p>
+                        <p className="text-primary text-sm">Digital Solutions Ltd</p>
+                        <p className="text-sm text-muted-foreground">2015 - 2018</p>
+                      </div>
                     </div>
-                    <div className="border-l-2 border-neutral-200 pl-4 py-1">
-                      <p className="font-medium">Tech Lead</p>
-                      <p className="text-primary text-sm">Digital Solutions Ltd</p>
-                      <p className="text-sm text-muted-foreground">2015 - 2018</p>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="flex items-center gap-1 bg-white z-10"
+                        onClick={handleContactClick}
+                      >
+                        <Lock className="h-3 w-3" /> Unlock Experience Details
+                      </Button>
                     </div>
                   </div>
                   
-                  <h3 className="text-lg font-bold mb-3">Education</h3>
-                  <div className="space-y-4 mb-6">
-                    <div className="border-l-2 border-primary pl-4 py-1">
-                      <p className="font-medium">MSc Computer Science</p>
-                      <p className="text-primary text-sm">University of Technology</p>
-                      <p className="text-sm text-muted-foreground">2012 - 2014</p>
+                  {/* Blur education section until payment */}
+                  <div className="relative">
+                    <h3 className="text-lg font-bold mb-3">Education</h3>
+                    <div className="space-y-4 mb-6 blur-sm">
+                      <div className="border-l-2 border-primary pl-4 py-1">
+                        <p className="font-medium">MSc Computer Science</p>
+                        <p className="text-primary text-sm">University of Technology</p>
+                        <p className="text-sm text-muted-foreground">2012 - 2014</p>
+                      </div>
+                      <div className="border-l-2 border-neutral-200 pl-4 py-1">
+                        <p className="font-medium">BSc Computer Science</p>
+                        <p className="text-primary text-sm">State University</p>
+                        <p className="text-sm text-muted-foreground">2008 - 2012</p>
+                      </div>
                     </div>
-                    <div className="border-l-2 border-neutral-200 pl-4 py-1">
-                      <p className="font-medium">BSc Computer Science</p>
-                      <p className="text-primary text-sm">State University</p>
-                      <p className="text-sm text-muted-foreground">2008 - 2012</p>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="flex items-center gap-1 bg-white z-10"
+                        onClick={handleContactClick}
+                      >
+                        <Lock className="h-3 w-3" /> Unlock Education Details
+                      </Button>
                     </div>
                   </div>
                 </TabsContent>
                 
                 <TabsContent value="portfolio" className="bg-white rounded-xl shadow-sm border border-neutral-100 p-6">
                   <h2 className="text-xl font-bold mb-4">Portfolio</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border border-neutral-200 rounded-lg overflow-hidden">
-                      <div className="bg-neutral-100 h-40"></div>
-                      <div className="p-4">
-                        <h3 className="font-bold">E-commerce Platform</h3>
-                        <p className="text-sm text-muted-foreground">A full-stack e-commerce solution with payment integration</p>
+                  <div className="relative">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 blur-sm">
+                      <div className="border border-neutral-200 rounded-lg overflow-hidden">
+                        <div className="bg-neutral-100 h-40"></div>
+                        <div className="p-4">
+                          <h3 className="font-bold">E-commerce Platform</h3>
+                          <p className="text-sm text-muted-foreground">A full-stack e-commerce solution with payment integration</p>
+                        </div>
+                      </div>
+                      <div className="border border-neutral-200 rounded-lg overflow-hidden">
+                        <div className="bg-neutral-100 h-40"></div>
+                        <div className="p-4">
+                          <h3 className="font-bold">Health Tracking App</h3>
+                          <p className="text-sm text-muted-foreground">Mobile app for tracking fitness and nutrition goals</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="border border-neutral-200 rounded-lg overflow-hidden">
-                      <div className="bg-neutral-100 h-40"></div>
-                      <div className="p-4">
-                        <h3 className="font-bold">Health Tracking App</h3>
-                        <p className="text-sm text-muted-foreground">Mobile app for tracking fitness and nutrition goals</p>
-                      </div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Button 
+                        variant="default" 
+                        className="flex items-center gap-1 z-10"
+                        onClick={handleContactClick}
+                      >
+                        <Lock className="h-4 w-4" /> Unlock Portfolio
+                      </Button>
                     </div>
                   </div>
                 </TabsContent>
@@ -203,7 +250,7 @@ const TalentProfile = () => {
                     <div className="border-b border-neutral-200 pb-4">
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <p className="font-bold">Michael Thompson</p>
+                          <p className="font-bold">Michael T.</p>
                           <p className="text-sm text-muted-foreground">Project: Website Redesign</p>
                         </div>
                         <div className="flex items-center">
@@ -222,7 +269,7 @@ const TalentProfile = () => {
                     <div className="border-b border-neutral-200 pb-4">
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <p className="font-bold">Emily Chen</p>
+                          <p className="font-bold">Emily C.</p>
                           <p className="text-sm text-muted-foreground">Project: Mobile App Development</p>
                         </div>
                         <div className="flex items-center">
@@ -279,12 +326,12 @@ const TalentProfile = () => {
                   {talentData.filter(t => t.id !== talent.id).slice(0, 2).map((similarTalent) => (
                     <div key={similarTalent.id} className="flex items-center gap-3">
                       <Avatar className="h-10 w-10">
-                        <AvatarImage src={similarTalent.avatar} alt={similarTalent.name} />
+                        <AvatarImage src={similarTalent.avatar} alt={formatName(similarTalent.name)} />
                         <AvatarFallback>{similarTalent.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="flex-grow">
                         <Link to={`/talent/${similarTalent.id}`} className="font-medium hover:text-primary">
-                          {similarTalent.name}
+                          {formatName(similarTalent.name)}
                         </Link>
                         <p className="text-xs text-muted-foreground">{similarTalent.title}</p>
                       </div>

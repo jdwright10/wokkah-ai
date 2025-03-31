@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -35,6 +34,15 @@ const FindTalent = () => {
   const handleUnlockClick = () => {
     // Redirect to pricing page
     navigate('/pricing');
+  };
+
+  // Function to format name as first name + last initial
+  const formatName = (fullName) => {
+    const nameParts = fullName.split(' ');
+    if (nameParts.length > 1) {
+      return `${nameParts[0]} ${nameParts[1].charAt(0)}.`;
+    }
+    return nameParts[0];
   };
 
   return (
@@ -97,7 +105,7 @@ const FindTalent = () => {
                     <div className="flex flex-col md:flex-row gap-6">
                       <div className="relative">
                         <Avatar className="h-20 w-20">
-                          <AvatarImage src={talent.avatar} alt={talent.name} />
+                          <AvatarImage src={talent.avatar} alt={formatName(talent.name)} />
                           <AvatarFallback>{talent.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                         <div className="absolute inset-0 bg-neutral-200/50 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer" onClick={handleUnlockClick}>
@@ -108,7 +116,7 @@ const FindTalent = () => {
                       <div className="flex-grow">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                           <div className="flex items-center gap-2">
-                            <h3 className="text-lg font-bold">{talent.name.split(' ')[0]} {talent.name.split(' ')[1]?.charAt(0)}.</h3>
+                            <h3 className="text-lg font-bold">{formatName(talent.name)}</h3>
                             {/* Add vetted badge to some profiles */}
                             {talent.id % 3 === 0 && (
                               <Badge variant="default" className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-1">

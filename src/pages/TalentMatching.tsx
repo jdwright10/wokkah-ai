@@ -20,6 +20,15 @@ const TalentMatching = () => {
     window.scrollTo(0, 0);
   }, []);
   
+  // Function to format name as first name + last initial
+  const formatName = (fullName) => {
+    const nameParts = fullName.split(' ');
+    if (nameParts.length > 1) {
+      return `${nameParts[0]} ${nameParts[1].charAt(0)}.`;
+    }
+    return nameParts[0];
+  };
+  
   return (
     <MainLayout>
       <section className="pt-32 pb-16 bg-gradient-to-b from-white to-neutral-50">
@@ -77,11 +86,11 @@ const TalentMatching = () => {
                 <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-neutral-100">
                   <div className="flex items-center mb-4">
                     <Avatar className="h-12 w-12 mr-4">
-                      <AvatarImage src={profile.avatar} alt={profile.name} />
+                      <AvatarImage src={profile.avatar} alt={formatName(profile.name)} />
                       <AvatarFallback>{profile.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="font-bold">{profile.name}</h3>
+                      <h3 className="font-bold">{formatName(profile.name)}</h3>
                       <p className="text-sm text-muted-foreground">{profile.title}</p>
                     </div>
                   </div>

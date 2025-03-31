@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Button } from '@/components/ui/button';
@@ -15,7 +14,8 @@ import {
   Star, 
   Users,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  Lock
 } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -36,7 +36,14 @@ const AiMatching = () => {
   } | null>(null);
   const [isProcessingPrd, setIsProcessingPrd] = useState<boolean>(false);
 
-  // Breadcrumb items for navigation
+  const formatName = (fullName) => {
+    const nameParts = fullName.split(' ');
+    if (nameParts.length > 1) {
+      return `${nameParts[0]} ${nameParts[1].charAt(0)}.`;
+    }
+    return nameParts[0];
+  };
+
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
     { label: 'Features', path: '/features' },
@@ -48,14 +55,12 @@ const AiMatching = () => {
   }, []);
 
   useEffect(() => {
-    // Check if we're coming from the PRD generator
     const fromPrd = location.state?.fromPrd;
     const storedPrd = localStorage.getItem('prd_for_matching');
     
     if (fromPrd && storedPrd) {
       setIsProcessingPrd(true);
       
-      // Process the PRD to extract requirements
       processPrd(storedPrd);
     }
   }, [location.state]);
@@ -64,24 +69,20 @@ const AiMatching = () => {
     try {
       console.log("Processing PRD:", prd.substring(0, 100) + "...");
       
-      // Extract skills from the PRD
       const skills = extractSkillsFromPrd(prd);
       console.log("Extracted skills:", skills);
       
-      // Create project requirements
       const requirements = {
         description: extractDescriptionFromPrd(prd),
         budget: "Based on PRD complexity",
         timeline: "As per PRD specifications",
         skills: skills,
-        experienceLevel: "senior", // Default to senior for PRD-based projects
+        experienceLevel: "senior",
       };
 
       console.log("Created requirements:", requirements);
 
-      // Wait a moment to simulate processing
       setTimeout(() => {
-        // Update state with the requirements
         handleProjectRequirementsComplete(requirements);
         setIsProcessingPrd(false);
       }, 2000);
@@ -97,7 +98,6 @@ const AiMatching = () => {
     }
   };
 
-  // Extract skills from PRD - improved to catch more keywords
   const extractSkillsFromPrd = (prd: string): string[] => {
     const commonSkills = [
       "React", "JavaScript", "TypeScript", "UI/UX", "Node.js", 
@@ -109,16 +109,13 @@ const AiMatching = () => {
       "E-commerce", "Blockchain", "AI", "Machine Learning", "Data Science"
     ];
     
-    // Return skills that appear in the PRD (case insensitive)
     const prdLower = prd.toLowerCase();
     return commonSkills.filter(skill => 
       prdLower.includes(skill.toLowerCase())
     );
   };
 
-  // Simple function to extract description from PRD
   const extractDescriptionFromPrd = (prd: string): string => {
-    // Get the first 200 characters as a simple description
     const firstParagraph = prd.split('\n\n')[0];
     return firstParagraph.substring(0, 200) + (firstParagraph.length > 200 ? '...' : '');
   };
@@ -127,7 +124,6 @@ const AiMatching = () => {
     console.log("Setting project requirements:", requirements);
     setProjectRequirements(requirements);
     
-    // Simulate API call with loading state
     toast({
       title: "Processing...",
       description: "Analyzing project requirements and finding talent matches.",
@@ -146,7 +142,6 @@ const AiMatching = () => {
     setMatchingResults(false);
     setProjectRequirements(null);
     
-    // Clear the stored PRD when resetting
     localStorage.removeItem('prd_for_matching');
   };
 
@@ -327,7 +322,6 @@ const AiMatching = () => {
               </div>
 
               <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
-                {/* Filter talent based on required skills if available */}
                 {talentData
                   .filter(talent => {
                     if (!projectRequirements?.skills.length) return true;
@@ -343,7 +337,7 @@ const AiMatching = () => {
                       <div className="flex flex-col md:flex-row gap-6">
                         <div className="relative">
                           <Avatar className="h-20 w-20">
-                            <AvatarImage src={talent.avatar} alt={talent.name} />
+                            <AvatarImage src={talent.avatar} alt={formatName(talent.name)} />
                             <AvatarFallback>{talent.name.charAt(0)}</AvatarFallback>
                           </Avatar>
                           <div className="absolute -top-2 -right-2 bg-primary text-white text-xs font-medium rounded-full w-6 h-6 flex items-center justify-center">
@@ -353,7 +347,7 @@ const AiMatching = () => {
                         
                         <div className="flex-grow">
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                            <h3 className="text-lg font-bold">{talent.name}</h3>
+                            <h3 className="text-lg font-bold">{formatName(talent.name)}</h3>
                             <div className="flex items-center gap-1">
                               <Star className="fill-yellow-400 stroke-yellow-400 h-4 w-4" />
                               <span className="text-sm font-medium">{talent.rating}/5</span>
@@ -366,7 +360,7 @@ const AiMatching = () => {
                           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                             <div className="flex items-center gap-1">
                               <MapPin className="h-4 w-4" />
-                              <span>{talent.location}</span>
+                              <span>{talent.location.split(',')[0]}</span>
                             </div>
                             <span>•</span>
                             <div className="flex items-center gap-1">
@@ -402,20 +396,15 @@ const AiMatching = () => {
                           <div className="flex gap-3">
                             <Button variant="outline" size="sm" asChild className="flex items-center gap-2">
                               <Link to={`/talent/${talent.id}`}>
-                                View Full Profile
+                                View Profile
                               </Link>
                             </Button>
                             <Button 
                               size="sm" 
                               className="flex items-center gap-2"
-                              onClick={() => {
-                                toast({
-                                  title: "Contact Request",
-                                  description: `You've initiated contact with ${talent.name}. Check your messages for updates.`,
-                                });
-                              }}
+                              onClick={handleContactClick}
                             >
-                              <MessageSquare className="h-4 w-4" /> Contact
+                              <Lock className="h-4 w-4" /> Unlock Contact
                             </Button>
                           </div>
                         </div>
