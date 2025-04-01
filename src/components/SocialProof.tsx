@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
@@ -145,8 +144,8 @@ const SocialProof = () => {
 
 const testimonials = [
   {
-    name: "[Name Placeholder]",
-    role: "Founder",
+    name: "Dr. Harry Akinola",
+    role: "CEO",
     company: "Ushift Pro",
     image: "/lovable-uploads/516a5532-27cd-40ad-bc6d-8422c3f0479e.png",
     quote: "Partnering with Wokkah was a game-changer for our launch. In just a matter of days, their team built our entire website, created all of our content, and produced over 900 AI-generated videos that aligned perfectly with our brand and curriculum. The speed, quality, and innovation they brought to the table exceeded our expectations. Wokkah didn't just deliver a product — they delivered momentum.",
