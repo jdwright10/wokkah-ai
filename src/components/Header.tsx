@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -17,7 +18,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-const solutionsLinks = [
+const homeLinks = [
+  { name: 'Home (Default)', href: '/' },
+  { name: 'Home (Alternative)', href: '/alt' },
+  { name: 'Home (V3)', href: '/v3' },
+  { name: 'Home (StoryBrand V4)', href: '/v4' },
+];
+
+const businessAutomationLinks = [
   { name: 'Business Automation', href: '/solutions/business-automation' },
   { name: 'Marketing Automation', href: '/solutions/business-automation/marketing' },
   { name: 'HR Automation', href: '/solutions/business-automation/hr' },
@@ -27,13 +35,6 @@ const solutionsLinks = [
   { name: 'Manufacturing Automation', href: '/solutions/business-automation/manufacturing' },
   { name: 'Sales Automation', href: '/solutions/business-automation/sales' },
   { name: 'Market Research & Sentiment', href: '/solutions/business-automation/market-research' },
-];
-
-const homeLinks = [
-  { name: 'Home (Default)', href: '/' },
-  { name: 'Home (Alternative)', href: '/alt' },
-  { name: 'Home (V3)', href: '/v3' },
-  { name: 'Home (StoryBrand V4)', href: '/v4' },
 ];
 
 const aboutLinks = [
@@ -94,24 +95,8 @@ const Header = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <NavigationMenuItem className="relative">
-                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
-                  <span className="font-medium">Solutions</span>
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="w-[400px]">
-                  <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
-                    {solutionsLinks.map((link) => (
-                      <li key={link.href}>
-                        <Link
-                          to={link.href}
-                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium block w-full"
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
+              <NavigationMenuItem>
+                <Link to="/solutions" className="font-medium">AI Solutions</Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem className="relative">
@@ -188,23 +173,9 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">
-                <span>Solutions</span>
-                <ChevronDown size={16} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
-                <div className="grid gap-2">
-                  {solutionsLinks.map((link) => (
-                    <DropdownMenuItem key={link.href} className="py-2 px-2" asChild>
-                      <Link to={link.href} onClick={() => setIsMenuOpen(false)} className="w-full">
-                        {link.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </div>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link to="/solutions" className="px-4 py-2 hover:bg-muted rounded-md" onClick={() => setIsMenuOpen(false)}>
+              AI Solutions
+            </Link>
 
             <DropdownMenu>
               <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">
