@@ -8,12 +8,10 @@ import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import HireWokkah from "./pages/HireWokkah";
-import AiPrdGenerator from "./pages/AiPrdGenerator";
 import AboutUs from "./pages/AboutUs";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
-import Comparison from "./pages/Comparison";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import BusinessAutomationTools from "./pages/BusinessAutomationTools";
@@ -77,7 +75,6 @@ const App = () => {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/team" element={<Team />} />
             <Route path="/careers" element={<Careers />} />
-            <Route path="/comparison" element={<Comparison />} />
             <Route path="/login" element={<Login />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />

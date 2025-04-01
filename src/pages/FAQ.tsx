@@ -22,7 +22,7 @@ const FAQ = () => {
   ];
 
   return (
-    <MainLayout>
+    <MainLayout customBreadcrumbs={<BreadcrumbNav items={breadcrumbItems} className="mb-6" />}>
       <Helmet>
         <title>Frequently Asked Questions | Wokkah</title>
         <meta name="description" content="Find answers to common questions about Wokkah's AI-powered business automation solutions." />
@@ -30,8 +30,6 @@ const FAQ = () => {
 
       <section className="pt-32 pb-16 bg-gradient-to-b from-blue-50 via-purple-50 to-white">
         <div className="container">
-          <BreadcrumbNav items={breadcrumbItems} className="mb-6" />
-
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700 mb-4">Help Center</span>
             
@@ -85,10 +83,6 @@ const faqs = [
     answer: "Wokkah provides automation solutions across multiple business functions including marketing, HR, operations, finance, customer service, manufacturing, sales, and market research. Each solution is tailored to streamline workflows and improve operational efficiency."
   },
   {
-    question: "How does the AI-powered PRD generator work?",
-    answer: "Our AI PRD (Product Requirements Document) generator leverages advanced natural language processing to create comprehensive documentation based on your inputs. Simply describe your product vision and requirements, and our AI will structure a detailed PRD that you can share with your development team."
-  },
-  {
     question: "How can I hire Wokkah for my project?",
     answer: "You can hire our team by visiting the 'Hire Wokkah' section of our website. There, you'll find a project requirements form that helps us understand your needs. After submission, our team will review your requirements and contact you to discuss next steps and provide a customized solution."
   },
@@ -107,6 +101,10 @@ const faqs = [
   {
     question: "Can Wokkah integrate with my existing business tools?",
     answer: "Yes, our automation solutions are designed to integrate seamlessly with popular business tools and platforms. We work with your existing tech stack to ensure smooth data flow between systems and a cohesive operational environment."
+  },
+  {
+    question: "What industries does Wokkah serve?",
+    answer: "Wokkah serves a wide range of industries including e-commerce, software development, finance, healthcare, manufacturing, and professional services. Our solutions are adaptable to the specific needs and challenges of different sectors."
   }
 ];
 

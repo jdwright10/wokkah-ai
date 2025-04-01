@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 interface MainLayoutProps {
   children: React.ReactNode;
   showBreadcrumbs?: boolean;
-  customBreadcrumbs?: React.ReactNode; // Add this prop
+  customBreadcrumbs?: React.ReactNode;
 }
 
 const MainLayout = ({ children, showBreadcrumbs = true, customBreadcrumbs }: MainLayoutProps) => {
@@ -47,10 +47,12 @@ const MainLayout = ({ children, showBreadcrumbs = true, customBreadcrumbs }: Mai
     <div className="flex flex-col min-h-screen">
       <Header />
       {customBreadcrumbs ? (
+        // Only render customBreadcrumbs if provided
         <div className="container mt-24 pt-4">
           {customBreadcrumbs}
         </div>
       ) : (
+        // Only render default breadcrumbs if showBreadcrumbs is true and we're not on the home page
         showBreadcrumbs && location.pathname !== '/' && (
           <div className="container mt-24 pt-4">
             <BreadcrumbNav items={getBreadcrumbItems()} />
