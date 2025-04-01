@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileDown, Briefcase, Zap, Users, ExternalLink, Calendar } from 'lucide-react';
+import { Briefcase, Zap, Users, ExternalLink, Calendar } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import LeadGeneratorPopup from './LeadGeneratorPopup';
 import { useLeadGenerator } from '@/hooks/useLeadGenerator';
@@ -60,7 +60,7 @@ const Footer = () => {
               >
                 <div className="flex items-center gap-2">
                   <div className="bg-primary/10 rounded-md p-1.5 group-hover:bg-primary/20 transition-colors">
-                    <FileDown className="h-5 w-5 text-primary" />
+                    <span className="text-primary">Report</span>
                   </div>
                   <span>Download Our Free Report: Unlocking the Future: How AI Can Transform Your Business</span>
                 </div>

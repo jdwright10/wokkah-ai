@@ -4,7 +4,6 @@ import MainLayout from '@/layout/MainLayout';
 import AlternativeHero from '@/components/AlternativeHero';
 import HomeOptions from '@/components/HomeOptions';
 import SocialProof from '@/components/SocialProof';
-import Partners from '@/components/Partners';
 import Guide from '@/components/Guide';
 import CallToAction from '@/components/CallToAction';
 import { Helmet } from 'react-helmet';
@@ -22,7 +21,6 @@ const AlternativeIndex = () => {
         <meta name="description" content="Transform your business operations with Wokkah's AI-powered automation solutions." />
       </Helmet>
       <AlternativeHero />
-      <Partners />
       <SocialProof />
       <Guide />
       <HomeOptions />

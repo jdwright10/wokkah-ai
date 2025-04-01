@@ -151,7 +151,7 @@ const testimonials = [
     image: "/lovable-uploads/516a5532-27cd-40ad-bc6d-8422c3f0479e.png",
     quote: "Partnering with Wokkah was a game-changer for our launch. Their team efficiently built our entire website, created all of our content, and produced over 900 AI-generated videos that aligned perfectly with our brand and curriculum. The speed, quality, and innovation they brought to the table exceeded our expectations. Wokkah didn't just deliver a product — they delivered momentum.",
     results: [
-      "Launched a fully functional website with impressive efficiency",
+      "Launched a fully functional website at an accelerated pace",
       "Created a library of 900+ AI-generated microlearning videos",
       "Accelerated time-to-market by 3–4x compared to traditional development timelines",
       "Achieved a professional, cohesive digital brand presence from day one",
