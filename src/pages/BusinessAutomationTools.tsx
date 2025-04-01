@@ -1,7 +1,6 @@
 
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { 
   Megaphone, 
@@ -11,10 +10,8 @@ import {
   Building, 
   Hammer, 
   DollarSign,
-  BarChart3,
-  ArrowRight
+  BarChart3
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 
 const BusinessAutomationTools = () => {
@@ -59,12 +56,7 @@ const BusinessAutomationTools = () => {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
-                <Link to={service.link}>
-                  <Button className="w-full group">
-                    Learn More <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                <p className="text-muted-foreground">{service.description}</p>
               </div>
             ))}
           </div>
@@ -78,50 +70,42 @@ const automationServices = [
   {
     title: "Marketing Automation",
     description: "Streamline your marketing efforts with AI-powered tools that personalize campaigns, optimize content, and drive conversions. Includes Amazon and PPC automation.",
-    icon: <Megaphone className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/marketing"
+    icon: <Megaphone className="h-7 w-7 text-primary" />
   },
   {
     title: "HR Automation",
     description: "Simplify talent acquisition, onboarding, performance management, and employee engagement with intelligent HR and recruiting automation.",
-    icon: <Users className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/hr"
+    icon: <Users className="h-7 w-7 text-primary" />
   },
   {
     title: "Operations Automation",
     description: "Optimize your business operations, increase efficiency, and reduce errors with workflow automation and intelligent process optimization.",
-    icon: <Settings className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/operations"
+    icon: <Settings className="h-7 w-7 text-primary" />
   },
   {
     title: "Finance Automation",
     description: "Automate invoicing, expense management, financial reporting, and compliance to improve accuracy and save valuable time.",
-    icon: <LineChart className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/finance"
+    icon: <LineChart className="h-7 w-7 text-primary" />
   },
   {
     title: "Customer Service Automation",
     description: "Enhance customer support with AI chatbots, automated ticket routing, and intelligent knowledge bases that deliver exceptional service.",
-    icon: <Building className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/customer-service"
+    icon: <Building className="h-7 w-7 text-primary" />
   },
   {
     title: "Manufacturing Automation",
     description: "Streamline production processes, quality control, and supply chain management with intelligent manufacturing automation solutions.",
-    icon: <Hammer className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/manufacturing"
+    icon: <Hammer className="h-7 w-7 text-primary" />
   },
   {
     title: "Sales Automation",
     description: "Boost sales efficiency and conversion rates with AI-powered lead management, proposal generation, and pipeline optimization tools.",
-    icon: <DollarSign className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/sales"
+    icon: <DollarSign className="h-7 w-7 text-primary" />
   },
   {
     title: "Market Research & Customer Sentiment",
     description: "Gain valuable insights into market trends and customer sentiment with AI-powered analytics, feedback collection, and sentiment analysis.",
-    icon: <BarChart3 className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation/market-research"
+    icon: <BarChart3 className="h-7 w-7 text-primary" />
   }
 ];
 

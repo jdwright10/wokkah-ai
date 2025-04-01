@@ -17,29 +17,11 @@ import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import BusinessAutomationTools from "./pages/BusinessAutomationTools";
-import MarketingAutomation from "./pages/automation/MarketingAutomation";
-import HRAutomation from "./pages/automation/HRAutomation";
-import OperationsAutomation from "./pages/automation/OperationsAutomation";
-import FinanceAutomation from "./pages/automation/FinanceAutomation";
-import CustomerServiceAutomation from "./pages/automation/CustomerServiceAutomation";
-import ManufacturingAutomation from "./pages/automation/ManufacturingAutomation";
-import SalesAutomation from "./pages/automation/SalesAutomation";
-import MarketResearch from "./pages/automation/MarketResearch";
 import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
 import VettingProcess from "./pages/VettingProcess";
 import UshiftProCaseStudy from "./pages/case-studies/UshiftPro";
-
-// Import marketing automation pages
-import WebsiteBuilding from "./pages/automation/marketing/WebsiteBuilding";
-import EmailCampaigns from "./pages/automation/marketing/EmailCampaigns";
-import SocialMedia from "./pages/automation/marketing/SocialMedia";
-import LeadNurturing from "./pages/automation/marketing/LeadNurturing";
-import ContentPersonalization from "./pages/automation/marketing/ContentPersonalization";
-import MarketingAnalytics from "./pages/automation/marketing/MarketingAnalytics";
-import AmazonAutomation from "./pages/automation/marketing/AmazonAutomation";
-import PPCAutomation from "./pages/automation/marketing/PPCAutomation";
 
 // Create a new QueryClient instance for React Query
 const queryClient = new QueryClient();
@@ -60,22 +42,6 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/hire-wokkah" element={<HireWokkah />} />
             <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
-            <Route path="/solutions/business-automation/marketing" element={<MarketingAutomation />} />
-            <Route path="/solutions/business-automation/marketing/website-building" element={<WebsiteBuilding />} />
-            <Route path="/solutions/business-automation/marketing/email-campaigns" element={<EmailCampaigns />} />
-            <Route path="/solutions/business-automation/marketing/social-media" element={<SocialMedia />} />
-            <Route path="/solutions/business-automation/marketing/lead-nurturing" element={<LeadNurturing />} />
-            <Route path="/solutions/business-automation/marketing/content-personalization" element={<ContentPersonalization />} />
-            <Route path="/solutions/business-automation/marketing/analytics" element={<MarketingAnalytics />} />
-            <Route path="/solutions/business-automation/marketing/amazon" element={<AmazonAutomation />} />
-            <Route path="/solutions/business-automation/marketing/ppc" element={<PPCAutomation />} />
-            <Route path="/solutions/business-automation/hr" element={<HRAutomation />} />
-            <Route path="/solutions/business-automation/operations" element={<OperationsAutomation />} />
-            <Route path="/solutions/business-automation/finance" element={<FinanceAutomation />} />
-            <Route path="/solutions/business-automation/customer-service" element={<CustomerServiceAutomation />} />
-            <Route path="/solutions/business-automation/manufacturing" element={<ManufacturingAutomation />} />
-            <Route path="/solutions/business-automation/sales" element={<SalesAutomation />} />
-            <Route path="/solutions/business-automation/market-research" element={<MarketResearch />} />
             
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<AboutUs />} />
