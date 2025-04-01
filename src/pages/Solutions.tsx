@@ -48,7 +48,7 @@ const Solutions = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {solutionItems.map((item, index) => (
               <div 
                 key={item.title}
@@ -70,10 +70,10 @@ const Solutions = () => {
             ))}
           </div>
           
-          <div className="mt-16 text-center">
-            <Link to="/solutions/business-automation">
-              <Button size="lg" className="group">
-                Explore Business Automation Tools <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          <div className="mt-12 text-center">
+            <Link to="/hire-wokkah">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 group">
+                Get Started with AI Solutions <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
@@ -84,6 +84,12 @@ const Solutions = () => {
 };
 
 const solutionItems = [
+  {
+    title: "Business Automation",
+    description: "Transform your business operations with intelligent automation tools that save time, reduce errors, and boost productivity.",
+    icon: <Zap className="h-7 w-7 text-primary" />,
+    link: "/solutions/business-automation"
+  },
   {
     title: "Web Design",
     description: "Create responsive, modern websites that engage users and drive conversions with the latest web technologies and design principles.",
@@ -113,12 +119,6 @@ const solutionItems = [
     title: "Training Courses",
     description: "Develop AI-assisted training programs to upskill your team and keep them at the forefront of technological advancements.",
     icon: <GraduationCap className="h-7 w-7 text-primary" />
-  },
-  {
-    title: "Business Automation",
-    description: "Transform your business operations with intelligent automation tools that save time, reduce errors, and boost productivity.",
-    icon: <Zap className="h-7 w-7 text-primary" />,
-    link: "/solutions/business-automation"
   },
   {
     title: "Machine Learning",

@@ -10,9 +10,12 @@ import {
   Building, 
   Hammer, 
   DollarSign,
-  BarChart3
+  BarChart3,
+  ArrowRight
 } from 'lucide-react';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const BusinessAutomationTools = () => {
   useEffect(() => {
@@ -59,6 +62,14 @@ const BusinessAutomationTools = () => {
                 <p className="text-muted-foreground">{service.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link to="/hire-wokkah">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 group">
+                Get Started with Business Automation <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
