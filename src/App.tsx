@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,6 +29,7 @@ import FAQ from "./pages/FAQ";
 import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
 import VettingProcess from "./pages/VettingProcess";
+import UshiftProCaseStudy from "./pages/case-studies/UshiftPro";
 
 // Import marketing automation pages
 import WebsiteBuilding from "./pages/automation/marketing/WebsiteBuilding";
@@ -83,6 +85,7 @@ function App() {
             <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
             <Route path="/report" element={<ReportNextSteps />} />
             <Route path="/vetting-process" element={<VettingProcess />} />
+            <Route path="/case-studies/ushift-pro" element={<UshiftProCaseStudy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
