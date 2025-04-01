@@ -13,7 +13,8 @@ import {
   BarChart3,
   ArrowRight,
   Zap,
-  ExternalLink
+  ExternalLink,
+  Briefcase
 } from 'lucide-react';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
