@@ -25,7 +25,7 @@ const FAQ = () => {
     <MainLayout>
       <Helmet>
         <title>Frequently Asked Questions | Wokkah</title>
-        <meta name="description" content="Find answers to common questions about Wokkah's AI-powered project management and talent matching solutions." />
+        <meta name="description" content="Find answers to common questions about Wokkah's AI-powered business automation solutions." />
       </Helmet>
 
       <section className="pt-32 pb-16 bg-gradient-to-b from-blue-50 via-purple-50 to-white">
@@ -39,7 +39,7 @@ const FAQ = () => {
               Frequently Asked Questions
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Find answers to the most common questions about our platform and services.
+              Find answers to the most common questions about our services and AI solutions.
             </p>
           </div>
           
@@ -78,35 +78,35 @@ const FAQ = () => {
 const faqs = [
   {
     question: "What is Wokkah?",
-    answer: "Wokkah is an AI-powered platform that helps businesses streamline project management, connect with top talent, and leverage automation to enhance productivity across various business functions."
-  },
-  {
-    question: "How does the AI-powered PRD generator work?",
-    answer: "Our AI PRD generator uses advanced natural language processing to create comprehensive product requirement documents based on your inputs. Simply describe your product vision, target audience, and key features, and our AI will generate a structured PRD that you can further refine and share with your team."
-  },
-  {
-    question: "How does talent matching work?",
-    answer: "Our AI-powered talent matching algorithm analyzes project requirements and compares them against our database of verified freelancers. We consider skills, experience, availability, and past performance to recommend the best matches for your specific project needs."
+    answer: "Wokkah is an AI-powered platform that helps businesses streamline operations through intelligent automation solutions and consulting services. We focus on enhancing productivity and efficiency across various business functions."
   },
   {
     question: "What types of business automation does Wokkah offer?",
-    answer: "Wokkah provides automation solutions across multiple business functions including marketing, HR, operations, finance, customer service, manufacturing, Amazon operations, PPC advertising, hiring, sales, and market research. Each solution is designed to streamline workflows and improve efficiency."
+    answer: "Wokkah provides automation solutions across multiple business functions including marketing, HR, operations, finance, customer service, manufacturing, sales, and market research. Each solution is tailored to streamline workflows and improve operational efficiency."
   },
   {
-    question: "How much does Wokkah cost?",
-    answer: "Wokkah offers flexible pricing plans designed to fit businesses of all sizes. We provide free starter options as well as premium plans with advanced features. Visit our Pricing page for detailed information on our current plans and rates."
+    question: "How does the AI-powered PRD generator work?",
+    answer: "Our AI PRD (Product Requirements Document) generator leverages advanced natural language processing to create comprehensive documentation based on your inputs. Simply describe your product vision and requirements, and our AI will structure a detailed PRD that you can share with your development team."
   },
   {
-    question: "Can I integrate Wokkah with my existing tools?",
-    answer: "Yes, Wokkah is designed to integrate seamlessly with popular business tools and platforms including project management software, CRM systems, and marketing automation tools. Our API connections ensure smooth data flow between systems."
+    question: "How can I hire Wokkah for my project?",
+    answer: "You can hire our team by visiting the 'Hire Wokkah' section of our website. There, you'll find a project requirements form that helps us understand your needs. After submission, our team will review your requirements and contact you to discuss next steps and provide a customized solution."
   },
   {
-    question: "How secure is my data on Wokkah?",
-    answer: "We take data security seriously at Wokkah. All data is encrypted both in transit and at rest, and we implement strict access controls. We're compliant with industry standards and regularly conduct security audits to ensure your information stays protected."
+    question: "What is the AI needs assessment tool?",
+    answer: "Our 60-second AI Needs Assessment is a quick diagnostic tool that evaluates your business's current operations and identifies areas where AI automation could provide the most benefit. After completing the assessment, you'll receive tailored recommendations for implementing AI solutions in your business."
   },
   {
-    question: "Can I try Wokkah before purchasing?",
-    answer: "Absolutely! We offer a free trial period for new users to explore our platform's features. Additionally, we provide demos and personalized consultations to help you understand how Wokkah can benefit your specific business needs."
+    question: "What marketing automation tools does Wokkah offer?",
+    answer: "Our marketing automation suite includes tools for website building, email campaigns, social media management, lead nurturing, content personalization, marketing analytics, Amazon marketplace optimization, and PPC advertising management. Each tool is designed to help businesses streamline their marketing efforts and improve results."
+  },
+  {
+    question: "How does Wokkah's HR automation work?",
+    answer: "Our HR automation solutions help businesses streamline recruitment, onboarding, employee management, and performance evaluation processes. We incorporate AI to reduce manual tasks, improve candidate screening, enhance employee engagement, and provide data-driven insights for better workforce management."
+  },
+  {
+    question: "Can Wokkah integrate with my existing business tools?",
+    answer: "Yes, our automation solutions are designed to integrate seamlessly with popular business tools and platforms. We work with your existing tech stack to ensure smooth data flow between systems and a cohesive operational environment."
   }
 ];
 

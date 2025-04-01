@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Briefcase, Zap, Users } from 'lucide-react';
+import { ArrowRight, Briefcase, Zap, Users, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
@@ -62,13 +62,13 @@ const CallToAction = () => {
               </Button>
             </Link>
             
-            <Link to="/find-talent" className="w-full">
+            <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 transition-all duration-300 shadow-md gap-2">
                 <Users className="h-5 w-5" />
                 Find Talent
-                <ArrowRight className="h-5 w-5" />
+                <ExternalLink className="h-5 w-5" />
               </Button>
-            </Link>
+            </a>
           </div>
           
           <p className="mt-8 text-muted-foreground">

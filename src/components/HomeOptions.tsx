@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Zap, Users, ArrowRight } from 'lucide-react';
+import { Briefcase, Zap, Users, ArrowRight, ExternalLink } from 'lucide-react';
 
 const HomeOptions = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -89,7 +89,7 @@ const HomeOptions = () => {
             </CardFooter>
           </Card>
 
-          {/* Option 3: Freelance Marketplace */}
+          {/* Option 3: Find Talent - Updated to link to wokkah.com */}
           <Card className="shadow-md hover:shadow-lg transition-shadow border-t-4 border-t-green-500">
             <CardHeader className="pb-4">
               <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
@@ -108,9 +108,9 @@ const HomeOptions = () => {
             </CardContent>
             <CardFooter>
               <Button className="w-full group" asChild>
-                <Link to="/find-talent">
-                  Find Talent <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
+                  Find Talent <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
               </Button>
             </CardFooter>
           </Card>

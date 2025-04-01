@@ -18,14 +18,17 @@ const HeroSection: React.FC = () => {
       </p>
       <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
         <Button size="lg" asChild>
-          <Link to="/find-talent">Find Talent</Link>
+          <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
+            Find Talent
+            <ExternalLink className="ml-2 h-4 w-4" />
+          </a>
         </Button>
-        <Link to="/become-a-freelancer">
+        <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer">
           <Button size="lg" variant="outline" className="group">
             <span>Become a Freelancer</span>
-            <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
-        </Link>
+        </a>
       </div>
     </div>
   );
