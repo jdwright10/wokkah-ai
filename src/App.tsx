@@ -1,12 +1,12 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
 import AlternativeIndex from "./pages/AlternativeIndex";
 import HomeV3 from "./pages/HomeV3";
+import HomeV4 from "./pages/HomeV4";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import HireWokkah from "./pages/HireWokkah";
@@ -42,7 +42,7 @@ import PPCAutomation from "./pages/automation/marketing/PPCAutomation";
 // Create a new QueryClient instance for React Query
 const queryClient = new QueryClient();
 
-const App = () => {
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -53,6 +53,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/alt" element={<AlternativeIndex />} />
             <Route path="/v3" element={<HomeV3 />} />
+            <Route path="/v4" element={<HomeV4 />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/services" element={<Services />} />
             <Route path="/hire-wokkah" element={<HireWokkah />} />
@@ -82,13 +83,12 @@ const App = () => {
             <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
             <Route path="/report" element={<ReportNextSteps />} />
             <Route path="/vetting-process" element={<VettingProcess />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
-};
+}
 
 export default App;

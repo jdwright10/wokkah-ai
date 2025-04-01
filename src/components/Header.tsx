@@ -34,6 +34,7 @@ const homeLinks = [
   { name: 'Home (Default)', href: '/' },
   { name: 'Home (Alternative)', href: '/alt' },
   { name: 'Home (V3)', href: '/v3' },
+  { name: 'Home (StoryBrand V4)', href: '/v4' },
 ];
 
 const aboutLinks = [
