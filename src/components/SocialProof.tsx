@@ -145,15 +145,17 @@ const SocialProof = () => {
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "Project Director",
-    company: "GlobalTech",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300&auto=format&fit=crop",
-    quote: "Before Wokkah, we were constantly fighting fires and missing deadlines. Now our projects run smoothly and our team actually enjoys the process. The AI assistance feels like having an extra team member who never sleeps.",
+    name: "[Name Placeholder]",
+    role: "Founder",
+    company: "Ushift Pro",
+    image: "/lovable-uploads/516a5532-27cd-40ad-bc6d-8422c3f0479e.png",
+    quote: "Partnering with Wokkah was a game-changer for our launch. In just a matter of days, their team built our entire website, created all of our content, and produced over 900 AI-generated videos that aligned perfectly with our brand and curriculum. The speed, quality, and innovation they brought to the table exceeded our expectations. Wokkah didn't just deliver a product — they delivered momentum.",
     results: [
-      "40% faster project completion",
-      "Reduced meeting time by 60%",
-      "Improved team satisfaction scores by 45%"
+      "Launched a fully functional website in less than a week",
+      "Created a library of 900+ AI-generated microlearning videos",
+      "Accelerated time-to-market by 3–4x compared to traditional development timelines",
+      "Achieved a professional, cohesive digital brand presence from day one",
+      "Enabled immediate onboarding of new users with structured, high-quality content"
     ]
   },
   {

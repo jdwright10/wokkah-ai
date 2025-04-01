@@ -49,7 +49,7 @@ const CaseStudies = () => {
           <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-neutral-100 flex flex-col">
             <div className="aspect-video overflow-hidden">
               <img 
-                src="/lovable-uploads/fa3de825-fbc5-4d9e-ab1b-03becf94e8bb.png" 
+                src="/lovable-uploads/516a5532-27cd-40ad-bc6d-8422c3f0479e.png" 
                 alt="Ushift Pro website on laptop and mobile" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />

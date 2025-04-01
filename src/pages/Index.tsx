@@ -6,6 +6,7 @@ import HomeOptions from '@/components/HomeOptions';
 import ValueProposition from '@/components/ValueProposition';
 import Partners from '@/components/Partners';
 import SocialProof from '@/components/SocialProof';
+import CaseStudies from '@/components/CaseStudies';
 import CallToAction from '@/components/CallToAction';
 
 const Index = () => {
@@ -21,6 +22,7 @@ const Index = () => {
       <ValueProposition />
       <Partners />
       <SocialProof />
+      <CaseStudies />
       <CallToAction />
     </MainLayout>
   );
