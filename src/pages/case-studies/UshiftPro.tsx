@@ -56,7 +56,7 @@ const UshiftProCaseStudy = () => {
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Ushift Pro's Rapid Digital Transformation with Wokkah</h1>
               <p className="text-xl text-muted-foreground mb-8">
-                How Wokkah helped Ushift Pro establish a powerful online presence with AI-generated content in record time.
+                How Wokkah helped Ushift Pro establish a powerful online presence with AI-generated content in an accelerated timeframe.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg">
@@ -177,12 +177,13 @@ const UshiftProCaseStudy = () => {
                 Execution and Timeline
               </h3>
               <p className="mb-4">
-                Demonstrating exceptional efficiency, Wokkah completed the entire project within a few days. This swift turnaround was achieved through:
+                Demonstrating exceptional efficiency, Wokkah completed the entire project significantly faster than industry standards. This accelerated delivery was achieved through:
               </p>
               <ul className="space-y-2 pl-6 list-disc">
                 <li>Leveraging AI-driven tools for rapid content generation.</li>
                 <li>Implementing agile development methodologies to streamline the website creation process.</li>
                 <li>Maintaining close collaboration with Ushift Pro to ensure alignment with their vision and objectives.</li>
+                <li>Accelerating time to market by 3-4x compared to traditional timelines.</li>
               </ul>
             </div>
           </div>
@@ -245,7 +246,7 @@ const UshiftProCaseStudy = () => {
             <div className="p-8 bg-primary/5 rounded-xl">
               <h2 className="text-2xl font-bold mb-4">Conclusion</h2>
               <p className="text-lg mb-6">
-                Wokkah's comprehensive and expedited approach enabled Ushift Pro to achieve a robust digital presence and deliver high-quality leadership development content efficiently. This case exemplifies the power of integrating AI technologies with agile development to meet ambitious project goals within tight timelines.
+                Wokkah's comprehensive and expedited approach enabled Ushift Pro to achieve a robust digital presence and deliver high-quality leadership development content efficiently. This case exemplifies the power of integrating AI technologies with agile development to meet ambitious project goals within accelerated timelines.
               </p>
               <Button asChild size="lg">
                 <Link to="/hire-wokkah">

@@ -62,7 +62,7 @@ const CaseStudies = () => {
               </div>
               <h3 className="text-2xl font-bold mb-3">Ushift Pro's Rapid Digital Transformation</h3>
               <p className="text-muted-foreground mb-6 flex-grow">
-                How Wokkah helped Ushift Pro establish a robust online presence with AI-generated video content in just days.
+                How Wokkah helped Ushift Pro establish a robust online presence with AI-generated video content through accelerated development.
               </p>
               <div className="mt-auto">
                 <Button asChild variant="outline">
