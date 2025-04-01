@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AlternativeHero = () => {
@@ -64,17 +64,6 @@ const AlternativeHero = () => {
                 <Link to="/solutions/business-automation">
                   Explore Solutions <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </Button>
-              
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="group"
-                asChild
-              >
-                <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer">
-                  Find Talent <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
               </Button>
             </div>
           </div>

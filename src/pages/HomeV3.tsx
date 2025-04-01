@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import Partners from '@/components/Partners';
@@ -97,15 +97,6 @@ const HomeV3 = () => {
                   <Link to="/solutions/business-automation">
                     Explore Solutions <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  asChild
-                >
-                  <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer">
-                    Find Talent <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
                 </Button>
               </div>
             </div>
