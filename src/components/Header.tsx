@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -39,8 +38,6 @@ const homeLinks = [
 
 const aboutLinks = [
   { name: 'About Us', href: '/about' },
-  { name: 'Team', href: '/team' },
-  { name: 'Careers', href: '/careers' },
   { name: 'Blog', href: '/blog' },
 ];
 

@@ -1,7 +1,6 @@
 
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 const AboutUs = () => {
@@ -74,21 +73,6 @@ const AboutUs = () => {
                   We're committed to delivering exceptional quality in everything we do, from our platform to our customer service.
                 </p>
               </div>
-            </div>
-          </div>
-
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6">Join Our Journey</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              We're always looking for talented individuals who share our vision and passion. Check out our current opportunities or get in touch to learn more.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link to="/careers" className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors">
-                View Careers
-              </Link>
-              <Link to="/team" className="border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary/10 transition-colors">
-                Meet Our Team
-              </Link>
             </div>
           </div>
         </div>
