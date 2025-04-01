@@ -1,21 +1,19 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileDown } from 'lucide-react';
+import { FileDown, Briefcase, Zap, Users, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import LeadGeneratorPopup from './LeadGeneratorPopup';
+import { useLeadGenerator } from '@/hooks/useLeadGenerator';
 
 const Footer = () => {
   const { toast } = useToast();
   const [showLeadPopup, setShowLeadPopup] = useState(false);
   const navigate = useNavigate();
+  const { hasSubmitted } = useLeadGenerator();
   
   const downloadReport = () => {
     // Check if user has already provided their information
-    const hasSubmittedInfo = localStorage.getItem('leadGeneratorEmail') && 
-                           localStorage.getItem('leadGeneratorName');
-    
-    if (hasSubmittedInfo) {
+    if (hasSubmitted) {
       // Trigger download of the PDF
       window.open('https://drive.google.com/file/d/1DbWnQrAEwb2-YxiyZKXblDM28b3EMw2-/view?usp=sharing', '_blank');
       

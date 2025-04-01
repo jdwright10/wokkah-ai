@@ -8,6 +8,7 @@ import Partners from '@/components/Partners';
 import SocialProof from '@/components/SocialProof';
 import CaseStudies from '@/components/CaseStudies';
 import CallToAction from '@/components/CallToAction';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
 
 const Index = () => {
   // Scroll to top on page load
@@ -17,6 +18,7 @@ const Index = () => {
 
   return (
     <MainLayout>
+      <ExitIntentPopup />
       <Hero />
       <HomeOptions />
       <ValueProposition />

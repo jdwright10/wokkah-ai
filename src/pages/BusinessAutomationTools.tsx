@@ -11,7 +11,9 @@ import {
   Hammer, 
   DollarSign,
   BarChart3,
-  ArrowRight
+  ArrowRight,
+  Zap,
+  ExternalLink
 } from 'lucide-react';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { Button } from '@/components/ui/button';
@@ -64,13 +66,49 @@ const BusinessAutomationTools = () => {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <Link to="/hire-wokkah">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 group">
-                Get Started with Business Automation <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
+          {/* New CTA section matching HomePageCTA */}
+          <section className="py-12 md:py-16 bg-gradient-to-r from-blue-100 via-purple-50 to-blue-50 rounded-xl">
+            <div className="container">
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
+                  Ready to Infuse AI Into Your Business?
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance mb-8">
+                  Choose how you'd like to work with Wokkah and start your AI journey today.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                  <Link to="/hire-wokkah" className="w-full">
+                    <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md gap-2">
+                      <Briefcase className="h-5 w-5" />
+                      Hire Wokkah
+                      <ArrowRight className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                  
+                  <Link to="/solutions" className="w-full">
+                    <Button size="lg" className="w-full bg-purple-600 hover:bg-purple-700 transition-all duration-300 shadow-md gap-2">
+                      <Zap className="h-5 w-5" />
+                      Explore Solutions
+                      <ArrowRight className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                  
+                  <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 transition-all duration-300 shadow-md gap-2">
+                      <Users className="h-5 w-5" />
+                      Find Talent
+                      <ExternalLink className="h-5 w-5" />
+                    </Button>
+                  </a>
+                </div>
+                
+                <p className="mt-8 text-muted-foreground">
+                  No credit card required. Start with a free consultation.
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
     </MainLayout>

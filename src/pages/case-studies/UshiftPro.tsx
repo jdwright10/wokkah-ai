@@ -14,6 +14,9 @@ const UshiftProCaseStudy = () => {
   };
   
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
