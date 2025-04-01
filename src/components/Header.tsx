@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { MenuIcon, X, ChevronDown } from 'lucide-react';
+import { MenuIcon, X, ChevronDown, Briefcase } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import {
   NavigationMenu,
@@ -119,8 +119,11 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
           
-          <Button asChild className="ml-2">
-            <Link to="/hire-wokkah">Hire Wokkah</Link>
+          <Button asChild className="ml-2 bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md">
+            <Link to="/hire-wokkah" className="flex items-center gap-2">
+              <Briefcase className="h-4 w-4" />
+              Hire Wokkah
+            </Link>
           </Button>
         </div>
         
@@ -181,8 +184,9 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button asChild className="mt-2 w-full">
-              <Link to="/hire-wokkah" onClick={() => setIsMenuOpen(false)}>
+            <Button asChild className="mt-2 w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md">
+              <Link to="/hire-wokkah" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2">
+                <Briefcase className="h-4 w-4" />
                 Hire Wokkah
               </Link>
             </Button>
