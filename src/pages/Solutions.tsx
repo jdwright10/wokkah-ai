@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Link } from 'react-router-dom';
@@ -12,9 +11,7 @@ import {
   Megaphone,
   Zap,
   ArrowRight,
-  Briefcase,
-  Users,
-  ExternalLink
+  Briefcase
 } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
@@ -73,7 +70,6 @@ const Solutions = () => {
             ))}
           </div>
           
-          {/* New CTA section matching HomePageCTA */}
           <section className="py-12 md:py-16 bg-gradient-to-r from-blue-100 via-purple-50 to-blue-50 rounded-xl">
             <div className="container">
               <div className="max-w-3xl mx-auto text-center">
@@ -84,7 +80,7 @@ const Solutions = () => {
                   Choose how you'd like to work with Wokkah and start your AI journey today.
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
                   <Link to="/hire-wokkah" className="w-full">
                     <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md gap-2">
                       <Briefcase className="h-5 w-5" />
@@ -100,14 +96,6 @@ const Solutions = () => {
                       <ArrowRight className="h-5 w-5" />
                     </Button>
                   </Link>
-                  
-                  <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer" className="w-full">
-                    <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 transition-all duration-300 shadow-md gap-2">
-                      <Users className="h-5 w-5" />
-                      Find Talent
-                      <ExternalLink className="h-5 w-5" />
-                    </Button>
-                  </a>
                 </div>
                 
                 <p className="mt-8 text-muted-foreground">

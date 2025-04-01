@@ -37,12 +37,9 @@ const HireWokkah = () => {
   };
 
   const handleScheduleMeeting = () => {
-    // In a real application, this would open a calendar scheduling tool
-    toast.success("Redirecting to meeting scheduler...");
-    // Simulate redirection to a scheduling tool
-    setTimeout(() => {
-      window.open('https://calendly.com', '_blank');
-    }, 1000);
+    // Open the Calendly link
+    window.open('https://calendly.com/iyanu-wokkah/30min', '_blank');
+    toast.success("Opening scheduling calendar...");
   };
 
   return (

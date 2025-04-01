@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Briefcase, Zap, Users, ExternalLink } from 'lucide-react';
+import { ArrowRight, Briefcase, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
@@ -45,7 +45,7 @@ const CallToAction = () => {
             Choose how you'd like to work with Wokkah and start your AI journey today.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             <Link to="/hire-wokkah" className="w-full">
               <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md gap-2">
                 <Briefcase className="h-5 w-5" />
@@ -61,14 +61,6 @@ const CallToAction = () => {
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
-            
-            <a href="https://wokkah.com" target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 transition-all duration-300 shadow-md gap-2">
-                <Users className="h-5 w-5" />
-                Find Talent
-                <ExternalLink className="h-5 w-5" />
-              </Button>
-            </a>
           </div>
           
           <p className="mt-8 text-muted-foreground">

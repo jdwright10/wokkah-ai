@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FileDown, Briefcase, Zap, Users, ExternalLink } from 'lucide-react';
+import { FileDown, Briefcase, Zap, Users, ExternalLink, Calendar } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import LeadGeneratorPopup from './LeadGeneratorPopup';
 import { useLeadGenerator } from '@/hooks/useLeadGenerator';
@@ -29,6 +29,10 @@ const Footer = () => {
       // Show the lead generator popup if user hasn't submitted info
       setShowLeadPopup(true);
     }
+  };
+  
+  const handleScheduleCall = () => {
+    window.open('https://calendly.com/iyanu-wokkah/30min', '_blank');
   };
   
   return (
@@ -88,7 +92,15 @@ const Footer = () => {
                 <p>Wokkah</p>
                 <p>1775 Mentor Ave Suite 300</p>
                 <p>Cincinnati, OH 45212</p>
-                <p className="mt-2"><a href="tel:+11234567890" className="hover:text-primary transition-colors">+1 (123) 456-7890</a></p>
+                <p className="mt-2">
+                  <button 
+                    onClick={handleScheduleCall}
+                    className="flex items-center gap-2 hover:text-primary transition-colors"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Schedule a Call
+                  </button>
+                </p>
               </address>
             </div>
           </div>

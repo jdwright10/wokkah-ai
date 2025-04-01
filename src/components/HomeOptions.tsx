@@ -63,13 +63,13 @@ const HomeOptions = () => {
             </CardFooter>
           </Card>
 
-          {/* Option 2: Business Automation */}
+          {/* Option 2: Business Automation - Removed "Turnkey" */}
           <Card className="shadow-md hover:shadow-lg transition-shadow border-t-4 border-t-purple-500">
             <CardHeader className="pb-4">
               <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
                 <Zap className="h-6 w-6 text-purple-600" />
               </div>
-              <CardTitle className="text-xl">Turnkey Solutions for Business Automation</CardTitle>
+              <CardTitle className="text-xl">Solutions for Business Automation</CardTitle>
               <CardDescription>
                 Streamline operations and boost productivity with our automation tools
               </CardDescription>
