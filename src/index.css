@@ -1,152 +1,154 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+ 
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 222.2 47.4% 11.2%;
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 217.2 32.6% 17.5%;
+
+    --radius: 0.5rem;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }
 
-.writing-mode-vertical-rl {
-  writing-mode: vertical-rl;
-}
-
-/* Add consistent section spacing */
 .section {
-  @apply py-16 md:py-24;
+  @apply py-12 md:py-24;
 }
 
-/* Add modern gradient animations */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.font-heading {
+  font-family: 'Satoshi-Variable', sans-serif;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.75s forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  50% {
-    background-position: 100% 50%;
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translate(0px, 0px) scale(1);
   }
 }
 
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-700;
+.animate-blob {
+  animation: blob 7s infinite;
 }
 
-.gradient-text-alt {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600;
+.animation-delay-2000 {
+  animation-delay: 2s;
 }
 
-.gradient-bg-blue-purple {
-  @apply bg-gradient-to-r from-blue-500 to-purple-600;
-}
-
-.gradient-bg-cyan-blue {
-  @apply bg-gradient-to-r from-cyan-400 to-blue-500;
-}
-
-.gradient-bg-subtle {
-  @apply bg-gradient-to-r from-blue-50 to-purple-50;
-}
-
-.gradient-bg-subtle-alt {
-  @apply bg-gradient-to-r from-cyan-50 to-blue-50;
-}
-
-.card-hover {
-  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-}
-
-/* Modern card styles with gradients */
-.card-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
-  @apply border border-purple-100;
-}
-
-.card-gradient-alt {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-  @apply border border-blue-100;
-}
-
-/* Styling for the chip component */
-.chip {
-  @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-purple-700;
-}
-
-.chip-alt {
-  @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-blue-700;
-}
-
-/* Animated gradient backgrounds */
-.animated-gradient {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
-}
-
-/* Glass morphism effect */
-.glass {
-  @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm;
-}
-
-/* Button gradient styles */
-.btn-gradient {
-  @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white transition-all;
-}
-
-.btn-gradient-alt {
-  @apply bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white transition-all;
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import AlternativeIndex from "./pages/AlternativeIndex";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import HireWokkah from "./pages/HireWokkah";
@@ -50,6 +51,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/alt" element={<AlternativeIndex />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/services" element={<Services />} />
             <Route path="/hire-wokkah" element={<HireWokkah />} />

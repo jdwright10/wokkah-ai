@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { MenuIcon, X, LogIn, ChevronDown } from 'lucide-react';
+import { MenuIcon, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import {
   NavigationMenu,
@@ -112,8 +112,8 @@ const Header = () => {
               </NavigationMenuItem>
               
               <NavigationMenuItem>
-                <Link to="/login" className="font-medium hover:text-primary flex items-center gap-1">
-                  <LogIn size={16} /> Login
+                <Link to="/alt" className="font-medium hover:text-primary">
+                  Alternative
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -139,6 +139,14 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Home
+            </Link>
+            
+            <Link 
+              to="/alt" 
+              className="px-4 py-2 hover:bg-muted rounded-md"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Alternative
             </Link>
 
             <DropdownMenu>
@@ -176,14 +184,6 @@ const Header = () => {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Link 
-              to="/login" 
-              className="px-4 py-2 hover:bg-muted rounded-md flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <LogIn size={16} /> Login
-            </Link>
           </nav>
         </div>
       )}
