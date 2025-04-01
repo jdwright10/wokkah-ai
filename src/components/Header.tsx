@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -97,24 +96,8 @@ const Header = () => {
                 <Link to="/case-studies" className="font-medium">Case Studies</Link>
               </NavigationMenuItem>
 
-              <NavigationMenuItem className="relative">
-                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
-                  <span className="font-medium">About</span>
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="w-[200px]">
-                  <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
-                    {aboutLinks.map((link) => (
-                      <li key={link.href}>
-                        <Link
-                          to={link.href}
-                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium block w-full"
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
+              <NavigationMenuItem>
+                <Link to="/about" className="font-medium">About</Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -166,23 +149,9 @@ const Header = () => {
               Case Studies
             </Link>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">
-                <span>About</span>
-                <ChevronDown size={16} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
-                <div className="grid gap-2">
-                  {aboutLinks.map((link) => (
-                    <DropdownMenuItem key={link.href} className="py-2 px-2" asChild>
-                      <Link to={link.href} onClick={() => setIsMenuOpen(false)} className="w-full">
-                        {link.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </div>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link to="/about" className="px-4 py-2 hover:bg-muted rounded-md" onClick={() => setIsMenuOpen(false)}>
+              About
+            </Link>
 
             <Button asChild className="mt-2 w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md">
               <Link to="/hire-wokkah" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2">
