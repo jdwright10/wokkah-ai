@@ -12,7 +12,6 @@ import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import HireWokkah from "./pages/HireWokkah";
 import AboutUs from "./pages/AboutUs";
-import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import BusinessAutomationTools from "./pages/BusinessAutomationTools";
 import FAQ from "./pages/FAQ";
@@ -42,7 +41,6 @@ function App() {
             <Route path="/hire-wokkah" element={<HireWokkah />} />
             <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
             <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />

@@ -39,7 +39,6 @@ const businessAutomationLinks = [
 
 const aboutLinks = [
   { name: 'About Us', href: '/about' },
-  { name: 'Blog', href: '/blog' },
 ];
 
 const Header = () => {
@@ -67,7 +66,7 @@ const Header = () => {
           <span className="text-2xl font-bold font-heading text-primary">Wokkah</span>
         </Link>
         
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-6">
           <NavigationMenu>
             <NavigationMenuList className="flex gap-6">
               <NavigationMenuItem className="relative">
@@ -119,6 +118,10 @@ const Header = () => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
+          
+          <Button asChild className="ml-2">
+            <Link to="/hire-wokkah">Hire Wokkah</Link>
+          </Button>
         </div>
         
         <button 
@@ -177,6 +180,12 @@ const Header = () => {
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
+
+            <Button asChild className="mt-2 w-full">
+              <Link to="/hire-wokkah" onClick={() => setIsMenuOpen(false)}>
+                Hire Wokkah
+              </Link>
+            </Button>
           </nav>
         </div>
       )}
