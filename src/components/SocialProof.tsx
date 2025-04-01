@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
@@ -149,13 +148,13 @@ const testimonials = [
     role: "CEO",
     company: "Ushift Pro",
     image: "/lovable-uploads/516a5532-27cd-40ad-bc6d-8422c3f0479e.png",
-    quote: "Partnering with Wokkah was a game-changer for our launch. Their team efficiently built our entire website, created all of our content, and produced over 900 AI-generated videos that aligned perfectly with our brand and curriculum. The speed, quality, and innovation they brought to the table exceeded our expectations. Wokkah didn't just deliver a product — they delivered momentum.",
+    quote: "Wokkah took our vision and brought it to life with an efficiency and level of execution that's rare in this industry. What we thought would take a team of agencies and months of back-and-forth was delivered with clarity, precision, and creativity — all without the usual delays. From a powerful website to a full library of AI-driven video content and messaging that hits the mark, they handled everything. Working with Wokkah felt less like outsourcing and more like unlocking a superpower.",
     results: [
-      "Launched a fully functional website at an accelerated pace",
-      "Created a library of 900+ AI-generated microlearning videos",
-      "Accelerated time-to-market by 3–4x compared to traditional development timelines",
-      "Achieved a professional, cohesive digital brand presence from day one",
-      "Enabled immediate onboarding of new users with structured, high-quality content"
+      "Deployed a production-ready website with seamless UX and branding",
+      "Delivered over 900 AI-generated microlearning videos tailored to course content",
+      "Created cohesive, professional messaging and copy throughout the platform",
+      "Enabled immediate onboarding and engagement through polished digital assets",
+      "Outperformed typical agency timelines while exceeding quality expectations"
     ]
   },
   {
