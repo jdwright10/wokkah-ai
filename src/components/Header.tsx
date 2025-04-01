@@ -101,7 +101,7 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
                   <span className="font-medium">About</span>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="w-[250px]">
+                <NavigationMenuContent className="w-[200px]">
                   <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
                     {aboutLinks.map((link) => (
                       <li key={link.href}>
