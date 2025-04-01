@@ -42,11 +42,6 @@ const aboutLinks = [
   { name: 'Blog', href: '/blog' },
 ];
 
-// Add case studies links
-const caseStudiesLinks = [
-  { name: 'Ushift Pro', href: '/case-studies/ushift-pro' },
-];
-
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -99,24 +94,8 @@ const Header = () => {
                 <Link to="/solutions" className="font-medium">AI Solutions</Link>
               </NavigationMenuItem>
 
-              <NavigationMenuItem className="relative">
-                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
-                  <span className="font-medium">Case Studies</span>
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="w-[250px]">
-                  <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
-                    {caseStudiesLinks.map((link) => (
-                      <li key={link.href}>
-                        <Link
-                          to={link.href}
-                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium block w-full"
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
+              <NavigationMenuItem>
+                <Link to="/case-studies" className="font-medium">Case Studies</Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem className="relative">
@@ -177,23 +156,9 @@ const Header = () => {
               AI Solutions
             </Link>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">
-                <span>Case Studies</span>
-                <ChevronDown size={16} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
-                <div className="grid gap-2">
-                  {caseStudiesLinks.map((link) => (
-                    <DropdownMenuItem key={link.href} className="py-2 px-2" asChild>
-                      <Link to={link.href} onClick={() => setIsMenuOpen(false)} className="w-full">
-                        {link.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </div>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link to="/case-studies" className="px-4 py-2 hover:bg-muted rounded-md" onClick={() => setIsMenuOpen(false)}>
+              Case Studies
+            </Link>
 
             <DropdownMenu>
               <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">

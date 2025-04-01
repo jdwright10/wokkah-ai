@@ -20,6 +20,7 @@ import AiNeedsAssessment from "./pages/AiNeedsAssessment";
 import ReportNextSteps from "./pages/ReportNextSteps";
 import VettingProcess from "./pages/VettingProcess";
 import UshiftProCaseStudy from "./pages/case-studies/UshiftPro";
+import CaseStudies from "./pages/CaseStudies";
 
 // Create a new QueryClient instance for React Query
 const queryClient = new QueryClient();
@@ -40,7 +41,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/hire-wokkah" element={<HireWokkah />} />
             <Route path="/solutions/business-automation" element={<BusinessAutomationTools />} />
-            
+            <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/faq" element={<FAQ />} />

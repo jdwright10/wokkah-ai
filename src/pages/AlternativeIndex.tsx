@@ -6,6 +6,7 @@ import HomeOptions from '@/components/HomeOptions';
 import SocialProof from '@/components/SocialProof';
 import Guide from '@/components/Guide';
 import CallToAction from '@/components/CallToAction';
+import CaseStudies from '@/components/CaseStudies';
 import { Helmet } from 'react-helmet';
 
 const AlternativeIndex = () => {
@@ -24,6 +25,7 @@ const AlternativeIndex = () => {
       <SocialProof />
       <Guide />
       <HomeOptions />
+      <CaseStudies />
       <CallToAction />
     </MainLayout>
   );
