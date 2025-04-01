@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AlternativeIndex from "./pages/AlternativeIndex";
+import HomeV3 from "./pages/HomeV3";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import HireWokkah from "./pages/HireWokkah";
@@ -13,7 +14,6 @@ import AboutUs from "./pages/AboutUs";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
-import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import BusinessAutomationTools from "./pages/BusinessAutomationTools";
 import MarketingAutomation from "./pages/automation/MarketingAutomation";
@@ -52,6 +52,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/alt" element={<AlternativeIndex />} />
+            <Route path="/v3" element={<HomeV3 />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/services" element={<Services />} />
             <Route path="/hire-wokkah" element={<HireWokkah />} />
@@ -77,7 +78,6 @@ const App = () => {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/team" element={<Team />} />
             <Route path="/careers" element={<Careers />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/ai-needs-assessment" element={<AiNeedsAssessment />} />
             <Route path="/report" element={<ReportNextSteps />} />

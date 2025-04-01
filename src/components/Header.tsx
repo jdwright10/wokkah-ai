@@ -30,6 +30,12 @@ const solutionsLinks = [
   { name: 'Market Research & Sentiment', href: '/solutions/business-automation/market-research' },
 ];
 
+const homeLinks = [
+  { name: 'Home (Default)', href: '/' },
+  { name: 'Home (Alternative)', href: '/alt' },
+  { name: 'Home (V3)', href: '/v3' },
+];
+
 const aboutLinks = [
   { name: 'About Us', href: '/about' },
   { name: 'Team', href: '/team' },
@@ -65,10 +71,24 @@ const Header = () => {
         <div className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList className="flex gap-6">
-              <NavigationMenuItem>
-                <Link to="/" className="font-medium hover:text-primary">
-                  Home
-                </Link>
+              <NavigationMenuItem className="relative">
+                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
+                  <span className="font-medium">Home</span>
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="w-[200px]">
+                  <ul className="bg-white p-4 rounded-lg shadow-lg border border-gray-200 w-full">
+                    {homeLinks.map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          to={link.href}
+                          className="p-2 hover:bg-blue-50 rounded-md transition-colors flex items-center text-sm font-medium block w-full"
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem className="relative">
@@ -110,12 +130,6 @@ const Header = () => {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              
-              <NavigationMenuItem>
-                <Link to="/alt" className="font-medium hover:text-primary">
-                  Alternative
-                </Link>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -133,21 +147,23 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden fixed top-[72px] left-0 right-0 max-h-[80vh] overflow-y-auto bg-white shadow-lg animate-slide-in-right z-50">
           <nav className="container flex flex-col py-4 space-y-4">
-            <Link 
-              to="/" 
-              className="px-4 py-2 hover:bg-muted rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            
-            <Link 
-              to="/alt" 
-              className="px-4 py-2 hover:bg-muted rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Alternative
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">
+                <span>Home</span>
+                <ChevronDown size={16} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-full bg-white z-50 p-2" sideOffset={0} align="start">
+                <div className="grid gap-2">
+                  {homeLinks.map((link) => (
+                    <DropdownMenuItem key={link.href} className="py-2 px-2" asChild>
+                      <Link to={link.href} onClick={() => setIsMenuOpen(false)} className="w-full">
+                        {link.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <DropdownMenu>
               <DropdownMenuTrigger className="px-4 py-2 hover:bg-muted rounded-md flex items-center justify-between w-full">
