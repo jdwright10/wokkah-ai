@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Header from '@/components/Header';
+import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
 import BreadcrumbNav, { BreadcrumbItem } from '@/components/BreadcrumbNav';
 import { useLocation } from 'react-router-dom';
