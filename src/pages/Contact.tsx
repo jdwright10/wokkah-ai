@@ -18,7 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Mail, Phone, SendIcon } from 'lucide-react';
+import { SendIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
@@ -67,10 +67,17 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
+      // Send form data to jason@wokkah.com
+      // In a real application, this would be a fetch to your API endpoint
+      const formData = {
+        ...data,
+        recipient: 'jason@wokkah.com'
+      };
+      
+      console.log('Form submitted to jason@wokkah.com:', formData);
+      
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log('Form submitted:', data);
       
       // Reset form and show success
       form.reset();
@@ -113,64 +120,34 @@ const Contact = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="md:col-span-2">
-              <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
-                {submitSuccess ? (
-                  <Alert className="bg-green-50 border-green-200 text-green-800 mb-4">
-                    <AlertDescription className="py-4">
-                      <h3 className="text-lg font-semibold mb-2">Thank you for reaching out!</h3>
-                      <p>We've received your message and will get back to you as soon as possible.</p>
-                      <Button 
-                        variant="outline" 
-                        className="mt-4"
-                        onClick={() => setSubmitSuccess(false)}
-                      >
-                        Send another message
-                      </Button>
-                    </AlertDescription>
-                  </Alert>
-                ) : (
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <FormField
-                          control={form.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Full Name</FormLabel>
-                              <FormControl>
-                                <Input placeholder="Your name" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email Address</FormLabel>
-                              <FormControl>
-                                <Input placeholder="your.email@example.com" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
+              {submitSuccess ? (
+                <Alert className="bg-green-50 border-green-200 text-green-800 mb-4">
+                  <AlertDescription className="py-4">
+                    <h3 className="text-lg font-semibold mb-2">Thank you for reaching out!</h3>
+                    <p>We've received your message and will get back to you as soon as possible.</p>
+                    <Button 
+                      variant="outline" 
+                      className="mt-4"
+                      onClick={() => setSubmitSuccess(false)}
+                    >
+                      Send another message
+                    </Button>
+                  </AlertDescription>
+                </Alert>
+              ) : (
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
-                        name="phone"
+                        name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Phone Number (Optional)</FormLabel>
+                            <FormLabel>Full Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="+1 (555) 123-4567" {...field} />
+                              <Input placeholder="Your name" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -179,100 +156,85 @@ const Contact = () => {
                       
                       <FormField
                         control={form.control}
-                        name="message"
+                        name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Your Message</FormLabel>
+                            <FormLabel>Email Address</FormLabel>
                             <FormControl>
-                              <Textarea 
-                                placeholder="Please describe how we can help you..."
-                                className="min-h-[120px]"
-                                {...field}
-                              />
+                              <Input placeholder="your.email@example.com" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
-                      
-                      <div className="border rounded-lg p-4 bg-slate-50">
-                        <FormField
-                          control={form.control}
-                          name="captchaVerified"
-                          render={({ field }) => (
-                            <FormItem className="flex flex-col space-y-2">
-                              <div className="flex items-center space-x-2">
-                                <FormControl>
-                                  <Checkbox
-                                    checked={isCaptchaVerified}
-                                    onCheckedChange={handleCaptchaVerification}
-                                  />
-                                </FormControl>
-                                <label className="text-sm font-medium text-gray-700 cursor-pointer">
-                                  I'm not a robot
-                                </label>
-                              </div>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <Button 
-                        type="submit" 
-                        className="w-full md:w-auto"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
-                        <SendIcon className="ml-2 h-4 w-4" />
-                      </Button>
-                    </form>
-                  </Form>
-                )}
-              </div>
-            </div>
-            
-            <div>
-              <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
-                <h2 className="text-xl font-semibold mb-6">Contact Information</h2>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <Mail className="h-5 w-5 text-blue-600 mt-0.5" />
-                    <div>
-                      <h3 className="font-medium">Email</h3>
-                      <a href="mailto:support@wokkah.com" className="text-blue-600 hover:underline">
-                        support@wokkah.com
-                      </a>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <Phone className="h-5 w-5 text-blue-600 mt-0.5" />
-                    <div>
-                      <h3 className="font-medium">Phone</h3>
-                      <a href="tel:+15551234567" className="text-blue-600 hover:underline">
-                        +1 (555) 123-4567
-                      </a>
+                    
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone Number (Optional)</FormLabel>
+                          <FormControl>
+                            <Input placeholder="+1 (555) 123-4567" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Your Message</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Please describe how we can help you..."
+                              className="min-h-[120px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <div className="border rounded-lg p-4 bg-slate-50">
+                      <FormField
+                        control={form.control}
+                        name="captchaVerified"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-col space-y-2">
+                            <div className="flex items-center space-x-2">
+                              <FormControl>
+                                <Checkbox
+                                  checked={isCaptchaVerified}
+                                  onCheckedChange={handleCaptchaVerification}
+                                />
+                              </FormControl>
+                              <label className="text-sm font-medium text-gray-700 cursor-pointer">
+                                I'm not a robot
+                              </label>
+                            </div>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                     </div>
-                  </div>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t">
-                  <h3 className="font-medium mb-2">Office Location</h3>
-                  <address className="not-italic text-muted-foreground">
-                    <p>Wokkah</p>
-                    <p>1775 Mentor Ave Suite 300</p>
-                    <p>Cincinnati, OH 45212</p>
-                  </address>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t">
-                  <h3 className="font-medium mb-2">Office Hours</h3>
-                  <p className="text-muted-foreground">Monday - Friday: 9AM - 5PM EST</p>
-                  <p className="text-muted-foreground">Saturday - Sunday: Closed</p>
-                </div>
-              </div>
+                    
+                    <Button 
+                      type="submit" 
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      <SendIcon className="ml-2 h-4 w-4" />
+                    </Button>
+                  </form>
+                </Form>
+              )}
             </div>
           </div>
         </div>
