@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
@@ -62,9 +63,9 @@ const FAQ = () => {
               Our support team is here to help! Reach out to us for personalized assistance.
             </p>
             <div className="inline-flex gap-4">
-              <a href="mailto:support@wokkah.com" className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
+              <Link to="/contact" className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
                 Contact Support
-              </a>
+              </Link>
             </div>
           </div>
         </div>
