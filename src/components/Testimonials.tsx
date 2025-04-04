@@ -146,20 +146,6 @@ const testimonials = [
     company: "TechNova",
     quote: "From tech strategy to product delivery, Wokkah has streamlined our entire development process. We've cut project times by 40% and improved collaboration across teams.",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-  },
-  {
-    name: "Sophia Chen",
-    role: "Product Manager",
-    company: "InnovateCorp",
-    quote: "Wokkah helped us transform our ideas into working AI prototypes in days instead of months. The no-code approach has democratized AI development across our organization.",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
-  },
-  {
-    name: "Michael Washington",
-    role: "CEO",
-    company: "FutureTech",
-    quote: "Wokkah is a game-changer for our business. We're able to prototype, test, and deploy AI solutions at a pace that was previously impossible. It's like having an entire AI team at your fingertips.",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
   }
 ];
 
