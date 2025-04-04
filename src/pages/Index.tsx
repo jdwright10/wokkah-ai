@@ -5,7 +5,6 @@ import Hero from '@/components/Hero';
 import HomeOptions from '@/components/HomeOptions';
 import ValueProposition from '@/components/ValueProposition';
 import SocialProof from '@/components/SocialProof';
-import CaseStudies from '@/components/CaseStudies';
 import CallToAction from '@/components/CallToAction';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 
@@ -22,7 +21,6 @@ const Index = () => {
       <HomeOptions />
       <ValueProposition />
       <SocialProof />
-      <CaseStudies />
       <CallToAction />
     </MainLayout>
   );
