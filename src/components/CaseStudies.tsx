@@ -38,13 +38,13 @@ const CaseStudies = () => {
     >
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Success Stories</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Teams That Have Transformed Their Project Execution</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             See how Wokkah has helped businesses achieve their digital transformation goals through AI innovation
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="max-w-3xl mx-auto mb-12">
           {/* Ushift Pro Case Study */}
           <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-neutral-100 flex flex-col">
             <div className="aspect-video overflow-hidden">
@@ -72,19 +72,6 @@ const CaseStudies = () => {
                 </Button>
               </div>
             </div>
-          </div>
-          
-          {/* Coming Soon Placeholder */}
-          <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl flex flex-col justify-center items-center p-12 text-center border border-primary/20">
-            <h3 className="text-2xl font-bold mb-4">More Success Stories Coming Soon</h3>
-            <p className="text-muted-foreground mb-6">
-              We're working to bring you more examples of how Wokkah is transforming businesses with AI.
-            </p>
-            <Button asChild>
-              <Link to="/hire-wokkah">
-                Become Our Next Success Story
-              </Link>
-            </Button>
           </div>
         </div>
         
