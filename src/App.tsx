@@ -21,6 +21,9 @@ import VettingProcess from "./pages/VettingProcess";
 import UshiftProCaseStudy from "./pages/case-studies/UshiftPro";
 import CaseStudies from "./pages/CaseStudies";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
 
 // Create a new QueryClient instance for React Query
 const queryClient = new QueryClient();
@@ -49,6 +52,9 @@ function App() {
             <Route path="/report" element={<ReportNextSteps />} />
             <Route path="/vetting-process" element={<VettingProcess />} />
             <Route path="/case-studies/ushift-pro" element={<UshiftProCaseStudy />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/cookies" element={<CookiePolicy />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
