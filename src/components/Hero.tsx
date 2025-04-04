@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { cn } from '@/lib/utils';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -60,16 +61,17 @@ const Hero = () => {
           </div>
           
           <div 
-            className="w-full lg:w-1/2 bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-700 transform opacity-0 translate-y-8 animate-fade-in"
+            className={cn(
+              "w-full lg:w-1/2 rounded-xl shadow-2xl overflow-hidden",
+              "transition-all duration-700 transform opacity-0 translate-y-8 animate-fade-in"
+            )}
           >
             <AspectRatio ratio={16/9} className="w-full">
-              <iframe 
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/bh2Odj8PfdY" 
-                title="Wokkah AI Platform Demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-              ></iframe>
+              <img 
+                src="/lovable-uploads/9058d7e7-8964-4e5a-a94b-29597f5a8c2a.png" 
+                alt="Person using laptop with digital document icons" 
+                className="w-full h-full object-cover rounded-xl"
+              />
             </AspectRatio>
           </div>
         </div>
