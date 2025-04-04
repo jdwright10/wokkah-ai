@@ -4,16 +4,7 @@ import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-  
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,33 +45,28 @@ const Testimonials = () => {
         
         <div className="mt-12 relative">
           <div className="overflow-hidden rounded-xl bg-white shadow-xl border border-neutral-100">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className="w-full p-8 md:p-12"
-              >
-                <div className="flex items-center justify-center md:justify-start">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                    <p className="text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
-                  </div>
+            <div className="w-full p-8 md:p-12">
+              <div className="flex items-center justify-center md:justify-start">
+                <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                    alt="Dr. Harry Akinola"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                
-                <div className="mt-6 relative">
-                  <Quote className="absolute -top-3 -left-3 w-8 h-8 text-primary/20" />
-                  <p className="text-lg md:text-xl italic text-balance">
-                    "{testimonial.quote}"
-                  </p>
+                <div>
+                  <h3 className="font-bold text-lg">Dr. Harry Akinola</h3>
+                  <p className="text-muted-foreground">Director of Innovation, MediTech Solutions</p>
                 </div>
               </div>
-            ))}
+              
+              <div className="mt-6 relative">
+                <Quote className="absolute -top-3 -left-3 w-8 h-8 text-primary/20" />
+                <p className="text-lg md:text-xl italic text-balance">
+                  "Wokkah has revolutionized how we approach our AI integration projects. Their team's expertise helped us implement solutions that have directly improved patient outcomes while reducing administrative overhead by 35%."
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -99,16 +85,6 @@ const Testimonials = () => {
     </section>
   );
 };
-
-const testimonials = [
-  {
-    name: "James Rodriguez",
-    role: "CTO",
-    company: "TechNova",
-    quote: "From tech strategy to product delivery, Wokkah has streamlined our entire development process. We've cut project times by 40% and improved collaboration across teams.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-  }
-];
 
 const testimonialCards = [
   {
