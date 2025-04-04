@@ -54,71 +54,32 @@ const Testimonials = () => {
         
         <div className="mt-12 relative">
           <div className="overflow-hidden rounded-xl bg-white shadow-xl border border-neutral-100">
-            <div 
-              className="transition-transform duration-500 ease-in-out flex"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {testimonials.map((testimonial, index) => (
-                <div 
-                  key={index} 
-                  className="w-full flex-shrink-0 p-8 md:p-12"
-                >
-                  <div className="flex items-center justify-center md:justify-start">
-                    <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
-                      <img 
-                        src={testimonial.avatar} 
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                      <p className="text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
-                    </div>
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className="w-full p-8 md:p-12"
+              >
+                <div className="flex items-center justify-center md:justify-start">
+                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
+                    <img 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  
-                  <div className="mt-6 relative">
-                    <Quote className="absolute -top-3 -left-3 w-8 h-8 text-primary/20" />
-                    <p className="text-lg md:text-xl italic text-balance">
-                      "{testimonial.quote}"
-                    </p>
+                  <div>
+                    <h3 className="font-bold text-lg">{testimonial.name}</h3>
+                    <p className="text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="absolute top-1/2 -translate-y-1/2 left-4">
-            <button 
-              onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft size={20} />
-            </button>
-          </div>
-          
-          <div className="absolute top-1/2 -translate-y-1/2 right-4">
-            <button 
-              onClick={nextTestimonial}
-              className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-          
-          <div className="flex justify-center mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={cn(
-                  "w-3 h-3 rounded-full mx-1 transition-colors",
-                  index === currentIndex ? "bg-primary" : "bg-neutral-300"
-                )}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
+                
+                <div className="mt-6 relative">
+                  <Quote className="absolute -top-3 -left-3 w-8 h-8 text-primary/20" />
+                  <p className="text-lg md:text-xl italic text-balance">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
