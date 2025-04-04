@@ -3,6 +3,7 @@ import React from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
+import { Link } from 'react-router-dom';
 
 const TermsOfService = () => {
   const breadcrumbItems = [
@@ -75,9 +76,7 @@ const TermsOfService = () => {
             <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
             
             <h2 className="text-xl md:text-2xl font-semibold mt-8 mb-4">13. Contact Us</h2>
-            <p>If you have any questions about these Terms, please contact us at:</p>
-            <p>Email: jason@wokkah.com</p>
-            <p>Address: Wokkah, 1775 Mentor Ave Suite 300, Cincinnati, OH 45212</p>
+            <p>If you have any questions about these Terms, please visit our <Link to="/contact" className="text-primary hover:underline">Contact Us</Link> page.</p>
           </div>
         </div>
       </section>

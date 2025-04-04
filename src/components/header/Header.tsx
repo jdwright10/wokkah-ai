@@ -6,13 +6,6 @@ import { cn } from '@/lib/utils';
 import DesktopNavigation from './DesktopNavigation';
 import MobileNavigation from './MobileNavigation';
 
-const homeLinks = [
-  { name: 'Home (Default)', href: '/' },
-  { name: 'Home (Alternative)', href: '/alt' },
-  { name: 'Home (V3)', href: '/v3' },
-  { name: 'Home (StoryBrand V4)', href: '/v4' },
-];
-
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +31,7 @@ const Header = () => {
           <span className="text-2xl font-bold font-heading text-primary">Wokkah</span>
         </Link>
         
-        <DesktopNavigation homeLinks={homeLinks} />
+        <DesktopNavigation />
         
         <button 
           className="md:hidden p-2 text-neutral-700" 
@@ -52,7 +45,6 @@ const Header = () => {
       <MobileNavigation 
         isOpen={isMenuOpen} 
         onLinkClick={() => setIsMenuOpen(false)}
-        homeLinks={homeLinks}
       />
     </header>
   );

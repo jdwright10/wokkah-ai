@@ -8,23 +8,13 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
 import NavLink from './NavLink';
-import NavDropdown from './NavDropdown';
 
-interface NavLink {
-  name: string;
-  href: string;
-}
-
-interface DesktopNavigationProps {
-  homeLinks: NavLink[];
-}
-
-const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ homeLinks }) => {
+const DesktopNavigation: React.FC = () => {
   return (
     <div className="hidden md:flex items-center gap-6">
       <NavigationMenu>
         <NavigationMenuList className="flex gap-6">
-          <NavDropdown label="Home" links={homeLinks} />
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/solutions">AI Solutions</NavLink>
           <NavLink to="/case-studies">Case Studies</NavLink>
           <NavLink to="/about">About</NavLink>

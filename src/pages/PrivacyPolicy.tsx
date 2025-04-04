@@ -3,6 +3,7 @@ import React from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
   const breadcrumbItems = [
@@ -71,7 +72,7 @@ const PrivacyPolicy = () => {
               <li>Data portability</li>
               <li>Objection to processing of your personal information</li>
             </ul>
-            <p>To exercise these rights, please contact us at jason@wokkah.com.</p>
+            <p>To exercise these rights, please <Link to="/contact" className="text-primary hover:underline">contact us</Link>.</p>
             
             <h2 className="text-xl md:text-2xl font-semibold mt-8 mb-4">7. Cookies and Tracking Technologies</h2>
             <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information. For more information about how we use cookies, please see our <a href="/cookies" className="text-primary hover:underline">Cookie Policy</a>.</p>
@@ -83,9 +84,7 @@ const PrivacyPolicy = () => {
             <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
             
             <h2 className="text-xl md:text-2xl font-semibold mt-8 mb-4">10. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-            <p>Email: jason@wokkah.com</p>
-            <p>Address: Wokkah, 1775 Mentor Ave Suite 300, Cincinnati, OH 45212</p>
+            <p>If you have any questions about this Privacy Policy, please visit our <Link to="/contact" className="text-primary hover:underline">Contact Us</Link> page.</p>
           </div>
         </div>
       </section>

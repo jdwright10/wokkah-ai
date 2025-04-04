@@ -3,6 +3,7 @@ import React from 'react';
 import MainLayout from '@/layout/MainLayout';
 import { Helmet } from 'react-helmet';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
+import { Link } from 'react-router-dom';
 
 const CookiePolicy = () => {
   const breadcrumbItems = [
@@ -61,9 +62,7 @@ const CookiePolicy = () => {
             <p>We may update our Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last Updated" date.</p>
             
             <h2 className="text-xl md:text-2xl font-semibold mt-8 mb-4">8. Contact Us</h2>
-            <p>If you have any questions about this Cookie Policy, please contact us at:</p>
-            <p>Email: jason@wokkah.com</p>
-            <p>Address: Wokkah, 1775 Mentor Ave Suite 300, Cincinnati, OH 45212</p>
+            <p>If you have any questions about this Cookie Policy, please visit our <Link to="/contact" className="text-primary hover:underline">Contact Us</Link> page.</p>
           </div>
         </div>
       </section>
