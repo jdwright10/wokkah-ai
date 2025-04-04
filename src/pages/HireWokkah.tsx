@@ -7,7 +7,6 @@ import { Briefcase, Calendar, Brain } from 'lucide-react';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import ProjectRequirementsForm from '@/components/hire/ProjectRequirementsForm';
 import NextSteps from '@/components/hire/NextSteps';
-import SuccessStories from '@/components/hire/SuccessStories';
 import { toast } from 'sonner';
 
 const HireWokkah = () => {
@@ -72,10 +71,7 @@ const HireWokkah = () => {
                 isSubmitted={isSubmitted}
               />
               
-              {/* Success Stories moved here, below the form */}
-              <div className="mt-10">
-                <SuccessStories />
-              </div>
+              {/* Success Stories section removed */}
             </div>
             
             <div className="space-y-8">
