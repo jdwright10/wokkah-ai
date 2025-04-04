@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, FileText, Calendar, CheckSquare } from 'lucide-react';
+import { ArrowRight, FileText, Calendar, CheckSquare, Briefcase } from 'lucide-react';
 import MainLayout from '@/layout/MainLayout';
 
 const ReportNextSteps = () => {
@@ -68,21 +68,21 @@ const ReportNextSteps = () => {
             </div>
           </div>
 
-          {/* Step 3 */}
+          {/* Step 3 - Replaced with Let Our Experts section */}
           <div className="relative">
             <div className="flex flex-col md:flex-row gap-6 items-center card-gradient p-6 rounded-lg">
               <div className="flex-shrink-0 w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
                 <span className="text-2xl font-bold gradient-text">3</span>
               </div>
               <div className="flex-grow md:pr-32">
-                <h2 className="text-xl font-semibold mb-2">Define Your Project and Get a Quote</h2>
+                <h2 className="text-xl font-semibold mb-2">Let Our Experts Bring Your Project to Life</h2>
                 <p className="text-muted-foreground mb-4">
-                  Fill out a Product Requirements Document (PRD) or let us help you define your project specifications and receive a tailored quote.
+                  Share your project requirements and our team will handle everything from planning to execution, ensuring your vision becomes reality.
                 </p>
-                <Link to="/features/ai-prd">
+                <Link to="/hire-wokkah">
                   <Button className="gap-2">
-                    <FileText className="h-4 w-4" />
-                    Create Your PRD
+                    <Briefcase className="h-4 w-4" />
+                    Hire Wokkah
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
@@ -102,11 +102,11 @@ const ReportNextSteps = () => {
                 Start with the Assessment
               </Button>
             </Link>
-            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+            <Link to="/hire-wokkah">
               <Button className="gap-2">
-                Book a Call Now
+                Hire Our Experts
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
